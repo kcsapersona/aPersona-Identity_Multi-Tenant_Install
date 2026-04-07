@@ -1,0 +1,22 @@
+{
+	"id": "spportal",
+	"name": "End User Portal",
+
+	"app_title_msg": "End User Portal",
+
+	"app_login_logo_url": "https://downloads.apersona.com/logos/logo-here_250x50.png",
+	"fav_icon_url": "https://downloads.apersona.com/logos/favicon.png",
+	"app_bar_logo_url":"https://downloads.apersona.com/logos/logo-here_white_250x50.png",
+	"app_terms_url": "https://www.apersona.com/licensing",
+	"app_privacy_url": "https://www.apersona.com/privacy",
+
+	"login_page_center_color": "#808080",
+	"login_page_outter_color": "#9B9B9B",
+	"app_bar_start_color":  "#083173",
+	"app_bar_end_color":  "#083173",
+	"app_title_icon_color": "#F9F9F9",
+
+	"portal_title_msg": "Service Providers",
+	"portal_description_msg": "All available single sign-on services are listed below. Remove any that you do not personally use."
+
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../get.mjs"],
+  "sourcesContent": ["\n//AWS configurations\nimport { AdminGetUserCommand } from \"@aws-sdk/client-cognito-identity-provider\";\n\n\nexport const getResData = async (id, cognitoISP, userPoolId) => {\n\n    const params = {\n        Username: id,\n        UserPoolId: userPoolId || process.env.USERPOOL_ID,\n    };\n\n\tconsole.info('params', params);\n\n\n    const data = await cognitoISP.send(new AdminGetUserCommand(params));\n    const item = data.UserAttributes;\n\n\tlet userCustomSps = [];\n\n\titem.forEach(el => {\n\t\tif (el.Name === 'website') {\n\t\t\tuserCustomSps = JSON.parse (el.Value)\n\t\t}\n\t});\n\n\n    return {\n        id,\n        userCustomSps,\n    };\n\n};\n\nexport default getResData;"],
+  "mappings": "yaAAA,IAAAA,EAAA,GAAAC,EAAAD,EAAA,aAAAE,EAAA,eAAAC,IAAA,eAAAC,EAAAJ,GAEA,IAAAK,EAAoC,qDAGvBF,EAAa,MAAOG,EAAIC,EAAYC,IAAe,CAE5D,IAAMC,EAAS,CACX,SAAUH,EACV,WAAYE,GAAc,QAAQ,IAAI,WAC1C,EAEH,QAAQ,KAAK,SAAUC,CAAM,EAI1B,IAAMC,GADO,MAAMH,EAAW,KAAK,IAAI,sBAAoBE,CAAM,CAAC,GAChD,eAEjBE,EAAgB,CAAC,EAErB,OAAAD,EAAK,QAAQE,GAAM,CACdA,EAAG,OAAS,YACfD,EAAgB,KAAK,MAAOC,EAAG,KAAK,EAEtC,CAAC,EAGS,CACH,GAAAN,EACA,cAAAK,CACJ,CAEJ,EAEOT,EAAQC",
+  "names": ["get_exports", "__export", "get_default", "getResData", "__toCommonJS", "import_client_cognito_identity_provider", "id", "cognitoISP", "userPoolId", "params", "item", "userCustomSps", "el"]
+}

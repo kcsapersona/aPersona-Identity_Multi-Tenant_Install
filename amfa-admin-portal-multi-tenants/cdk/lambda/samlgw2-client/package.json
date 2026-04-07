@@ -1,0 +1,10 @@
+{
+  "name": "samlgw2-client",
+  "version": "1.0.0",
+  "description": "SAML Gateway v2 (samlgw2) API client for admin portal lambdas",
+  "type": "module",
+  "main": "index.mjs",
+  "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.0.0"
+  }
+}

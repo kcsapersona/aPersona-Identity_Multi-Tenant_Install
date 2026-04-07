@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../delete.mjs"],
+  "sourcesContent": ["\n//AWS configurations\nimport { DeleteGroupCommand } from \"@aws-sdk/client-cognito-identity-provider\";\n\nexport const deleteResData = async (GroupName, cognitoISP, userPoolId) => {\n\tconst params = {\n\t\tGroupName,\n\t\tUserPoolId: userPoolId,\n\t};\n\n\tconst data = await cognitoISP.send(new DeleteGroupCommand(params));\n\tconst item = data.Group;\n\n\treturn {\n\t\tid: item.GroupName,\n\t};\n\n};\n\nexport default deleteResData;\n"],
+  "mappings": "yaAAA,IAAAA,EAAA,GAAAC,EAAAD,EAAA,aAAAE,EAAA,kBAAAC,IAAA,eAAAC,EAAAJ,GAEA,IAAAK,EAAmC,qDAEtBF,EAAgB,MAAOG,EAAWC,EAAYC,IAAe,CACzE,IAAMC,EAAS,CACd,UAAAH,EACA,WAAYE,CACb,EAKA,MAAO,CACN,IAJY,MAAMD,EAAW,KAAK,IAAI,qBAAmBE,CAAM,CAAC,GAC/C,MAGR,SACV,CAED,EAEOP,EAAQC",
+  "names": ["delete_exports", "__export", "delete_default", "deleteResData", "__toCommonJS", "import_client_cognito_identity_provider", "GroupName", "cognitoISP", "userPoolId", "params"]
+}

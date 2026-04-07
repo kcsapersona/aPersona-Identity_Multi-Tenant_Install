@@ -1,0 +1,53 @@
+aPersona Identity Manager — Multi-Tenant Platform
+Copyright (c) 2024-2026 aPersona Inc. All rights reserved.
+
+This product includes the following third-party software:
+
+=== Runtime Dependencies ===
+
+nodemailer (MIT License)
+  https://nodemailer.com/
+  Copyright (c) Andris Reinman
+
+otplib (MIT License)
+  https://github.com/yeojz/otplib
+  Copyright (c) Gerald Yeo
+
+jsonwebtoken (MIT License)
+  https://github.com/auth0/node-jsonwebtoken
+  Copyright (c) Auth0 Inc.
+
+jwks-rsa (MIT License)
+  https://github.com/auth0/node-jwks-rsa
+  Copyright (c) Auth0 Inc.
+
+base64-js (MIT License)
+  https://github.com/beatgammit/base64-js
+  Copyright (c) T. Jameson Little
+
+=== Build Dependencies ===
+
+esbuild (MIT License)
+  https://github.com/evanw/esbuild
+  Copyright (c) Evan Wallace
+
+AWS CDK (Apache License 2.0)
+  https://github.com/aws/aws-cdk
+  Copyright Amazon.com Inc.
+
+React (MIT License)
+  https://reactjs.org/
+  Copyright (c) Meta Platforms Inc.
+
+react-admin (MIT License)
+  https://marmelab.com/react-admin/
+  Copyright (c) marmelab
+
+=== AWS SDK ===
+
+AWS SDK for JavaScript v3 (Apache License 2.0)
+  https://github.com/aws/aws-sdk-js-v3
+  Copyright Amazon.com Inc.
+  Note: AWS SDK is provided by the Lambda runtime and is NOT bundled.
+
+For full license texts, see the respective project repositories.
