@@ -1,0 +1,37 @@
+{
+  "deploymentName": "My Deployment",
+  "_comment_config": "This is a configuration template. Customize these values for your deployment before running the installer.",
+  "aws": {
+    "region": "us-east-1",
+    "account": "YOUR_AWS_ACCOUNT_ID"
+  },
+  "dns": {
+    "rootDomain": "your-domain.example.com"
+  },
+  "asm": {
+    "installKey": "",
+    "adminEmail": "admin@example.com",
+    "installerEmail": "",
+    "salt": ""
+  },
+  "smtp": {
+    "host": "smtp.example.com",
+    "user": "",
+    "pass": "",
+    "secure": false,
+    "port": 587
+  },
+  "recaptcha": {
+    "key": "",
+    "secret": ""
+  },
+  "_schema": {
+    "description": "Bootstrap configuration for initial tenant deployment",
+    "notes": [
+      "This file is used ONLY on first deployment",
+      "After first deployment, all tenant management is done via Admin Portal UI",
+      "Fill in all required fields before running install-multi-tenants.sh",
+      "Do NOT commit this file with real credentials to a public repository"
+    ]
+  }
+}

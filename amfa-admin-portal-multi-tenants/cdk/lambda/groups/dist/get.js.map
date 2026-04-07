@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../get.mjs"],
+  "sourcesContent": ["\n//AWS configurations\nimport { GetGroupCommand } from \"@aws-sdk/client-cognito-identity-provider\";\n\nexport const getResData = async (GroupName, cognitoISP, userPoolId) => {\n\n\tconst params = {\n\t\tGroupName,\n\t\tUserPoolId: userPoolId,\n\t};\n\n\tconst data = await cognitoISP.send(new GetGroupCommand(params));\n\tconst item = data.Group;\n\n\treturn {\n\t\tid: item.GroupName,\n\t\tgroup: item.GroupName,\n\t\tcreationDate: item.CreationDate,\n\t\tdescription: item.Description,\n\t\tlastModifiedDate: item.LastModifiedDate,\n\t\tprecedence: item.Precedence,\n\t};\n\n};\n\nexport default getResData;\n"],
+  "mappings": "yaAAA,IAAAA,EAAA,GAAAC,EAAAD,EAAA,aAAAE,EAAA,eAAAC,IAAA,eAAAC,EAAAJ,GAEA,IAAAK,EAAgC,qDAEnBF,EAAa,MAAOG,EAAWC,EAAYC,IAAe,CAEtE,IAAMC,EAAS,CACd,UAAAH,EACA,WAAYE,CACb,EAGME,GADO,MAAMH,EAAW,KAAK,IAAI,kBAAgBE,CAAM,CAAC,GAC5C,MAElB,MAAO,CACN,GAAIC,EAAK,UACT,MAAOA,EAAK,UACZ,aAAcA,EAAK,aACnB,YAAaA,EAAK,YAClB,iBAAkBA,EAAK,iBACvB,WAAYA,EAAK,UAClB,CAED,EAEOR,EAAQC",
+  "names": ["get_exports", "__export", "get_default", "getResData", "__toCommonJS", "import_client_cognito_identity_provider", "GroupName", "cognitoISP", "userPoolId", "params", "item"]
+}

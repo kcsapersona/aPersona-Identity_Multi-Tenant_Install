@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../const.mjs"],
+  "sourcesContent": ["export const cookie2NamePrefix = 'apenc';"],
+  "mappings": "yaAAA,IAAAA,EAAA,GAAAC,EAAAD,EAAA,uBAAAE,IAAA,eAAAC,EAAAH,GAAO,IAAME,EAAoB",
+  "names": ["const_exports", "__export", "cookie2NamePrefix", "__toCommonJS"]
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../post.mjs"],
+  "sourcesContent": ["//AWS configurations\nimport { PutObjectCommand } from \"@aws-sdk/client-s3\";\n\n\nexport const postResData = async (payload, client ) => {\n\tconst {Bucket, Body, Prefix, Name, FileName, serviceUrl, logoUrl} = payload;\n\n\tconst Key = `${Prefix}/${FileName}`;\n\n\tconst command = new PutObjectCommand({\n\t\tBucket,\n\t\tBody,\n\t\tKey,\n\t});\n\n\tawait client.send(command);\n\n\tconst url = `https://${process.env.S3_BASE_URL}/${Prefix}/${FileName}`;\n\n\treturn {\n\t\tid: FileName,\n\t\tname: Name,\n\t\tmetadataType: 'isFile',\n\t\tmetadataUrl: url,\n\t\tserviceUrl,\n\t\tlogoUrl,\n\t}\n\n}\n\nexport default postResData;"],
+  "mappings": "yaAAA,IAAAA,EAAA,GAAAC,EAAAD,EAAA,aAAAE,EAAA,gBAAAC,IAAA,eAAAC,EAAAJ,GACA,IAAAK,EAAiC,8BAGpBF,EAAc,MAAOG,EAASC,IAAY,CACtD,GAAM,CAAC,OAAAC,EAAQ,KAAAC,EAAM,OAAAC,EAAQ,KAAAC,EAAM,SAAAC,EAAU,WAAAC,EAAY,QAAAC,CAAO,EAAIR,EAE9DS,EAAM,GAAGL,CAAM,IAAIE,CAAQ,GAE3BI,EAAU,IAAI,mBAAiB,CACpC,OAAAR,EACA,KAAAC,EACA,IAAAM,CACD,CAAC,EAED,MAAMR,EAAO,KAAKS,CAAO,EAEzB,IAAMC,EAAM,WAAW,QAAQ,IAAI,WAAW,IAAIP,CAAM,IAAIE,CAAQ,GAEpE,MAAO,CACN,GAAIA,EACJ,KAAMD,EACN,aAAc,SACd,YAAaM,EACb,WAAAJ,EACA,QAAAC,CACD,CAED,EAEOZ,EAAQC",
+  "names": ["post_exports", "__export", "post_default", "postResData", "__toCommonJS", "import_client_s3", "payload", "client", "Bucket", "Body", "Prefix", "Name", "FileName", "serviceUrl", "logoUrl", "Key", "command", "url"]
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../delete.mjs"],
+  "sourcesContent": ["//AWS configurations\nimport { DeleteObjectCommand } from \"@aws-sdk/client-s3\";\n\n\nexport const deleteResData = async (payload, client ) => {\n\tconst {Bucket, Prefix, FileName} = payload;\n\n\tconst Key = `${Prefix}/${FileName}`;\n\n\tconst command = new DeleteObjectCommand({\n\t\tBucket,\n\t\tKey,\n\t});\n\n\tconst response = await client.send(command);\n\n\tconst url = `${process.env.S3_BASE_URL}${Prefix}/${FileName}`;\n\n\treturn {\n\t\tid: FileName,\n\t\turl,\n\t}\n\n}"],
+  "mappings": "yaAAA,IAAAA,EAAA,GAAAC,EAAAD,EAAA,mBAAAE,IAAA,eAAAC,EAAAH,GACA,IAAAI,EAAoC,8BAGvBF,EAAgB,MAAOG,EAASC,IAAY,CACxD,GAAM,CAAC,OAAAC,EAAQ,OAAAC,EAAQ,SAAAC,CAAQ,EAAIJ,EAE7BK,EAAM,GAAGF,CAAM,IAAIC,CAAQ,GAE3BE,EAAU,IAAI,sBAAoB,CACvC,OAAAJ,EACA,IAAAG,CACD,CAAC,EAEKE,EAAW,MAAMN,EAAO,KAAKK,CAAO,EAEpCE,EAAM,GAAG,QAAQ,IAAI,WAAW,GAAGL,CAAM,IAAIC,CAAQ,GAE3D,MAAO,CACN,GAAIA,EACJ,IAAAI,CACD,CAED",
+  "names": ["delete_exports", "__export", "deleteResData", "__toCommonJS", "import_client_s3", "payload", "client", "Bucket", "Prefix", "FileName", "Key", "command", "response", "url"]
+}

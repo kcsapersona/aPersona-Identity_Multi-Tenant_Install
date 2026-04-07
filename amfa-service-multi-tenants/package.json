@@ -1,0 +1,66 @@
+{
+  "name": "amfa-control-service",
+  "version": "0.5.0",
+  "private": true,
+  "dependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.992.0",
+    "@aws-sdk/client-ssm": "^3.992.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "aws-cdk-lib": "^2.187.0",
+    "bootstrap": "^5.2.3",
+    "constructs": "^10.0.0",
+    "deasync": "^0.1.31",
+    "i18next": "^23.12.2",
+    "js-sha1": "^0.7.0",
+    "nodemailer": "^7.0.10",
+    "otplib": "^12.0.1",
+    "qrcode": "^1.5.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-favicon": "^2.0.7",
+    "react-google-recaptcha": "^2.1.0",
+    "react-google-recaptcha-v3": "^1.10.1",
+    "react-i18next": "^15.0.0",
+    "react-phone-number-input": "^3.2.23",
+    "react-router-dom": "^6.9.0",
+    "reactstrap": "^9.1.8",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "lambda-build": "cd cdk/lambda/amfa && npm install && npm run build && cd ../../.. && cd cdk/lambda/customemailsender && npm install && npm run build && cd ../../.. && cd cdk/lambda/totptoken && npm install && npm run build && cd ../../.. && cd cdk/lambda/passwordreset && npm install && npm run build && cd ../../.. && cd cdk/lambda/authorizer && npm install && npm run build && cd ../../.. && cd cdk/lambda/admininitauth && npm install && npm run build && cd ../../.. && cd cdk/lambda/checkuser && npm install && npm run build && cd ../../.. && cd cdk/lambda/feconfig && npm install && npm run build && cd ../../.. && cd cdk/lambda/postdeployment && npm install && npm run build && cd ../../.. && cd cdk/lambda/signout && npm install && npm run build && cd ../../.. && cd cdk/lambda/verifyrecaptcha && npm install && npm run build && cd ../../..",
+    "cdk-build": "node node_modules/typescript/lib/tsc.js --project cdk/tsconfig.json",
+    "deploy": "npm run lambda-build && npm run cdk-build && cdk deploy --all --profile $npm_config_profile"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.130",
+    "@vitejs/plugin-react": "^4.3.1",
+    "aws-cdk-lib": "^2.187.0",
+    "esbuild": "^0.25.0",
+    "source-map-support": "^0.5.21",
+    "typescript": "^5.9.3",
+    "vite": "^6.2.6"
+  }
+}
