@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../put.mjs"],
+  "sourcesContent": ["import {\n\tAdminUpdateUserAttributesCommand,\n} from \"@aws-sdk/client-cognito-identity-provider\";\n\n\nexport const putResData = async (id, userCustomSps, cognitoISP, userPoolId) => {\n\tconsole.log('putResData Input id:', id, ' userCustomSps', userCustomSps);\n\n\tlet params = {\n\t\tUserPoolId: userPoolId || process.env.USERPOOL_ID,\n\t\tUsername: id,\n\t\tUserAttributes: [\n\t\t\t{ // AttributeType\n\t\t\t\tName: \"website\", // required\n\t\t\t\tValue: JSON.stringify(userCustomSps),\n\t\t\t},\n\t\t],\n\t};\n\n\tconst response = await cognitoISP.send(new AdminUpdateUserAttributesCommand(params));\n\tconsole.log('update user', id, 'custom sp list response', response)\n\n\treturn {\n\t\tid,\n\t\tuserCustomSps,\n\t}\n\n}\n\nexport default putResData;"],
+  "mappings": "yaAAA,IAAAA,EAAA,GAAAC,EAAAD,EAAA,aAAAE,EAAA,eAAAC,IAAA,eAAAC,EAAAJ,GAAA,IAAAK,EAEO,qDAGMF,EAAa,MAAOG,EAAIC,EAAeC,EAAYC,IAAe,CAC9E,QAAQ,IAAI,uBAAwBH,EAAI,iBAAkBC,CAAa,EAEvE,IAAIG,EAAS,CACZ,WAAYD,GAAc,QAAQ,IAAI,YACtC,SAAUH,EACV,eAAgB,CACf,CACC,KAAM,UACN,MAAO,KAAK,UAAUC,CAAa,CACpC,CACD,CACD,EAEMI,EAAW,MAAMH,EAAW,KAAK,IAAI,mCAAiCE,CAAM,CAAC,EACnF,eAAQ,IAAI,cAAeJ,EAAI,0BAA2BK,CAAQ,EAE3D,CACN,GAAAL,EACA,cAAAC,CACD,CAED,EAEOL,EAAQC",
+  "names": ["put_exports", "__export", "put_default", "putResData", "__toCommonJS", "import_client_cognito_identity_provider", "id", "userCustomSps", "cognitoISP", "userPoolId", "params", "response"]
+}

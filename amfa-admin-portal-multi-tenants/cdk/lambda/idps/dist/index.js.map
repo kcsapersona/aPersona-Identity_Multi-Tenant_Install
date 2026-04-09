@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../index.mjs"],
+  "sourcesContent": ["export const handler = async (event) => {\n    // TODO implement\n    const response = {\n        statusCode: 200,\n        body: JSON.stringify('Hello from Lambda!'),\n    };\n    return response;\n};\n"],
+  "mappings": "yaAAA,IAAAA,EAAA,GAAAC,EAAAD,EAAA,aAAAE,IAAA,eAAAC,EAAAH,GAAO,IAAME,EAAU,MAAOE,IAET,CACb,WAAY,IACZ,KAAM,KAAK,UAAU,oBAAoB,CAC7C",
+  "names": ["index_exports", "__export", "handler", "__toCommonJS", "event"]
+}

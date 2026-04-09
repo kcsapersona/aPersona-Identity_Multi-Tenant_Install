@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.config=void 0,exports.config=[],console.log("[Config] Multi-tenant architecture: Shared infrastructure mode"),console.log("[Config] Tenants will be provisioned at runtime via provision-tenant Lambda"),console.log("[Config] No tenant-specific CDK resources will be created");

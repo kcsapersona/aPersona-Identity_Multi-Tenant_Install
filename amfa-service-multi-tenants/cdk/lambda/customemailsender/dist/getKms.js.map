@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../getKms.mjs"],
+  "sourcesContent": ["import {\n\tSecretsManagerClient,\n\tGetSecretValueCommand,\n} from \"@aws-sdk/client-secrets-manager\";\n\nconst client = new SecretsManagerClient({\n\tregion: process.env.AWS_REGION,\n});\n\nexport const getSMTP = async (tenantId) => {\n\tconst secretId = `apersona/${tenantId}/smtp`;\n\tconsole.log('get smtp secret', secretId);\n\tconst response = await client.send(\n\t\tnew GetSecretValueCommand({\n\t\t\tSecretId: secretId,\n\t\t})\n\t);\n\tconst secret = JSON.parse(response.SecretString);\n\tsecret.secure = secret.secure === 'true' || secret.secure === true ? true : false;\n\n\treturn secret;\n}"],
+  "mappings": "yaAAA,IAAAA,EAAA,GAAAC,EAAAD,EAAA,aAAAE,IAAA,eAAAC,EAAAH,GAAA,IAAAI,EAGO,2CAEDC,EAAS,IAAI,uBAAqB,CACvC,OAAQ,QAAQ,IAAI,UACrB,CAAC,EAEYH,EAAU,MAAOI,GAAa,CAC1C,IAAMC,EAAW,YAAYD,CAAQ,QACrC,QAAQ,IAAI,kBAAmBC,CAAQ,EACvC,IAAMC,EAAW,MAAMH,EAAO,KAC7B,IAAI,wBAAsB,CACzB,SAAUE,CACX,CAAC,CACF,EACME,EAAS,KAAK,MAAMD,EAAS,YAAY,EAC/C,OAAAC,EAAO,OAASA,EAAO,SAAW,QAAUA,EAAO,SAAW,GAEvDA,CACR",
+  "names": ["getKms_exports", "__export", "getSMTP", "__toCommonJS", "import_client_secrets_manager", "client", "tenantId", "secretId", "response", "secret"]
+}

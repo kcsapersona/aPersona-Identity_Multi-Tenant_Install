@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../utils.mjs"],
+  "sourcesContent": ["import {\n\tListIdentityProvidersCommand,\n} from \"@aws-sdk/client-cognito-identity-provider\";\n\nexport const getIdPNames = async (cognitoISP, userPoolId) => {\n\tconst data = await cognitoISP.send(new ListIdentityProvidersCommand({\n\t\tUserPoolId: userPoolId,\n\t}));\n\n\treturn data.Providers.map(item => item.ProviderName);\n}\n\nexport default getIdPNames;\n"],
+  "mappings": "yaAAA,IAAAA,EAAA,GAAAC,EAAAD,EAAA,aAAAE,EAAA,gBAAAC,IAAA,eAAAC,EAAAJ,GAAA,IAAAK,EAEO,qDAEMF,EAAc,MAAOG,EAAYC,KAChC,MAAMD,EAAW,KAAK,IAAI,+BAA6B,CACnE,WAAYC,CACb,CAAC,CAAC,GAEU,UAAU,IAAIC,GAAQA,EAAK,YAAY,EAG7CN,EAAQC",
+  "names": ["utils_exports", "__export", "utils_default", "getIdPNames", "__toCommonJS", "import_client_cognito_identity_provider", "cognitoISP", "userPoolId", "item"]
+}

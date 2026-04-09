@@ -1,0 +1,215 @@
+APERSONA ADAPTIVE SECURITY MANAGER (ASM) & APERSONA AWS IDENTITY Manager
+SOFTWARE LICENSE SUBSCRIPTION AGREEMENT & SERVICE TERMS AND CONDITIONS
+ 
+EFFECTIVE AS OF Nov 27, 2024
+
+THIS SOFTWARE LICENSE SUBSCRIPTION AGREEMENT & SERVICE TERMS AND CONDITIONS OF APERSONA INC. ("APERSONA") AND THE APERSONA TECHNICAL SUPPORT SERVICES ADDENDUM, TOGETHER WITH THE SUBSCRIPTION AGREEMENT (COLLECTIVELY, THIS "AGREEMENT") SHALL CONSTITUTE THE ENTIRE AGREEMENT BETWEEN YOU AND APERSONA CONCERNING YOUR USE OF THE SERVICE AND SOFTWARE. BY ORDERING OR OTHERWISE USING THE SERVICE OR SOFTWARE, YOU AGREE TO AND ACCEPT THIS AGREEMENT. BY DOWNLOADING, INSTALLING, COPYING, ACCESSING, OR USING THIS SOFTWARE YOU AGREE TO THE TERMS OF THIS AGREEMENT. IF YOU ARE ACCEPTING THESE TERMS ON BEHALF OF ANOTHER PERSON OR A COMPANY OR OTHER LEGAL ENTITY, YOU REPRESENT AND WARRANT THAT YOU HAVE FULL AUTHORITY TO BIND THAT PERSON, COMPANY, OR LEGAL ENTITY TO THESE TERMS.YOU MAY USE THE SERVICE ONLY IN ACCORDANCE WITH THIS AGREEMENT. NO OTHER CONTRACT OR TERMS CONCERNING THE SERVICE MAY BE CREATED IN ANY OTHER MANNER, INCLUDING BY MEANS OF YOUR PURCHASE ORDERS OR SIMILAR DOCUMENTS (EVEN IF SIGNED OR ACKNOWLEDGED BY APERSONA), AND SHALL NOT MODIFY OR AMEND THIS AGREEMENT. IF YOU DO NOT AGREE WITH ALL THE TERMS OF THIS AGREEMENT, YOU SHALL NOT BE ENTITLED TO USE THE SOFTWARE. THIS AGREEMENT DOES NOT CREATE ANY PARTNERSHIP, JOINT VENTURE, OR SIMILAR BUSINESS RELATIONSHIPS BETWEEN THE PARTIES. EXCEPT AS EXPRESSLY PROVIDED HEREIN, NEITHER PARTY IS A LEGAL REPRESENTATIVE OF THE OTHER PARTY, AND NEITHER PARTY CAN ASSUME OR CREATE ANY OBLIGATION, REPRESENTATION, WARRANTY OR GUARANTEE, EXPRESS OR IMPLIED, ON BEHALF OF THE OTHER PARTY FOR ANY PURPOSE WHATSOEVER.
+IF YOU DO NOT AGREE TO THESE TERMS; DO NOT DOWNLOAD, INSTALL, COPY, ACCESS, OR USE THE APERSONA ASM SOFTWARE OR SERVICES; AND PROMPTLY RETURN THE SOFTWARE AND PROOF OF ENTITLEMENT TO THE PARTY FROM WHOM YOU ACQUIRED THEM.
+
+This Software License Subscription Agreement ("Agreement") is entered by and between You, the Subscriber, and aPersona Inc., a Delaware corporation, with its principal offices at: 13200 Strickland Rd. Suite 114-120, Raleigh, NC 27613, USA.
+ 
+1)	Definitions
+a)	"aPersona" means (a) aPersona, Inc., a Delaware corporation, with offices located at: 13200 Strickland Rd. Suite 114-120, Raleigh, NC 27613, USA.
+b)	"Authorized Partner" means any of aPersonas distributors, resellers, or other business partners.
+c)	"Software Subscription" means a confirmation notice issued electronically by aPersona to You confirming Software and Support purchased by You including any applicable product License Keys and download documentation.
+d)	"Documentation" means explanatory materials in printed, electronic, or online form accompanying the Software in English and other languages if available.
+e)	"License Key(s)" means the aPersona Client/Customer License keys and aPersona Installation ID keys which are licensed from aPersona to enable the aPersona Software to operate and function at various levels of functionality.
+f)	"Subscriber" means the company or entity that signed an order form which references and is subject to this Agreement.  Referred to interchangeably as Subscriber and You.
+g)	"Software" means the aPersona Adaptive Security Manager (ASM) multi-tenant software program in object code format or other formats provided by aPersona and purchased from aPersona or its Authorized Partners, including Upgrades, Documentation and License Keys.
+h)	"Subsidiary" refers to any entity controlled by You through greater than fifty percent (50%) ownership of the voting rights.
+i)	"Support" or "Technical Support" means the support services offered by aPersona for the support and maintenance of the Software.
+j)	"Upgrade" means any and all improvements (including new versions) in the Software which are made generally available to aPersonas customer base as a part of purchased Support and which are not separately priced or marketed by aPersona.
+k)	"Services" means the aPersona ASM licensing system and associated cloud services that enforce aPersona ASM Software license rights.
+
+2)	Software License Subscription
+a)	aPersona hereby grants to Subscriber a conditional, world-wide, non-exclusive, transferrable,  license right to access the Software, use the Software, copy the Software, install the Software, distribute the Software, and resell the Software or access to it (on either an aPersona-branded or white-label basis) to Your customers ("Customers"), using aPersona License Keys to the Software with a subscription account paid in accordance with the payment terms defined in the applicable Subscription Agreement.  The Software is protected by copyright laws and treaties, as well as laws and treaties related to other intellectual property. The Subscriber or its subsidiaries or affiliates, is subject to these rights and to all the terms and conditions of this Agreement and the applicable Subscription Agreement.  You acknowledge that the Software, Documentation, and License Keys are property of aPersona.
+b)	aPersona Software License Transfer Policy:  You may not transfer or assign Your rights under this Agreement without aPersonas written consent.  As such, it is the obligation of the transferor to obtain aPersonas written consent and/or a new license before the transfer occurs by submitting a written request on Your Companys letterhead, requesting the transfer. Both the transferor and the transferee must completely agree to this Agreement and its conditions. Notwithstanding the foregoing, aPersona permits license transfers and assignments without obtaining written consent to the following transferees:
+i)	Affiliate: A Subscriber may transfer or assign its rights to the Software to its Affiliate. An Affiliate is another entity where greater than 50% of its voting power is owned or controlled by the transferring entity or where greater than 50% of the transferring entitys voting power is owned or controlled by the transferee.
+ii)	Merger or Acquisition: A Subscriber may transfer or assign its rights to the Software to the purchaser of all or substantially all of the capital stock of the Subscriber or all or substantially all of the assets of that portion of Subscribers business to which the Software pertains.
+iii)	Managing Party: If You enter into a contract with a third party in which the third party manages Your information technology resources ("Managing Party"), You may transfer all Your rights to use the Licensed Software to such Managing Party, provided that (a) the Managing Party only uses the Software for Your internal operations and not for the benefit of another third party or the Managing Party; (b) the Managing Party agrees to comply with the terms and conditions of this Agreement, and (c) You provide aPersona with written notice that a Managing Party will be Using the Software on Your behalf.
+iv)	Name Change: An entity may change or modify its official business name.
+c)	Conditions of Transfer:  aPersona software License transfers shall only be allowed under the following conditions:
+i)	The parties involved in the transfer are not in breach of the Agreement or any other agreement with aPersona;
+ii)	aPersona shall not incur any additional service charges that may result in a transfer unless those services and charges are agreed in writing by aPersona and the transferor or transferee prior to the transfer; and
+iii)	The parties involved in the transfer shall provide prior written notice of a permitted transfer to aPersona and the transferee shall, in writing to aPersona, (i) assume all of the obligations of the transferor, and (ii) agree that transferees use of the Software shall be governed by the terms of the Subscriber with transferor.
+iv)	Upon receipt of written notification of the transfer, aPersona will review, and where approval is required, approve, or deny the transfer, which shall not be unreasonably withheld.
+d)	aPersona ASM Software utilizes License Keys, which enable features of the Software like servers and number of users for specific periods of time and other additional features.  All of the applicable limitations (e.g., Subscription Term, Users Licensed, Subscription Payment Schedule) on You and your Customers use of the Software will be explicitly set forth in the applicable Subscription Agreement.  Each Customer of the aPersona ASM Software requires a Customer License Key for the number of users licensed to that Customer. These License Keys are utilized by aPersona to enable the use of Software versions as selected at the time of sale. The Subscriber is responsible to manage the License Keys and maintain records of licenses purchased and Software deployed. License Keys are the property of aPersona. Expired License Keys will reduce the Software functionality to the Free Version. Unlicensed Installation IDs will cause all Client/Customer License Keys to revert to the 5 User Free Version License. See 9) Additional Terms Free Version in this Agreement for details.
+e)	Unless expressly agreed to by aPersona under separate addendum to this Agreement, each installation instance of aPersona ASM requires a unique Installation ID. Installation IDs are free of charge and will be provided by aPersona Sales (sales@apersona.com).
+
+3)	Copy and Use terms
+a)	Term: The Agreement is effective when signed by both parties and continues until terminated as permitted herein ("Term").  The duration of each Subscription Agreement and its corresponding license period is set by the Subscription Agreement.
+b)	Copies: You may copy the Software as reasonably necessary for backup, archival or disaster recovery purposes.
+c)	Distribution: You may distribute the Software in accordance with the terms of this Agreement. You shall be responsible and fully liable for compliance with or breach of the terms of this Agreement by any recipient of that distribution.
+d)	General Restrictions: Except for resale and access as permitted in Section 2(a), you may not, nor allow any third party to: (i) decompile, disassemble, or reverse engineer the Software, except to the extent expressly permitted by applicable law, without aPersonas prior written consent; (ii) remove any product identification or proprietary rights notices of the Software or Documentation; (iii) lease, lend, or use the Software for timesharing or service bureau purposes; (iv) modify or create derivative works of the Software, (v) tamper with or in any way attempt to circumvent the licensing systems, (vi) except with aPersonas prior written permission, publish any performance or benchmark tests or analysis relating to the Software; or (vii) otherwise use or copy the Software except as expressly provided herein.
+e)	Re-Branding: Unless expressly agreed to by aPersona in Section 2(a) or under separate addendum to this Agreement, You may not re-brand aPersona ASM Software.
+
+4)	Standard Technical Support; Maintenance and Upgrades; Service Level Agreement; Data Rights & Backup
+a)	Subscriber is responsible for Tier 1 support to its employees, and Customers.
+b)	aPersona will provide Subscriber with support for the Software as set forth in the APERSONA TECHNICAL SUPPORT SERVICES ADDENDUM attached to this Agreement.
+c)	Subscriber is entitled to download Upgrades from the aPersona customer portal for any active/paid Software, as they become available.  For so long as Subscriber has paid for Support, aPersona will provide Subscriber with all Upgrades that aPersona provides to any other Software customer.  aPersona will give Subscriber at least ninety (90) days prior written notice of any changes to the Software interfaces (e.g., APIs) that are not backwards compatible.  
+	
+5)	Limited Warranty and Disclaimer
+a)	Limited Warranty. aPersona warrants that, for a period of one-hundred twenty (120) days from the Software purchase date ("Warranty Period"), the Software licensed hereunder (including Upgrades provided within the Warranty Period for the remainder of the Warranty Period) will perform substantially in all material respects accordance with the specifications set forth in the Documentation.
+i)	Exclusive Remedy. In case of any breach of the above limited warranty, aPersona will (a) repair or replace the Software or (b) if such repair or replacement would be commercially unreasonable, refund the the residual value of the purchase price paid by You for the infringing Software, depreciated using a straight-line method of depreciation over a three (3) year period from the date of delivery of the Software to You (if You paid for a perpetual license), or all fees paid by you for the period of time after the holding (if You paid for a license for a period of time).
+b)	Exclusion of Warranty. The above Limited Warranty will not apply if: (i) the Software is not used in accordance with this Agreement or the Documentation; (ii) the Software or any part thereof has been modified by any entity other than aPersona or entity expressly acting on aPersonas behalf; or (iii) a malfunction in the Software has been caused by any equipment or software that are operated with the Software other than as necessary for the Softwares intended use, or specified in the Documentation, or approved in writing by aPersona.
+c)	aPersona represents and warrants that: (i) it has the right to grant the licenses granted or purported to be granted herein and to perform Support as set out in this Agreement, and has obtained all necessary licenses and permits to do so; (ii) the Software, as delivered, will be free from all contaminants, malware, viruses, worms, trap doors, back doors or other means or functions which will detrimentally interfere with or otherwise adversely affect Customers use of the Software; and (iii) the Software, and Subscribers and its Customers use thereof (alone or in combination with other technology) in accordance with this Agreement will not violate, infringe, or misappropriate any patent, trade secret, trademark, copyright, or other intellectual property right of a third party.
+d)	Disclaimer. THE ABOVE WARRANTIES ARE YOUR EXCLUSIVE WARRANTIES AND REPLACE ALL OTHER WARRANTIES OR CONDITIONS, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OR CONDITIONS OF MERCHANTABILITY, SATISFACTORY QUALITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. EXCEPT FOR THE WARRANTY SET FORTH ABOVE, THE SOFTWARE IS PROVIDED "AS IS" AND APERSONA MAKES NO WARRANTY OR GUARANTEE AS TO ITS USE OR PERFORMANCE AND DOES NOT WARRANT OR GUARANTEE THAT THE OPERATION OF THE SOFTWARE WILL BE FAIL SAFE, UNINTERRUPTED OR FREE FROM ERRORS OR DEFECTS OR THAT THE SOFTWARE WILL PROTECT AGAINST ALL POSSIBLE THREATS.
+e)	Exceptions. Some states or jurisdictions do not allow the exclusion of express or implied warranties, so the above disclaimer may not apply to You. IN THAT EVENT SUCH EXPRESS OR IMPLIED WARRANTIES SHALL BE LIMITED IN DURATION TO THE WARRANTY PERIOD (OR THE MINIMUM PERIOD REQUIRED BY THE APPLICABLE LAW).
+
+6)	Limitation of Remedies and Damages
+UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER IN TORT, CONTRACT OR OTHERWISE, SHALL EITHER PARTY BE LIABLE TO THE OTHER FOR ANY INDIRECT, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES, DAMAGES FOR LOSS OF PROFITS, LOSS OF GOODWILL, LOSS OF PERSONNEL SALARIES, WORK STOPPAGE, AND/OR COMPUTER FAILURE OR MALFUNCTION, AND/OR COSTS OF PROCURING SUBSTITUTE SOFTWARE OR SERVICES. 
+Regardless of whether the claim for such damages is based in contract, tort and/or any other legal theory, in no event shall either partys aggregate liability to the other party for direct damages exceed the greater of:
+
+a)	The amount of total fees paid or payable by You for the Software giving rise to such claim, or
+b)	The applicable aPersona list price, at the date of the purchase, for the Software giving rise to such claim ordered by You, multiplied by the number of months in the Term, 
+
+even if the other party has been advised of the possibility of such damages.
+
+No provision of this Agreement shall exclude or limit in any way (i) the liability of either party for breach of Section 17 (Confidentiality) or death or personal injury caused by that partys negligence or willful misconduct, (ii) Your liability for excess usage of, and/or any breach of aPersonas intellectual property rights in the Software, or (iii) a partys indemnity obligations in this Agreement.
+
+THE LIMITATION OF LIABILITY IN THIS SECTION IS BASED ON THE FACT THAT END USERS USE THEIR COMPUTERS FOR DIFFERENT PURPOSES. THEREFORE, ONLY YOU CAN IMPLEMENT BACK-UP PLANS AND SAFEGUARDS APPROPRIATE TO YOUR NEEDS IN THE EVENT AN ERROR IN THE SOFTWARE CAUSES COMPUTER PROBLEMS AND RELATED DATA LOSSES. FOR THESE BUSINESS REASONS YOU AGREE TO THE LIMITATIONS OF LIABILITY IN THIS SECTION.
+
+7)	Indemnity
+a)	Third party claims
+aPersona shall defend and hold You and Customers harmless from any claim by a third party that is based on: alleged facts, which if found to be true in a court of law, would be a breach of Section 5; or the Software, or Subscribers or its Customers use thereof (alone or in combination with other technology necessary for the Softwares intended use) infringes any patent, copyright or trade secret of that third party, provided:
+i)	aPersona is notified promptly, and in any event no later than within 30 days upon Your receipt of notice of the claim
+ii)	With respect to a combination, aPersona is only liable to the extent there is no reasonable non-infringing alternative combination with other technology then-currently available for the Softwares intended use. 
+iii)	aPersona receives reasonable cooperation from You necessary to perform aPersonas obligations hereunder (at aPersonas expense); and
+iv)	aPersona has sole control over the defense and all negotiations for a settlement or compromise of the claim (except that aPersona will obtain your prior written consent of a settlement or compromise that imposes a financial obligation, restriction on use of the Software, or admission of liability on You or Customers).
+b)	The foregoing obligation of aPersona does not apply with respect to Software or portions or components thereof:
+i)	not licesned by aPersona (except for combinations with other technology necessary for You or Customers intended use of the Software where there is no  reasonable non-infringing alternative combination with other technology then-currently available for the softwares intended use);
+ii)	used in a manner not expressly authorized by this Agreement or the relevant Documentation;
+iii)	modified by anyone other than aPersona (or third party expressly acting on aPersonas behalf), if the alleged infringement was caused by such modification;
+iv)	combined with other products, processes or materials where the alleged infringement would not exist but for such combination (except for combinations with other technology necessary for You or Customers intended use of the Software where there is no reasonable non-infringing alternative combination with other technology then-currently available for the softwares intended use); or
+v)	where You continue the allegedly infringing activity after being notified thereof and provided with modifications that would have avoided the alleged infringement.
+c)	Remedy and Liability. In the event the Software is held by a court of competent jurisdiction to constitute an infringement or use of the Software is enjoined, aPersona shall, at its sole option, do one of the following:
+i)	procure for You the right to continue use of the Software;
+ii)	provide a modification to the Software so that its use becomes non-infringing;
+iii)	replace the Software with software which is substantially similar in functionality and performance; or
+iv)	if none of the foregoing alternatives is reasonably available to aPersona, aPersona shall refund: the residual value of the purchase price paid by You for the infringing Software, depreciated using a straight-line method of depreciation over a three (3) year period from the date of delivery of the Software to You (if You paid for a perpetual license), or all fees paid by you for the period of time after the holding (if You paid for a license for a period of time).
+
+This Section 7 states aPersonas sole liability and Your exclusive remedy for intellectual property infringement claims.
+
+8)	Termination
+Without prejudice to Your payment obligations, you may terminate this Agreement or a Subscription Agreement provided there is a material defect in the software that cannot be remedied with in 30 days of written notification of the defect. If after 30 days, the defect cannot be remedied and you wish to terminate this agreement, aPersona will refund a prorated/residual portion of your subscription if any exists at the time of the termination.
+ 
+ aPersona may terminate the Agreement or a Subscription Agreement in the event You materially breach the terms of this Agreement or the Subscription Agreement (as applicable) and You fail to cure such breach within ninety (90) days of receiving written notice of such breach. Upon such termination of the applicable Subscription Agreement You shall promptly return or destroy all copies of the Software and Documentation in your possession or in possession of your Customers. 
+
+9)	Additional Terms 
+a)	aPersona ASM: The Softwares "Free License" supports one up to five (5) users per Customer. This Free License enables the evaluation of the Software and for testing purposes. The Free License is not to be used in production. The Free License is royalty free. The Software is provided to You under the Free License "AS-IS", and aPersona disclaims any warranty or liability obligations to You of any kind. If a commercial Software license is desired the purchase of a commercial Software license is available under the terms and conditions stated in the other sections in this Agreement.
+WHERE LEGAL LIABILITY CANNOT BE EXCLUDED, BUT MAY BE LIMITED, APERSONAS LIABILITY AND THAT OF ITS SUPPLIERS AND AUTHORIZED PARTNERS IN REGARDS TO THE APERSONA ASM FREE VERSION LICENSE SHALL BE LIMITED TO THE SUM OF FIFTY (50) DOLLARS OR THE EQUIVALENT IN LOCAL CURRENCY IN TOTAL.
+b)	Beta Software. If the Software You have received has been identified "Beta" Software in the applicable Subscription Agreement, then the provisions of Section 9a above shall apply accordingly. The purpose of releasing Beta software is to solicit feedback and help aPersona test new features or changes to existing features for a future release. aPersona has no obligation to You to further develop or publicly release the Beta Software since some aspects of a particular Beta release may or may not be suitable for commercial release. If requested by aPersona, You may provide feedback to aPersona regarding testing and use of the Beta Software, including error or bug reports. You agree to grant aPersona a perpetual, non-exclusive, royalty-free, worldwide license to use, copy, distribute, make derivative works and incorporate Your feedback into any aPersona product at aPersonas sole discretion. Upon receipt of a later unreleased version of the Beta Software or release by aPersona of a publicly released commercial version of the Beta Software You agree to return or destroy all earlier Beta Software received from aPersona.
+c)	"Free" or "Open Source" Software. The aPersona ASM and aPersona APIs may include programs or code that are licensed under an Open Source Software ("OSS") license model.
+d)	Joint Marketing: The parties must reach mutual written agreement regarding the timing and content before issuing any press releases, case studies, video testimonials, or other marketing efforts relating to Subscribers use of the Products. Not withstanding the written agreement for Joint Marketing, Subscriber agrees to allow aPersona to place a copy of the Subscribers logo on the aPersona website.
+
+10)	Notice to United States Government End Users
+The Software and accompanying Documentation are deemed to be "commercial computer software" and "commercial computer software documentation," respectively, pursuant to DFAR Section 227.7202 and FAR Section 12.212, as applicable. Any use, modification, reproduction, release, performance, display or disclosure of the Software and accompanying Documentation by the United States Government shall be governed solely by the terms of this Agreement and shall be prohibited except to the extent expressly permitted by the terms of this Agreement.
+
+Caution: The sale of Software to the Federal government will have to be under the GSA terms and there are best pricing practices and documentation that can come to bear on GSA pricing.
+
+11)	Privacy
+By entering into this Agreement, You agree that aPersona may collect, retain and use personally identifiable data, including Your name, address, e-mail address and payment details of the Subscriber or Subscriber administrators that administer and/or support aPersona Software and/or purchase License Keys from aPersona, but will only use such information as necessary to exercise its rights and perform its obligations in this Agreement and will not share such information for any purpose (except to contractors and business partners as provided in this section). For the sake of clarity, aPersona will not collect, retain, or use personally identifiable data of end users of the Software that is hosted and operated by Subscribers. 
+
+aPersona Software may also collect information including License Key and IP Address data of Subscriber to ensure proper licensing and may also collect summarized data such as the number of Customer tenants and number of end users registered, and will only use such information as necessary to exercise its rights and perform its obligations in this Agreement and will not share such information for any purpose (except to contractors and business partners as provided in this section). 
+
+aPersona will have no access to any end user personally identifiable data when the aPersona Adaptive Security Manager is installed on the customers premise or customer controlled cloud services. 
+
+Subscriber information will be used primarily to provide services and product functionality to You either by aPersona or its contractors or business partners who are subject to written agreements with aPersona that are applicable to that information and at least as protective of that information as this Agreement. aPersona may also use Your personal information for additional communication with You subject to applicable laws. 
+
+By entering into this Agreement, Subscriber agrees to the transfer of Subscriber data and/or personally identifiable data to aPersona offices worldwide for the purposes stated above, subject to the terms and conditions of the Subcribers Vendor Data Processing Agreement between the Parties attached hereto.
+
+12)	Audit
+aPersona may, with 30 days prior written notice to You and during Your standard business hours, hire a nationally-recognized auditing firm to audit Your compliance with the payment terms of this Agreement no more than once per year. The audit will be conducted in a manner that does not unreasonably interfere with Your business operations.  The auditor will (a) be subject to an NDA with You in a form that is suitable to You, and (b) disclose to aPersona only whether You have complied with Your payment obligations, and not any other details regarding such audit.  aPersona shall pay the costs of such audit.  You understand and acknowledge that aPersona utilizes a number of methods to verify and support Software use by its customers. These methods may include technological features of the Software that prevent unauthorized use and provide Software deployment verification. Upon written request and so long as such request is commercially reasonable, You will provide a Software-generated report verifying Your Software deployment.
+
+13)	Export Controls
+You acknowledge that the Software is subject to U.S. and when applicable, European Union export regulations. You shall comply with applicable export and import laws and regulations for the jurisdiction in which the Software will be imported and/or exported. You shall not export the Software to any individual, entity or country prohibited by applicable law or regulation. You are responsible, at Your own expense, for any local government permits, licenses or approvals required for importing and/or exporting the Software.
+
+14)	Governing Law
+In the event a dispute arises between the Parties in this Agreement that cannot be resolved between the Parties, it is hereby agreed that the dispute shall be referred to the United States Arbitration & Mediation of North Carolina for arbitration in accordance with United States Arbitration & Mediation Rules of Arbitration. The arbitrators decision shall be final and binding and judgment may be entered thereon. 
+In the event a party fails to proceed with arbitration, unsuccessfully challenges the arbitrators award, or fails to comply with arbitrators award, the other party is entitled of costs of suit including a reasonable attorneys fee for having to compel arbitration or defend or enforce the award.
+THIS CONTRACT CONTAINS A BINDING ARBITRATION PROVISION WHICH MAY BE ENFORCED BY THE PARTIES.
+
+15)	Severability
+The invalidity or unenforceability of any provisions of this Agreement shall not affect the validity or enforceability of any other provision of this Agreement, which shall remain in full force and effect.
+
+16)	Miscellaneous
+a)	Except for actions for nonpayment or breach of aPersonas proprietary rights in the Software and Documentation, no action, regardless of form, arising out of this Agreement may be brought by either party after the applicable statute of limitations has expired.
+b)	Sections 6, 7, 14 thru 16, and 17 (for a period of three (3) years) shall survive the termination or expiration of this Agreement.
+c)	This Agreement, including all documents incorporated by reference, represents the entire agreement between the parties, and expressly supersedes and cancels any other communication, representation, or advertising whether oral or written, on the subjects herein. If You issue an order to an Authorized Partner or to aPersona and the terms and conditions of the order conflict with the terms and conditions of this Agreement, then the terms and conditions specified in this Agreement shall control.
+d)	This Agreement may not be modified except by a written addendum signed by both parties. A partys waiver of any breach, default or right under this Agreement must be in writing and signed by the party against whom the waiver is being enforced. Any such waiver shall not be deemed a waiver of any subsequent breach, default or right, whether of the same nature or otherwise.  If any provision of this Agreement is held invalid, the remainder of this Agreement shall continue in full force and effect.
+e)	All notices, requests, demands, and determinations for a party under this Agreement (other than routine operational communications) shall be sent to: the applicable entity address on the Subscription Agreement and addressed to "Attention: Legal Department".  Any notice under this Agreement, required by this Agrement, or given in connection with this Agreement, shall be in writing and shall be given to the appropriate party identified below by registered mail, email, or courier service and is deemed given and effective within one day after email sending or after five business days after mailing first class, postage prepaid, or when delivered by overnight express or other delivery service.
+
+17)	Confidentiality
+"Confidential Information" means the terms of this Agreement, and any non-public information or other materials provided by one party to the other under or in connection with this Agreement that is either: (a) in tangible form marked as "confidential" or "proprietary" or with a similar legend; (b) in intangible form that is designated by the disclosing party as confidential at or near the time of disclosure; or (c) a person would reasonably understand under the circumstances to be treated as confidential, whether or not the specific designation "confidential" or any similar designation is used.  Confidential Information does not include any information to the extent that the receiving party can reasonably demonstrate such information (w) is or becomes part of the public domain, other than as a result of the actions of the receiving party or its employees or contractors, (x) was already rightfully known to the receiving party as of the time it is disclosed to or obtained by the receiving party, (y) is subsequently learned from a third party not under a confidentiality obligation to the disclosing party, or (z) is independently developed by the receiving party without reference to the other partys Confidential Information. Except with the prior written consent of the disclosing party, a receiving party shall not: use the disclosing partys Confidential Information except to exercise or its rights or perform its obligations in this Agreement, or disclose the disclosing partys Confidential Information other than (i) to such partys attorneys, accountants and financial representatives under a duty of confidentiality as may be reasonably necessary in order to receive their professional advice, (ii) to such partys employees and contractors who have a need to know, and (iii) in connection with any legal, governmental or administrative proceeding, provided that the receiving party gives prior written notice of such disclosure to the disclosing party (if legally permitted) in order to afford the disclosing party a reasonable opportunity to seek a protective order and the receiving party cooperates with the disclosing party, at the disclosing partys reasonable request and expense, in any lawful action to contest or limit the scope of such required disclosure.
+
+------------ 
+
+aPersona ASM Hosted Services Addendum
+aPersona Adaptive Security Manager Hosting Service Agreement & Hosting Service Level Agreement
+Last Updated: January 18, 2023, Ver. 2.2
+This aPersona Adaptive Security Manager Hosting Service Agreement and Hosting Service Level Agreement (this "SLA") is a policy governing the use of the Included Services (listed below) and applies separately to each account using the Included Services. In the event of a conflict between the terms of this SLA and the terms of the aPersona ASM Subscription Agreement or other agreement with us governing your use of our Services (the "Agreement"), the terms and conditions of this SLA apply, but only to the extent of such conflict. Capitalized terms used herein but not defined herein shall have the meanings set forth in the Agreement. 
+Included Services
+- aPersona ASM Hosted Service
+aPersona ASM Hosted Services Agreement Terms
+-	You agree to configure any services dependent upon the aPersona ASM Hosted Services in a "Fail Safe/Open" manner.
+-	You agree to configure your own email settings, which requires one email account that you control.
+-	If you require Voice and/or SMS OTPs, you agree to signup for Twilio in order to send voice and/or sms OTPs.
+
+General Service Commitment
+aPersona will use commercially reasonable efforts to make the Included Services each available with a Monthly Uptime Percentage of at least 99.9%, in each case during any monthly billing cycle (the "Service Commitment"). In the event any of the Included Services do not meet the Service Commitment, you will be eligible to receive a Service Credit as described below. 
+Service Credits
+Service Credits are calculated as a percentage of the total charges paid by you (excluding one-time payments such as upfront payments made for Reserved Instances) for the individual Included Service for the monthly billing cycle in which the Unavailability occurred in accordance with the schedule below.
+Monthly Uptime Percentage	Service Credit Percentage
+Less than 99.9% but equal to or greater than 99.0%	10%
+Less than 99.0% but equal to or greater than 95.0%	30%
+Less than 95.0%	100%
+We will apply any Service Credits only against future payments for the applicable Included Service otherwise due from you. Service Credits will not entitle you to any refund or other payment from aPersona. A Service Credit will be applicable and issued only if the credit amount for the applicable monthly billing cycle is greater than one dollar ($1 USD). Service Credits may not be transferred or applied to any other account.  
+Credit Request and Payment Procedures 
+To receive a Service Credit, you must submit a claim by opening a case in the aPersona Support Center. To be eligible, the credit request must be received by us by the end of the second billing cycle after which the incident occurred and must include:
+
+1. the words "SLA Credit Request" in the subject line;
+2. the dates, times of each Unavailability incident that you are claiming;
+3. your request logs that document the errors and corroborate your claimed outage (any confidential or sensitive information in these logs should be removed or replaced with asterisks).
+
+-------------
+
+APERSONA TECHNICAL SUPPORT SERVICES ADDENDUM
+
+aPersona will provide Tier 1-2 technical support for Subscribers with active paid for license keys under the following terms and conditions.
+
+In order to receive technical support, customers may be required to provide their aPersona Installation ID and their Client/Customer License Key for validation.
+
+For support submit a ticket: https://www.apersona.com/contact-us 
+
+Standard Support (Included with any license)
+Hours of coverage:   Standard Business Hours M-F 9am thru 6pm Eastern Time
+Support Channel:     Web
+Number of Cases:     Unlimited
+Response Times
+Severity 1:          1 Business Hr
+Severity 2:          2 Business Hrs
+Severity 3:          1 Business Day
+Severity 4:          2 Business Days
+
+Premium Support (14% of Lic Fee)
+Hours of coverage:   Standard Business Hours for Severity 3 & 4 & 24x7 for Severity 1 & 2
+Support Channel:     Web
+Number of Cases:     Unlimited
+Response Times
+Severity 1:          Initial Response: 1 hr / Ongoing Response Times: 1 hr
+Severity 2:          Initial Response: 2 hrs / Ongoing Response Times: 4 hr
+Severity 3:          Initial Response: 4 Business hrs / Ongoing Response Times: 8 Business hrs
+Severity 4:          Initial Response: 8 Business hrs / Ongoing Response Times: 2 Business days 
+
+
+Severity 1 (urgent)
+A problem that severely impacts your use of the software in a production environment (such as loss of production data or in which your production systems are not functioning). The situation halts your business operations and no procedural workaround exists.
+
+Severity 2 (high)
+A problem where the software is functioning but your use in a production environment is severely reduced. The situation is causing a high impact to portions of your business operations and no procedural workaround exists.
+
+Severity 3 (medium)
+A problem that involves partial, non-critical loss of use of the software in a production environment or development environment. For production environments, there is a medium-to-low impact on your business, but your business continues to function, including by using a procedural workaround. For development environments, where the situation is causing your project to no longer continue or migrate into production.
+
+Severity 4 (low)
+A general usage question, reporting of a documentation error, or recommendation for a future product enhancement or modification. For production environments, there is low-to-no impact on your business or the performance or functionality of your system. For development environments, there is a medium-to-low impact on your business, but your business continues to function, including by using a procedural workaround. 
