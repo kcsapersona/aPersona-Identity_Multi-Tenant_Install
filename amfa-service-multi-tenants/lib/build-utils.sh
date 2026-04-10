@@ -40,6 +40,13 @@ get_package_info() {
     echo "$result"
 }
 
+# Detect if running from a pre-built release repo (no source code, only compiled artifacts).
+# Release repos have build/ or dist/ (compiled frontend) and cdk/lib/*.js but no src/ directory.
+# Service uses build/, admin-portal uses dist/.
+is_release_repo() {
+    [[ ! -d "src" ]] && { [[ -d "build" ]] || [[ -d "dist" ]]; }
+}
+
 # Optimized dependency installation with better error handling and parallel builds
 install_dependencies() {
     log_info "Installing application dependencies..."
@@ -92,6 +99,13 @@ install_dependencies() {
     fi
     
     log_success "Dependencies installed successfully"
+    
+    # In release repo, all artifacts are pre-built — skip build steps
+    if is_release_repo; then
+        log_info "Release repo detected (pre-built artifacts). Skipping build steps."
+        log_success "Pre-built artifacts verified"
+        return 0
+    fi
     
     # Build main application with error handling
     log_info "Building main application..."
@@ -147,6 +161,13 @@ install_dependencies() {
 
 # Build CDK stack
 build_cdk_stack() {
+    # In release repo, CDK JS is already compiled — skip TypeScript compilation
+    if is_release_repo; then
+        log_info "Release repo detected. CDK already compiled — skipping cdk-build."
+        log_success "CDK stack ready (pre-compiled)"
+        return 0
+    fi
+
     log_info "Building CDK stack..."
     if ! npm run cdk-build --silent >/dev/null 2>&1; then
         log_error "Failed to build CDK stack"

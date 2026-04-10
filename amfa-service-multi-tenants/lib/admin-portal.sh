@@ -151,28 +151,34 @@ EOF
         return 1
     fi
 
-    debug_log "Building admin portal..."
-    log_info "Building admin portal..."
-    
-    if npm run build --silent >/dev/null 2>&1; then
-        debug_log "✓ npm run build completed"
+    # In release repo, all artifacts are pre-built — skip build steps
+    if is_release_repo; then
+        log_info "Release repo detected (pre-built admin portal artifacts). Skipping build steps."
+        debug_log "✓ Skipped build/lambda-build/cdk-build (pre-compiled)"
     else
-        log_error "npm run build failed"
-        return 1
-    fi
-    
-    if npm run lambda-build --silent >/dev/null 2>&1; then
-        debug_log "✓ npm run lambda-build completed"
-    else
-        log_error "npm run lambda-build failed"
-        return 1
-    fi
-    
-    if npm run cdk-build --silent >/dev/null 2>&1; then
-        debug_log "✓ npm run cdk-build completed"
-    else
-        log_error "npm run cdk-build failed"
-        return 1
+        debug_log "Building admin portal..."
+        log_info "Building admin portal..."
+        
+        if npm run build --silent >/dev/null 2>&1; then
+            debug_log "✓ npm run build completed"
+        else
+            log_error "npm run build failed"
+            return 1
+        fi
+        
+        if npm run lambda-build --silent >/dev/null 2>&1; then
+            debug_log "✓ npm run lambda-build completed"
+        else
+            log_error "npm run lambda-build failed"
+            return 1
+        fi
+        
+        if npm run cdk-build --silent >/dev/null 2>&1; then
+            debug_log "✓ npm run cdk-build completed"
+        else
+            log_error "npm run cdk-build failed"
+            return 1
+        fi
     fi
 
     # Read Admin Portal distribution ID from SSM (shared across all tenants)
