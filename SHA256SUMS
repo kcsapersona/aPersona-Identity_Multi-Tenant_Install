@@ -121,6 +121,8 @@ b2dcec3d431025b2e8c5ddb5f21f35d159477533147f63ca7c521b97ec9292a2  ./amfa-service
 539440103a44e1182435558150de43e44f4c4ecdb9dd76b5027cc2512e57871a  ./amfa-service-multi-tenants/cdk/lib/amfa-service-shared.d.ts
 167a0fa970f39756e5c2397d2700426d0c46d50823d829ff6804bfdea0f0f05f  ./amfa-service-multi-tenants/cdk/lib/secretmanager.d.ts
 f95f0d88fd73f871b914b8fbd12fea15c91c8271ffacd769f9d0944a061fa965  ./amfa-service-multi-tenants/cdk/tsconfig.json
+98270d8ceb864c22655c49fcda5c9a6ca2bc268494ef96fdc46a472d101d09e0  ./amfa-service-multi-tenants/cdk/layers/tenant-utils-layer/nodejs/node_modules/tenant-utils/index.mjs
+c6ce5935b1cde19d6c1ed2f8eba0cda4ebdcfb77a26680dc0c2b366f30a12404  ./amfa-service-multi-tenants/cdk/layers/tenant-utils-layer/nodejs/node_modules/tenant-utils/package.json
 ad846544111e94cede0c6f629ddaf0fe2fa89764dee60483702611f2184f6a5c  ./amfa-service-multi-tenants/package.json
 a9f0213ca459a837953fcb96058c3aeb8ad8c0245a47a3f4592017522152c79e  ./amfa-admin-portal-multi-tenants/dist/assets/index-DjjxXCLK.js
 c3686924f40bba17e89ff856e1f8e3a7110de1e8aaad11722831924feba4fd4b  ./amfa-admin-portal-multi-tenants/dist/assets/index-DmjCeAXE.css
