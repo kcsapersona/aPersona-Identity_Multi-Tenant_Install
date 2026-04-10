@@ -110,18 +110,16 @@ f813e5f83b5be6b7ea3cac9fde64c29951120ccebe846a7aedd0e87879fb4ff0  ./amfa-service
 c255ece98f4ee6be04e624573097194d930ba14bf4f432ede39b4ebaad2f4386  ./amfa-service-multi-tenants/cdk/lib/config.js
 8e3198341da7e1120a2f91e0d553047ca08efa3c737c9b7e794496b8dcc42649  ./amfa-service-multi-tenants/cdk/lib/lambda.d.ts
 5eb731724778878c3701028a6b59f99667abd7df0a6a969324e416ce85410931  ./amfa-service-multi-tenants/cdk/lib/shared-api-gateway.js
-26bd11743c214711bec5152343ca8e8b7889f4d713c73def10045e1c5864db3d  ./amfa-service-multi-tenants/cdk/lib/webapp.js
 b2dcec3d431025b2e8c5ddb5f21f35d159477533147f63ca7c521b97ec9292a2  ./amfa-service-multi-tenants/cdk/lib/postdeployment.js
 88ceafdf500ca748d25e7f8b93f7bca7a540f7f55597474e6efe6466fd8a3fc8  ./amfa-service-multi-tenants/cdk/lib/dynamodb.d.ts
 044ec66e20789dfc08226ea2b8a5995e6ff6040da5fe7890db859f460572b79e  ./amfa-service-multi-tenants/cdk/lib/amfa-stack.d.ts
 20c5d2299d520bad72a9fa821cf66f1d990f5103bee58c2dffe920b476104d9e  ./amfa-service-multi-tenants/cdk/lib/postdeployment.d.ts
-e0f9c7792f478443378e5ee26d92506b2407bb5927c089c93d6e3faeea165bfb  ./amfa-service-multi-tenants/cdk/lib/const.js
+3149862dbd998499ca79bb2aecc987cd765f7b989118045df3402471c0b4e867  ./amfa-service-multi-tenants/cdk/lib/const.js
 992edac22a00a4c1dc5940da74b5eb270269ac4eea79f8e3cd785aa518071f83  ./amfa-service-multi-tenants/cdk/lib/config.d.ts
 852cea7c971c83f380e3f40a808c887c7645e61500ab754383027a85b51b22b9  ./amfa-service-multi-tenants/cdk/lib/const.d.ts
 45aa0ab33bc5109135bf55d9a9d95cfe1986daa28e932760fbeb05e3066ef638  ./amfa-service-multi-tenants/cdk/lib/amfa-service-shared.js
 539440103a44e1182435558150de43e44f4c4ecdb9dd76b5027cc2512e57871a  ./amfa-service-multi-tenants/cdk/lib/amfa-service-shared.d.ts
 167a0fa970f39756e5c2397d2700426d0c46d50823d829ff6804bfdea0f0f05f  ./amfa-service-multi-tenants/cdk/lib/secretmanager.d.ts
-e8d690acf90b4f34fb3655e6fb3152ecc7d78e91b75fe6e598283649baba026d  ./amfa-service-multi-tenants/cdk/lib/webapp.d.ts
 f95f0d88fd73f871b914b8fbd12fea15c91c8271ffacd769f9d0944a061fa965  ./amfa-service-multi-tenants/cdk/tsconfig.json
 ad846544111e94cede0c6f629ddaf0fe2fa89764dee60483702611f2184f6a5c  ./amfa-service-multi-tenants/package.json
 a9f0213ca459a837953fcb96058c3aeb8ad8c0245a47a3f4592017522152c79e  ./amfa-admin-portal-multi-tenants/dist/assets/index-DjjxXCLK.js
@@ -146,9 +144,6 @@ d0c5fbd03abb770aae1525e3889a1d1a35b70ee8b88cd57e69a0315ce637b8ca  ./amfa-admin-p
 43954bdd4858b86665caf918c2295691849f2f71abdd102b13f322bfa6b781d0  ./amfa-admin-portal-multi-tenants/cdk/lambda/serviceproviderslist/dist/index.js
 4039f7517a33f42f989f5675c64ab30c59264c26a9a8d3a23b0dae44df7e4e90  ./amfa-admin-portal-multi-tenants/cdk/lambda/serviceproviderslist/dist/index.js.map
 99641214c2cbef46c317695e3c55ed81a3b9b50cc202fe7d6731998b6b4038d3  ./amfa-admin-portal-multi-tenants/cdk/lambda/serviceproviderslist/package.json
-082fbd29ab1e0f762eb4469dffe5cfc0c72ca6c28253069215c060d614121e0b  ./amfa-admin-portal-multi-tenants/cdk/lambda/table-initializer/dist/index.js
-814ccbe917caaa00047c20bd703177bdee496a57906f8a63765bf48ddaa17337  ./amfa-admin-portal-multi-tenants/cdk/lambda/table-initializer/dist/index.js.map
-0044a2c843a15f3dc1361a4a3f5a20c5bdef4d3b44ab3da038efcc66ffca213c  ./amfa-admin-portal-multi-tenants/cdk/lambda/table-initializer/package.json
 205f5700031322857f950e6c2eaa0bf61dae094f95ff26e23bca272cd70de375  ./amfa-admin-portal-multi-tenants/cdk/lambda/brandingslist/dist/index.js
 b6bc6a3d415d07d009088c5182528307e1ce08f3655ce099ca74e93e281c30c2  ./amfa-admin-portal-multi-tenants/cdk/lambda/brandingslist/dist/index.js.map
 d0f0eff469b5d4dfb84a298f6137a9cb75d0ad8fb970efbdec2aa7dc0153a3b0  ./amfa-admin-portal-multi-tenants/cdk/lambda/brandingslist/package.json
@@ -362,5 +357,5 @@ f80e9f59491d7d9416be7efa5c4b2af6ef5d25d5c2f362d299e33985e845589a  ./install-mult
 ab8637038045ea6f4ae51fda4caeaa6b2adda9b898967f7f9d644c58410069bf  ./tenants-config.json
 fc36a5a88f2d640ef502c893fc49645015788290b4b465c1ecfdb945b419f1bb  ./NOTICE
 73c65e7946cc7aa999b7cff7d33d606fe5ea766b34a9d38acdae87c1e97ff1c4  ./uninstall.sh
-ac3bf208eb88be6542e3fc750b511b112cf25bc40e46dca2a50819e43cf59096  ./VERSION
+f669b5e9183901b78b0952eb71f8fe54bdcff9cc3d155710c61e25be7b35b058  ./VERSION
 d5ab74cd2f10d786d1a9121efcf8cbce457d1c6167ffb6d1ebaaed0a2a6d3f73  ./aPersona_ASM-and-aPersona_Identity_Mgr_Ts_Cs.txt
