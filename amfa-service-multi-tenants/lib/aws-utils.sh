@@ -257,6 +257,8 @@ bootstrap_cdk() {
         debug_log "Running in VERBOSE mode"
     fi
 
+    local bootstrap_log="/tmp/cdk-bootstrap.log"
+
     # Bootstrap us-east-1 (required for CloudFront)
     log_info "Bootstrapping CDK in us-east-1..."
     debug_log "Running: npx cdk bootstrap aws://$CDK_DEPLOY_ACCOUNT/us-east-1 $verbose_flag"
@@ -267,19 +269,18 @@ bootstrap_cdk() {
     
     if [[ "$DEBUG_MODE" == "1" ]]; then
         # Show full output in debug mode
-        if ! npx cdk bootstrap "aws://$CDK_DEPLOY_ACCOUNT/us-east-1" $verbose_flag; then
+        if ! npx cdk bootstrap "aws://$CDK_DEPLOY_ACCOUNT/us-east-1" $verbose_flag 2>&1 | tee "$bootstrap_log"; then
             log_error "Failed to bootstrap CDK in us-east-1"
             return 1
         fi
     else
-        # Suppress output but show progress dots
-        if ! npx cdk bootstrap "aws://$CDK_DEPLOY_ACCOUNT/us-east-1" $verbose_flag 2>&1 | \
-             while IFS= read -r line; do
-                 echo -n "."
-                 if [[ "$DEBUG_MODE" == "1" ]]; then echo "$line"; fi
-             done; then
+        # Capture output to log file; show progress dots; display errors on failure
+        if ! npx cdk bootstrap "aws://$CDK_DEPLOY_ACCOUNT/us-east-1" $verbose_flag 2>&1 | tee "$bootstrap_log" | \
+             while IFS= read -r line; do echo -n "."; done; then
             echo ""
             log_error "Failed to bootstrap CDK in us-east-1"
+            log_error "Bootstrap log output:"
+            cat "$bootstrap_log" >&2
             return 1
         fi
         echo ""
@@ -299,18 +300,17 @@ bootstrap_cdk() {
         start_time=$(date +%s)
         
         if [[ "$DEBUG_MODE" == "1" ]]; then
-            if ! npx cdk bootstrap "aws://$CDK_DEPLOY_ACCOUNT/$CDK_DEPLOY_REGION" $verbose_flag; then
+            if ! npx cdk bootstrap "aws://$CDK_DEPLOY_ACCOUNT/$CDK_DEPLOY_REGION" $verbose_flag 2>&1 | tee "$bootstrap_log"; then
                 log_error "Failed to bootstrap CDK in $CDK_DEPLOY_REGION"
                 return 1
             fi
         else
-            if ! npx cdk bootstrap "aws://$CDK_DEPLOY_ACCOUNT/$CDK_DEPLOY_REGION" $verbose_flag 2>&1 | \
-                 while IFS= read -r line; do
-                     echo -n "."
-                     if [[ "$DEBUG_MODE" == "1" ]]; then echo "$line"; fi
-                 done; then
+            if ! npx cdk bootstrap "aws://$CDK_DEPLOY_ACCOUNT/$CDK_DEPLOY_REGION" $verbose_flag 2>&1 | tee "$bootstrap_log" | \
+                 while IFS= read -r line; do echo -n "."; done; then
                 echo ""
                 log_error "Failed to bootstrap CDK in $CDK_DEPLOY_REGION"
+                log_error "Bootstrap log output:"
+                cat "$bootstrap_log" >&2
                 return 1
             fi
             echo ""
