@@ -3,10 +3,22 @@
 # aPersona Identity Manager Multi-Tenant Installer - Modular Version
 # This script installs aPersona Identity Manager with multi-tenant support
 
-set -euo pipefail  # Exit on error, undefined vars, pipe failures
+set -eo pipefail  # Exit on error, pipe failures
+# Note: -u (unbound vars) is enabled after SCRIPT_DIR detection because
+# BASH_SOURCE[0] may be unset when piped via curl | bash
 
 # Script directory for relative imports
-readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Handle both direct execution and curl | bash piped execution
+if [[ -n "${BASH_SOURCE[0]:-}" && "${BASH_SOURCE[0]}" != "bash" ]]; then
+    readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+elif [[ -n "${0:-}" && "$0" != "bash" && "$0" != "-bash" ]]; then
+    readonly SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+else
+    readonly SCRIPT_DIR="$(pwd)"
+fi
+
+# Now enable strict unbound variable checking
+set -u
 
 # Auto-detect repository layout:
 #   Source repo (mono-repo): installer/ is at root, packages at packages/service

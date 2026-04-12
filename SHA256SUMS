@@ -364,7 +364,7 @@ d24f6a41719651db5f0a301c59dde340efbc0f23612ddb79bde5dabf1c7a72f8  ./amfa-admin-p
 900856da3cadcec8e8f0a06216b0a9d8fa14be58702bdfa81f96a0dd931e4413  ./amfa-admin-portal-multi-tenants/cdk/lambda-layers/auth-layer/nodejs/node_modules/admin-auth/index.mjs
 fbb594384b4e7d309d840b13b340999ed14bfd43d9024447a8a9f4d35c31b42a  ./amfa-admin-portal-multi-tenants/cdk/lambda-layers/auth-layer/nodejs/node_modules/admin-auth/package.json
 a9c8e37316d508fda95957a6da3212151a1d5b5d583c45ca223adb6a530a1646  ./amfa-admin-portal-multi-tenants/package.json
-88b9d9e42ad1c2d9a27cfcc425bf5e32e3e39f00932097a7b6d123f43e677181  ./install-multi-tenants.sh
+1b0b2c837fb393fb010bab117f79644eafb43611c666355e55b6e42b6df8256d  ./install-multi-tenants.sh
 4f9c6d4e5fcc71bf38e7ecaed5cf3b4134e301c91078d8658c19834be5e66432  ./tenants-config.json
 fc36a5a88f2d640ef502c893fc49645015788290b4b465c1ecfdb945b419f1bb  ./NOTICE
 73c65e7946cc7aa999b7cff7d33d606fe5ea766b34a9d38acdae87c1e97ff1c4  ./uninstall.sh
