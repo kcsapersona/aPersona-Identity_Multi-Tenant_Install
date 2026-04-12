@@ -80,13 +80,46 @@ show_deployment_summary() {
     echo "  • Admin User: $ADMIN_EMAIL"
     echo ""
 
+    # Look up NAT Gateway Elastic IP for samlgw2 whitelisting
+    echo "Lambda VPC / NAT Gateway:"
+    local nat_eip=""
+    if command -v aws &>/dev/null; then
+        # Try to get the EIP from the VPC's NAT Gateway
+        nat_eip=$(aws ec2 describe-nat-gateways \
+            --filter "Name=state,Values=available" \
+            --region "${CDK_DEPLOY_REGION:-$AWS_REGION}" \
+            --query 'NatGateways[0].NatGatewayAddresses[0].PublicIp' \
+            --output text 2>/dev/null || true)
+        if [[ -n "$nat_eip" && "$nat_eip" != "None" && "$nat_eip" != "null" ]]; then
+            echo -e "  • NAT Gateway Elastic IP: ${BOLD}${GREEN}${nat_eip}${NC}"
+        else
+            echo "  • NAT Gateway Elastic IP: (could not be determined — check AWS console)"
+        fi
+    else
+        echo "  • NAT Gateway Elastic IP: (aws cli not available — check AWS console)"
+    fi
+    echo ""
+
+    # samlgw2 whitelist reminder
+    echo -e "${BOLD}${YELLOW}⚠  SAML Gateway v2 (samlgw2) IP Whitelisting:${NC}"
+    if [[ -n "$nat_eip" && "$nat_eip" != "None" && "$nat_eip" != "null" ]]; then
+        echo "  Add the following IP to samlgw2 security.yaml allowed_ipv4 list:"
+        echo -e "  ${BOLD}${nat_eip}${NC}"
+    else
+        echo "  Add the Lambda NAT Gateway Elastic IP to samlgw2 security.yaml."
+        echo "  Find it in the AWS VPC Console → NAT Gateways → Elastic IP."
+    fi
+    echo "  File: /home/ec2-user/efs/samlgw2/config/security.yaml (on samlgw2 EC2)"
+    echo ""
+
     # Next steps
     echo "Next Steps:"
-    echo "1. Configure additional settings via the Admin Portal"
-    echo "2. Test the login portals for each tenant"
-    echo "3. Set up monitoring and alerts as needed"
-    echo "4. Review CloudWatch logs for any issues"
-    echo "5. Check DynamoDB tables for tenant configuration details"
+    echo "1. Add NAT Gateway IP to samlgw2 whitelist (see above)"
+    echo "2. Configure additional settings via the Admin Portal"
+    echo "3. Test the login portals for each tenant"
+    echo "4. Set up monitoring and alerts as needed"
+    echo "5. Review CloudWatch logs for any issues"
+    echo "6. Check DynamoDB tables for tenant configuration details"
     echo ""
 
     # Important notes
