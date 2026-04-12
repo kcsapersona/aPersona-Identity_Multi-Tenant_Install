@@ -347,7 +347,7 @@ a42041b935f1279caa8fa3eaec1bea84723ca5eb6d77f5ac1811a74875ee8ec7  ./amfa-admin-p
 6b4d5d686683fedf73f6aaf9a484f63c31a78494ce38f2516a4302605cc35585  ./amfa-admin-portal-multi-tenants/cdk/lambda/smtpconfig/package.json
 c6e1cb5d1a18b025be96a22f12066d15b959517b456c443ee9dcbd38f68c1d70  ./amfa-admin-portal-multi-tenants/cdk/config/config.js
 f3b53f757398228e3814ac328861abf69f68220c8420f638be0ea69e9189642e  ./amfa-admin-portal-multi-tenants/cdk/config/index.js
-b909c0a59045d06b203570b7d2c93e4e43258be9209dff52aa4d364f41799cc3  ./amfa-admin-portal-multi-tenants/cdk/lib/application.js
+ca37e35bf7a1825678af27494018c8ed90d0449b26ed92352a2b84d43a3851f5  ./amfa-admin-portal-multi-tenants/cdk/lib/application.js
 1f9f86a685c724773595fa187d9a27d77b9de36dccb7329fd30643d6fe591174  ./amfa-admin-portal-multi-tenants/cdk/lib/certificate.js
 05ebf18891459fb8690e4c8c4f88509d20a55817f8ac0e95f87c24431c627e2e  ./amfa-admin-portal-multi-tenants/cdk/lib/userpool.js
 00341ad323224f950a5ba08a40545ad5c77da53ef6ca9ee72555aac3a6bfd8db  ./amfa-admin-portal-multi-tenants/cdk/lib/monitoring.js
