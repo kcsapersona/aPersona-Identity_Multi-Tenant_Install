@@ -57,6 +57,21 @@ else
     exit 1
 fi
 
+# Ensure nvm-managed Node.js is available in PATH
+# Required when running after init_deploy.sh installs Node.js via nvm
+export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
+if [[ -s "$NVM_DIR/nvm.sh" ]]; then
+    # shellcheck source=/dev/null
+    \. "$NVM_DIR/nvm.sh"
+fi
+
+# Verify node is available before proceeding
+if ! command -v node &>/dev/null; then
+    echo "ERROR: Node.js is not installed or not in PATH." >&2
+    echo "Please install Node.js 22+ (e.g., run init_deploy.sh first, or: nvm install 22)" >&2
+    exit 1
+fi
+
 # Global variables
 declare CDK_DEPLOY_REGION
 declare CDK_DEPLOY_ACCOUNT
