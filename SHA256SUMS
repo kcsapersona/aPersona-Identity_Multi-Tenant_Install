@@ -213,10 +213,10 @@ a612e54e04652dd35d62490b0422b026a86f6fa5203c6955d134b156e02557f2  ./amfa-admin-p
 672cee7d9ea976bb0fe4f03090d49e75e7fcb9684b7ab2a54c462c52b52d2356  ./amfa-admin-portal-multi-tenants/cdk/lambda/postdeployment/dist/index.js
 4d38f02e6f2ac0a6bdc910c968b5213b8f113afc35b7b49e9e3e4eee90e45a1c  ./amfa-admin-portal-multi-tenants/cdk/lambda/postdeployment/dist/index.js.map
 82332fdaa00422d9589558728c79c0c24030d5339f97f16f78418c8cf2e5ce20  ./amfa-admin-portal-multi-tenants/cdk/lambda/postdeployment/package.json
-8f4ca2b4fd91f01c81261f3daf394ad64910ed36cbecb55401b9be959d4fd66a  ./amfa-admin-portal-multi-tenants/cdk/lambda/organizationslist/dist/crud.js.map
-c8920fbfa5a8d47e98bc6a51d1397308202f98a38aac41d9bed87e925e3e1ceb  ./amfa-admin-portal-multi-tenants/cdk/lambda/organizationslist/dist/index.js
-61862205263130c7f95852eea77d54e68033a360022d58324bdb97b80dc814e7  ./amfa-admin-portal-multi-tenants/cdk/lambda/organizationslist/dist/crud.js
-3c42138723944f634e396a0f4b9b8fc0b27385796823b458673cbb98b0530fbc  ./amfa-admin-portal-multi-tenants/cdk/lambda/organizationslist/dist/index.js.map
+49999fbc7592ab1a0b2c9b6f8265c9752cfc026549fe8222809622b9041fdfb2  ./amfa-admin-portal-multi-tenants/cdk/lambda/organizationslist/dist/crud.js.map
+d8de7b6981048ed3dcee31072c3ebb7d4dc1c02c74a4f6d2ecbb8b4c61393987  ./amfa-admin-portal-multi-tenants/cdk/lambda/organizationslist/dist/index.js
+eba942953516744b4c354887f8799ccb2312d7c5cfb5cdc1e82c727ac46e107e  ./amfa-admin-portal-multi-tenants/cdk/lambda/organizationslist/dist/crud.js
+a8178c527da8cdd2b13e93f431e5596185ffa9de87270dfa67983553e35c419c  ./amfa-admin-portal-multi-tenants/cdk/lambda/organizationslist/dist/index.js.map
 8df72ad828074965620c586fa786843bb381eb96b58658ca7518c1e9f50fe214  ./amfa-admin-portal-multi-tenants/cdk/lambda/organizationslist/package.json
 3fb2e2d885bf47d080714ca5f9e79ba477cad3d475ff0343f2fc0c86625a1072  ./amfa-admin-portal-multi-tenants/cdk/lambda/users/dist/put.js
 00896bde82b35dd4279ceb0ce8e814c53fd7a7e22be7432fb5812f6b96c81a01  ./amfa-admin-portal-multi-tenants/cdk/lambda/users/dist/get.js.map
