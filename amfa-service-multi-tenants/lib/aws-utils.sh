@@ -332,6 +332,9 @@ deploy_multi_tenant_stack() {
     log_info "Starting multi-tenant CDK deployment..."
     debug_log "Output file: ../apersona_idp_deploy_outputs.json"
     debug_log "This may take 15-30 minutes for full deployment..."
+
+    # Clear cached CDK assets to ensure fresh Lambda bundles are deployed
+    rm -rf cdk.out 2>/dev/null
     
     local start_time
     start_time=$(date +%s)

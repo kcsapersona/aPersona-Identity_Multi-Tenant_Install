@@ -195,7 +195,10 @@ EOF
     debug_log "Command: npx cdk deploy --require-approval never --all --outputs-file ../apersona_idp_mgt_deploy_outputs.json"
     
     log_info "Deploying admin portal stack..."
-    
+
+    # Clear cached CDK assets to ensure fresh Lambda bundles are deployed
+    rm -rf cdk.out 2>/dev/null
+
     local cdk_log_file="/tmp/admin-portal-cdk-deploy.log"
     
     if [[ "$DEBUG_MODE" == "1" ]]; then

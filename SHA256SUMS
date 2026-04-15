@@ -13,9 +13,9 @@ f3d61e6f14d8a7274841cbdc665753a8bf487d04c9237b91e0471b1cc00e2e0d  ./amfa-service
 e15553d8c3ac5c8f7a9b47b25313faf1daa52f916ef011f478ab49b65ca3a00f  ./amfa-service-multi-tenants/cdk.json
 052e141403a692a8bf2a3b0fcd6219ba1d659c822711282a503150f2d86373ad  ./amfa-service-multi-tenants/vite.config.js
 1ae5124b1f1247fee2f36f61f3c9d9f3c1d640e8233b293fafa14d948afb0c62  ./amfa-service-multi-tenants/lib/ssm-tenant-manager.sh
-6935a12538d68c93d0395956ac71a420e102b266c768c16bdee615cba07e1085  ./amfa-service-multi-tenants/lib/aws-utils.sh
+29d952671f453ac8388b64304c25d904f605c908b7ed133df9aebb27fd3be8a3  ./amfa-service-multi-tenants/lib/aws-utils.sh
 9a8542e1e7e54b01e8f7122ff1f69acf2db2fdeea5aa9e0557c3ec2340149be5  ./amfa-service-multi-tenants/lib/tenant-utils.sh
-12392fdb446f4eb0f0e01a81550f39c049cb6b04fdf13d82d563afe58d9b7ab1  ./amfa-service-multi-tenants/lib/admin-portal.sh
+baf5bb9813917de54170da22ccc66d781a5abb9427ae28ee483c2d721e6c9854  ./amfa-service-multi-tenants/lib/admin-portal.sh
 8dc7ebd24cac6193ddd0244e8400fff02cb5e4412b4ff8bb55475e98945f8db0  ./amfa-service-multi-tenants/lib/build-utils.sh
 a4ea30eda5160f6ff13918d791ad19649f271f64d5d80cfe3c13ffad69bb5be2  ./amfa-service-multi-tenants/lib/logging.sh
 d7f7b93b4c5be3a071486a7af7228c779fee314e993e605a133f61a98c6e2cf1  ./amfa-service-multi-tenants/lib/validation.sh
