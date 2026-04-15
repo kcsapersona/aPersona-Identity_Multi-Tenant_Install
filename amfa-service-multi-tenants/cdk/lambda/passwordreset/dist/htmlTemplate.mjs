@@ -1,3 +1,4 @@
+import{createRequire}from'module';const require=createRequire(import.meta.url);
 var h=(a,i,l,d,o,n)=>{let t=`<p>Your following MFA value${i.length>1?"s":""} has been changed${o?" by Admin":""}.</p>`;for(let e=0;e<i.length;e++)t+=`<p>&nbsp;&nbsp;&#x2022; ${i[e]} has been `,t+=l[e]&&l[e].length>1?"changed to "+l[e]:"removed",t+="</p>";return console.log("HTML template diff value",t),`
 		<!DOCTYPE html >
 			<html>

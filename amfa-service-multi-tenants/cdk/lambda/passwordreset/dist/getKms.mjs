@@ -1,2 +1,3 @@
+import{createRequire}from'module';const require=createRequire(import.meta.url);
 import{SecretsManagerClient as c,GetSecretValueCommand as s}from"@aws-sdk/client-secrets-manager";var n=new c({region:process.env.AWS_REGION}),a=async e=>{let t=await n.send(new s({SecretId:`apersona/${e}/secret`}));return JSON.parse(t.SecretString)},S=async e=>(await a(e))?.asmSalt,p=async e=>{let t=await n.send(new s({SecretId:`apersona/${e}/smtp`})),r=JSON.parse(t.SecretString);return r.secure=r.secure==="true"||r.secure===!0,r},u=async e=>{let t=await n.send(new s({SecretId:`apersona/${e}/asm`}));return JSON.parse(t.SecretString)?.tenantAuthToken};export{u as getAsmPortalTenantAuthToken,S as getAsmSalt,p as getSMTP,a as getSecret};
 //# sourceMappingURL=getKms.mjs.map

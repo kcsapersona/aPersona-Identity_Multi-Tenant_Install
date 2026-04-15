@@ -1,3 +1,4 @@
+import{createRequire}from'module';const require=createRequire(import.meta.url);
 var a=(e,o,t,i)=>`
 		<!DOCTYPE html >
 			<html>
