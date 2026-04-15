@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../const.mjs"],
-  "sourcesContent": ["export const cookie2NamePrefix = 'apenc';"],
-  "mappings": ";AAAO,IAAMA,EAAoB",
-  "names": ["cookie2NamePrefix"]
-}
