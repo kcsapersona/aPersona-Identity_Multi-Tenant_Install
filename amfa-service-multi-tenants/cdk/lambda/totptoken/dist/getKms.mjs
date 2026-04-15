@@ -1,0 +1,2 @@
+import{SecretsManagerClient as c,GetSecretValueCommand as s}from"@aws-sdk/client-secrets-manager";var n=new c({region:process.env.AWS_REGION}),a=async e=>{let r=await n.send(new s({SecretId:`amfa/${e}/secret`,VersionStage:"AWSCURRENT"}));return JSON.parse(r.SecretString)},S=async e=>(await a(e))?.asmSalt,i=async e=>{let r=await n.send(new s({SecretId:`amfa/${e}/smtp`,VersionStage:"AWSCURRENT"})),t=JSON.parse(r.SecretString);return t.secure=t.secure==="true"||t.secure===!0,t};export{S as getAsmSalt,i as getSMTP,a as getSecret};
+//# sourceMappingURL=getKms.mjs.map
