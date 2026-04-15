@@ -19,12 +19,12 @@ baf5bb9813917de54170da22ccc66d781a5abb9427ae28ee483c2d721e6c9854  ./amfa-service
 8dc7ebd24cac6193ddd0244e8400fff02cb5e4412b4ff8bb55475e98945f8db0  ./amfa-service-multi-tenants/lib/build-utils.sh
 a4ea30eda5160f6ff13918d791ad19649f271f64d5d80cfe3c13ffad69bb5be2  ./amfa-service-multi-tenants/lib/logging.sh
 d7f7b93b4c5be3a071486a7af7228c779fee314e993e605a133f61a98c6e2cf1  ./amfa-service-multi-tenants/lib/validation.sh
-d87182f8f1ea460dcd7003be50c67972be4089af239199d60ac6244f0dd975cf  ./amfa-service-multi-tenants/build/assets/index-HzlGcmJj.js
+8f1f4b4e697140472f9eac7628377cf4b207ac51d4e572179962caf73ca4c735  ./amfa-service-multi-tenants/build/assets/index-BQ0YD35y.js
 c6946e6b1c40aaea5f10fa33b44ca26d0c3505c80bd82d65f14fb20d15e8f0b3  ./amfa-service-multi-tenants/build/assets/index-Nlml54nd.css
 21e71b1bf90bff819d901bdddfe8f3eaa00c9fb7d2047fb94c905afc6bd84f8e  ./amfa-service-multi-tenants/build/manifest.json
 02029f28b71ff53a5395cfdf132edf844a27e3b7136258bb313ffb176b0a7879  ./amfa-service-multi-tenants/build/favicon.ico
 90d24bc3bf698ac1e173739502298ccca72adf1f564fab05f484b8c48d1cadd2  ./amfa-service-multi-tenants/build/robots.txt
-09cd77bab42540a7b32c5f564ef2931a1edf75b880994c14549342e64f32beac  ./amfa-service-multi-tenants/build/index.html
+03d32e05d5f2e2b537979f12a6decfa1246ee788ed6da4982b4ee8d7f94a8a8f  ./amfa-service-multi-tenants/build/index.html
 fb099fd6e38a925d46e200120f0600584526fc59cf1d0bd5ff8c6dced7cde976  ./amfa-service-multi-tenants/build/46gr72sv5mp94v3.4a.js
 eab5d90a71736f267af39fdf32caa8c71673fd06703279b01e0f92b0d7be0bfc  ./amfa-service-multi-tenants/build/crypto-js.min.js
 4edaab0ba5ad027f8fd75f7e07578af2f53ff6d1620956317d7d21f8836a8ba3  ./amfa-service-multi-tenants/cdk/bin/amfa-cdk.js
@@ -92,9 +92,9 @@ b46c85195e835501dd51e1ccaf584a948cdfaa94b8148475b5e30d43399387c0  ./amfa-service
 110b11c04e8c354857094d887cd7e7cff555381e61c34f66d0df3c4fc430c739  ./amfa-service-multi-tenants/cdk/lambda/customemailsender/dist/index.js.map
 f56de857c39a28cf294a597eae9cb8a9318db1fc52b8ac9751fee2e209d1af71  ./amfa-service-multi-tenants/cdk/lambda/customemailsender/package.json
 c716d12766ea1f4f276b127e6b07b5674b054b168cddb81f20eefd27131ef4c3  ./amfa-service-multi-tenants/cdk/lambda/amfa/dist/const.js.map
-f802aeb1a215c52648f35c64fd14c6a4b348ff1b1f84eb4cc50a6f34b76ee709  ./amfa-service-multi-tenants/cdk/lambda/amfa/dist/amfa.js
+e234b4afbaa04d12559f266dc3605c74a3bab09ad861ac680835c883fd2a845e  ./amfa-service-multi-tenants/cdk/lambda/amfa/dist/amfa.js
 9e4aebe4653c5ab1b6666f7e32aec7d70d953859317c5207f5b9ca0afc241425  ./amfa-service-multi-tenants/cdk/lambda/amfa/dist/const.js
-456b8044d8c0f098306dba1e6a18fb6611cefb0d3489779d8ff2965d221ead3d  ./amfa-service-multi-tenants/cdk/lambda/amfa/dist/amfa.js.map
+76c8220b09a1b5626153ebcaac35c2d4f0fab53611e469b48579f317e7b16096  ./amfa-service-multi-tenants/cdk/lambda/amfa/dist/amfa.js.map
 90be8b88b2a4f02eacaf419baa59ae756c0e0f06963793d1e8f74b4291d9c367  ./amfa-service-multi-tenants/cdk/lambda/amfa/package.json
 e792303f01a53e13b4b8d0145d4e23cb0145d82bf4bd1e060e0fa6be03e2025c  ./amfa-service-multi-tenants/cdk/lib/types.d.ts
 2265da3ba9114223d3e65b0c5c0624fff97ccb788acb6957b6ac6e9e956f2bc3  ./amfa-service-multi-tenants/cdk/lib/sp-portal-shared.js
