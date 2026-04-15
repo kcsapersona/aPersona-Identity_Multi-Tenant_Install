@@ -144,8 +144,8 @@ b268430358ba109cace2148701d5cff554bc5af7b083893e1fa48dc5ba24404e  ./amfa-admin-p
 d0c5fbd03abb770aae1525e3889a1d1a35b70ee8b88cd57e69a0315ce637b8ca  ./amfa-admin-portal-multi-tenants/cdk/lambda/brandings/dist/index.js
 3702547cf45521dcd293a330c82624d29200b24707c56729dd7721a67cb379f1  ./amfa-admin-portal-multi-tenants/cdk/lambda/brandings/dist/index.js.map
 8139db6cbee0c0a10e53aec52242e65e09a185f76020adfe1ba7da86821a7545  ./amfa-admin-portal-multi-tenants/cdk/lambda/brandings/package.json
-43954bdd4858b86665caf918c2295691849f2f71abdd102b13f322bfa6b781d0  ./amfa-admin-portal-multi-tenants/cdk/lambda/serviceproviderslist/dist/index.js
-4039f7517a33f42f989f5675c64ab30c59264c26a9a8d3a23b0dae44df7e4e90  ./amfa-admin-portal-multi-tenants/cdk/lambda/serviceproviderslist/dist/index.js.map
+98be50f933e831d14094da7c591b4915e64e09089b5ac207e7f882026a96a721  ./amfa-admin-portal-multi-tenants/cdk/lambda/serviceproviderslist/dist/index.js
+13591a1857db9a8af1b1b1a47784cc13e74d75a8ce0d443247a3102bbaeb6e42  ./amfa-admin-portal-multi-tenants/cdk/lambda/serviceproviderslist/dist/index.js.map
 99641214c2cbef46c317695e3c55ed81a3b9b50cc202fe7d6731998b6b4038d3  ./amfa-admin-portal-multi-tenants/cdk/lambda/serviceproviderslist/package.json
 205f5700031322857f950e6c2eaa0bf61dae094f95ff26e23bca272cd70de375  ./amfa-admin-portal-multi-tenants/cdk/lambda/brandingslist/dist/index.js
 b6bc6a3d415d07d009088c5182528307e1ce08f3655ce099ca74e93e281c30c2  ./amfa-admin-portal-multi-tenants/cdk/lambda/brandingslist/dist/index.js.map
