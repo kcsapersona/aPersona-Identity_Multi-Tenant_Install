@@ -1,4 +1,4 @@
-"use strict";var i=Object.defineProperty;var r=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var l=Object.prototype.hasOwnProperty;var p=(e,t)=>{for(var o in t)i(e,o,{get:t[o],enumerable:!0})},c=(e,t,o,n)=>{if(t&&typeof t=="object"||typeof t=="function")for(let a of d(t))!l.call(e,a)&&a!==o&&i(e,a,{get:()=>t[a],enumerable:!(n=r(t,a))||n.enumerable});return e};var m=e=>c(i({},"__esModule",{value:!0}),e);var f={};p(f,{templateInvite:()=>y,templateReset:()=>h});module.exports=m(f);var s=e=>`  <html>
+"use strict";var n=Object.defineProperty;var r=Object.getOwnPropertyDescriptor;var s=Object.getOwnPropertyNames;var l=Object.prototype.hasOwnProperty;var p=(e,t)=>{for(var o in t)n(e,o,{get:t[o],enumerable:!0})},c=(e,t,o,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let i of s(t))!l.call(e,i)&&i!==o&&n(e,i,{get:()=>t[i],enumerable:!(a=r(t,i))||a.enumerable});return e};var m=e=>c(n({},"__esModule",{value:!0}),e);var f={};p(f,{templateInvite:()=>y,templateReset:()=>v});module.exports=m(f);var d=e=>`  <html>
   <head>
   <meta charset="utf-8">
   <style>
@@ -42,13 +42,13 @@
   </div>`,g=e=>`
     <div style = "text-align: center; font-size: 12pt; padding: 1em" >
       <a href="${e}" style="text-decoration: none; color: #fff;padding: 0.5em 1.5em; background-color:#06AA6D; border-radius: 0.3em"> Login </a>
-    </div >`,y=(e,t,o)=>s(o.email_logo_url)+u(e,t,o.service_name)+g(process.env.APP_URL),v=e=>`
+    </div >`,y=(e,t,o,a)=>d(o.email_logo_url)+u(e,t,o.service_name)+g(a),b=e=>`
     <div style="text-align: center; font-size: 12pt; padding: 1em">
       <a href="${e}" style="text-decoration: none; color: #fff;padding: 0.5em 1.5em; background-color:#06AA6D; border-radius: 0.3em"> Login </a>
-    </div>`,b=(e,t)=>`
+    </div>`,h=(e,t)=>`
     <p>Hi ${e||t}&#44</p>
     <br/>
     <p>Please be advised that your account password has been reset for security reasons.</p>
     <p>The next time you login, you will be required to update your password.</p>
-`,h=(e,t,o)=>s(o.email_logo_url)+b(e,t)+v(process.env.APP_URL);0&&(module.exports={templateInvite,templateReset});
+`,v=(e,t,o,a)=>d(o.email_logo_url)+h(e,t)+b(a);0&&(module.exports={templateInvite,templateReset});
 //# sourceMappingURL=templates.js.map
