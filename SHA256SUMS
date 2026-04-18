@@ -48,8 +48,8 @@ c29f0073ab7a82df90280e886641c3eebc6460906df637750dffbd5e72b09ec3  ./amfa-service
 b36aac9a249dbf535b25048e76625f1bec0828cf7c51971c4c0aa6929374371f  ./amfa-service-multi-tenants/cdk/lambda/postdeployment/dist/config.js.map
 becbb6dadbdac519c349ef34435d14d31d71a540c390ffb5d4b662023132b23b  ./amfa-service-multi-tenants/cdk/lambda/postdeployment/dist/postdeployment.js.map
 d633f4e6b89e956f72c8b277a99327fb273cf9ad34581a1b5b2c7a492346d061  ./amfa-service-multi-tenants/cdk/lambda/postdeployment/package.json
-673b4cb845c523cee7f1065ba5d1e23f8b242679ef5638bd026cfa633954b85b  ./amfa-service-multi-tenants/cdk/lambda/feconfig/dist/feconfig.js.map
-71917e2906451c4f4a22f1d9f452b8434f72077e31ec7ee595918fe7b88d4f9a  ./amfa-service-multi-tenants/cdk/lambda/feconfig/dist/feconfig.js
+f3ee250d5c199421885a302cc5d078716ac06bcfb7f7454d67fa07d6c67f85a2  ./amfa-service-multi-tenants/cdk/lambda/feconfig/dist/feconfig.js.map
+9ad35f7435b3c5064e72d282f641cb1a7f5269b8f06a5f9c120a0bcbc698e3b7  ./amfa-service-multi-tenants/cdk/lambda/feconfig/dist/feconfig.js
 6b72bfd30a966aae1a1f3c8ce3320cc48f9022e27ff7d1e4399929af43530613  ./amfa-service-multi-tenants/cdk/lambda/feconfig/package.json
 9b2a9f5549131fa7113caad3a34d93e6bdc7fcf3dc4387eb265a8cfa4d57cd45  ./amfa-service-multi-tenants/cdk/lambda/createauthchallenge/createauthchallenge.py
 3897fe5db83ed937143f60c7d5f0e663a8e9784b68ddba4f44c3aaee097e4553  ./amfa-service-multi-tenants/cdk/lambda/token/mytoken.py
@@ -109,7 +109,7 @@ d1ed760c9af9a13ce2ca211bd73808c85680c4276aca7a68a8fce1eced1247e4  ./amfa-service
 f813e5f83b5be6b7ea3cac9fde64c29951120ccebe846a7aedd0e87879fb4ff0  ./amfa-service-multi-tenants/cdk/lib/types.js
 c255ece98f4ee6be04e624573097194d930ba14bf4f432ede39b4ebaad2f4386  ./amfa-service-multi-tenants/cdk/lib/config.js
 8e3198341da7e1120a2f91e0d553047ca08efa3c737c9b7e794496b8dcc42649  ./amfa-service-multi-tenants/cdk/lib/lambda.d.ts
-a11a91c19962714119da74584b04bb8a98b744c2d047c3a902cc52d9c53b38db  ./amfa-service-multi-tenants/cdk/lib/shared-api-gateway.js
+83c44108469257a10e930d17ab6db9d58255f4fa2ce56c7a399c4b52acb44fb0  ./amfa-service-multi-tenants/cdk/lib/shared-api-gateway.js
 6d0f7485b565f22e6d2a7412155bf411b0f13c9a7ceb381ceaaedd1105b698b4  ./amfa-service-multi-tenants/cdk/lib/postdeployment.js
 88ceafdf500ca748d25e7f8b93f7bca7a540f7f55597474e6efe6466fd8a3fc8  ./amfa-service-multi-tenants/cdk/lib/dynamodb.d.ts
 044ec66e20789dfc08226ea2b8a5995e6ff6040da5fe7890db859f460572b79e  ./amfa-service-multi-tenants/cdk/lib/amfa-stack.d.ts
