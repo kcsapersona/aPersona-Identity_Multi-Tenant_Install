@@ -48,9 +48,9 @@ c29f0073ab7a82df90280e886641c3eebc6460906df637750dffbd5e72b09ec3  ./amfa-service
 b36aac9a249dbf535b25048e76625f1bec0828cf7c51971c4c0aa6929374371f  ./amfa-service-multi-tenants/cdk/lambda/postdeployment/dist/config.js.map
 becbb6dadbdac519c349ef34435d14d31d71a540c390ffb5d4b662023132b23b  ./amfa-service-multi-tenants/cdk/lambda/postdeployment/dist/postdeployment.js.map
 d633f4e6b89e956f72c8b277a99327fb273cf9ad34581a1b5b2c7a492346d061  ./amfa-service-multi-tenants/cdk/lambda/postdeployment/package.json
-f3ee250d5c199421885a302cc5d078716ac06bcfb7f7454d67fa07d6c67f85a2  ./amfa-service-multi-tenants/cdk/lambda/feconfig/dist/feconfig.js.map
-9ad35f7435b3c5064e72d282f641cb1a7f5269b8f06a5f9c120a0bcbc698e3b7  ./amfa-service-multi-tenants/cdk/lambda/feconfig/dist/feconfig.js
-6b72bfd30a966aae1a1f3c8ce3320cc48f9022e27ff7d1e4399929af43530613  ./amfa-service-multi-tenants/cdk/lambda/feconfig/package.json
+8772cda428b70b2b2f878993060e71ef1ab5008b0fbc4a557a0231145b908288  ./amfa-service-multi-tenants/cdk/lambda/feconfig/dist/feconfig.js.map
+2b3ac981d30f5988f5c76478fe14a739bca8795fe18326bd53166014c4f53eae  ./amfa-service-multi-tenants/cdk/lambda/feconfig/dist/feconfig.js
+3ae57478166e0af122a5265f4bc5aad9dd3f9c78200f0f2248846656610f3d7e  ./amfa-service-multi-tenants/cdk/lambda/feconfig/package.json
 9b2a9f5549131fa7113caad3a34d93e6bdc7fcf3dc4387eb265a8cfa4d57cd45  ./amfa-service-multi-tenants/cdk/lambda/createauthchallenge/createauthchallenge.py
 3897fe5db83ed937143f60c7d5f0e663a8e9784b68ddba4f44c3aaee097e4553  ./amfa-service-multi-tenants/cdk/lambda/token/mytoken.py
 65148f15ac71925616a9d960256a7e22b3b2e33611112f696fe40cda21fcc9db  ./amfa-service-multi-tenants/cdk/lambda/admininitauth/dist/admininitauth.js
