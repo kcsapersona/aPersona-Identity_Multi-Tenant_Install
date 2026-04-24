@@ -19,12 +19,12 @@ baf5bb9813917de54170da22ccc66d781a5abb9427ae28ee483c2d721e6c9854  ./amfa-service
 8dc7ebd24cac6193ddd0244e8400fff02cb5e4412b4ff8bb55475e98945f8db0  ./amfa-service-multi-tenants/lib/build-utils.sh
 a4ea30eda5160f6ff13918d791ad19649f271f64d5d80cfe3c13ffad69bb5be2  ./amfa-service-multi-tenants/lib/logging.sh
 d7f7b93b4c5be3a071486a7af7228c779fee314e993e605a133f61a98c6e2cf1  ./amfa-service-multi-tenants/lib/validation.sh
-700102c340cf2c39334d18b47060abbd0789e80d857d43bc4bf7e5ca92b207d7  ./amfa-service-multi-tenants/build/assets/index-D94gNSma.js
-c16586f39bcd87f00e335c8c899b62afbaf4ef2e792f9a64a9aaeb6f8d070f4d  ./amfa-service-multi-tenants/build/assets/index-BdzIzcwf.css
+66744878ac563f503ac4959233604ac934b009721814f824fc550022cba9b05c  ./amfa-service-multi-tenants/build/assets/index-1NqxkjCS.js
+97de5dd086712306e3da675c2d2eec731f903e20bc110db581454c7ece5a49f5  ./amfa-service-multi-tenants/build/assets/index-Dw4bAVur.css
 21e71b1bf90bff819d901bdddfe8f3eaa00c9fb7d2047fb94c905afc6bd84f8e  ./amfa-service-multi-tenants/build/manifest.json
 02029f28b71ff53a5395cfdf132edf844a27e3b7136258bb313ffb176b0a7879  ./amfa-service-multi-tenants/build/favicon.ico
 90d24bc3bf698ac1e173739502298ccca72adf1f564fab05f484b8c48d1cadd2  ./amfa-service-multi-tenants/build/robots.txt
-02cc18db40d5a59e5859b54fe1801926a1879838649d043f25d887fe25e5cf34  ./amfa-service-multi-tenants/build/index.html
+d76a1b21ff02b8d8057e4ce4ef8f86ed6f4f8a11d9aa99e042a91b637b57ec7c  ./amfa-service-multi-tenants/build/index.html
 fb099fd6e38a925d46e200120f0600584526fc59cf1d0bd5ff8c6dced7cde976  ./amfa-service-multi-tenants/build/46gr72sv5mp94v3.4a.js
 eab5d90a71736f267af39fdf32caa8c71673fd06703279b01e0f92b0d7be0bfc  ./amfa-service-multi-tenants/build/crypto-js.min.js
 4edaab0ba5ad027f8fd75f7e07578af2f53ff6d1620956317d7d21f8836a8ba3  ./amfa-service-multi-tenants/cdk/bin/amfa-cdk.js
@@ -372,5 +372,5 @@ a9c8e37316d508fda95957a6da3212151a1d5b5d583c45ca223adb6a530a1646  ./amfa-admin-p
 4f9c6d4e5fcc71bf38e7ecaed5cf3b4134e301c91078d8658c19834be5e66432  ./tenants-config.json
 fc36a5a88f2d640ef502c893fc49645015788290b4b465c1ecfdb945b419f1bb  ./NOTICE
 73c65e7946cc7aa999b7cff7d33d606fe5ea766b34a9d38acdae87c1e97ff1c4  ./uninstall.sh
-9a5e04d55ade7d167d2c3717946fb945d2036ac644486074f77df2bf1942b9db  ./VERSION
+dcdecbc7866cc9413935ee7a76b92beba1e4494f63aa0df5d8b5afe979d16260  ./VERSION
 d5ab74cd2f10d786d1a9121efcf8cbce457d1c6167ffb6d1ebaaed0a2a6d3f73  ./aPersona_ASM-and-aPersona_Identity_Mgr_Ts_Cs.txt
