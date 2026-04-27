@@ -219,7 +219,8 @@ abf4bcc6f049613d559473447c08a2ab9c555a54a0923e7bbe5066ef0227e2d2  ./amfa-admin-p
 2d07ebfe5d5cd13877901c0ba4eb8eea8b6e3e2a273e01680f52e4e9bc43b8fc  ./amfa-admin-portal-multi-tenants/cdk/lambda/organizationslist/dist/crud.js
 7e9fd0afdd3c722e07109674e58c326534e3668c5fca3baf86eeb0e5342626ac  ./amfa-admin-portal-multi-tenants/cdk/lambda/organizationslist/dist/index.js.map
 8df72ad828074965620c586fa786843bb381eb96b58658ca7518c1e9f50fe214  ./amfa-admin-portal-multi-tenants/cdk/lambda/organizationslist/package.json
-c11edefbe74ea3a42da13cc9ab12dfe04c330a6fca23d045a47cdced082ff6b9  ./amfa-admin-portal-multi-tenants/cdk/lambda/totptoken-authorizer/index.mjs
+d4d0a4241800447560187ce5d844c8cbc3d70dbe9a2d47c4a18bd06a621f0ac8  ./amfa-admin-portal-multi-tenants/cdk/lambda/totptoken-authorizer/dist/index.js
+3e63417bd13596489960d8238085b4ed23ccf9e8afeb9569538c7fb2c4235607  ./amfa-admin-portal-multi-tenants/cdk/lambda/totptoken-authorizer/dist/index.js.map
 ac193f6de0865fdfcb6ebdddb32c17f3953b6d06d74a4638f1c3111d6e7835fe  ./amfa-admin-portal-multi-tenants/cdk/lambda/totptoken-authorizer/package.json
 3fb2e2d885bf47d080714ca5f9e79ba477cad3d475ff0343f2fc0c86625a1072  ./amfa-admin-portal-multi-tenants/cdk/lambda/users/dist/put.js
 00896bde82b35dd4279ceb0ce8e814c53fd7a7e22be7432fb5812f6b96c81a01  ./amfa-admin-portal-multi-tenants/cdk/lambda/users/dist/get.js.map
