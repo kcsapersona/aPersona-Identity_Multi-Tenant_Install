@@ -1,0 +1,18 @@
+{
+  "name": "totptoken-authorizer",
+  "version": "1.0.0",
+  "description": "Multi-tenant Lambda authorizer for client_credentials JWT tokens (totptoken API)",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "build": "rm -rf dist && esbuild ./*.mjs --entry-names=./[name] --bundle --minify --sourcemap --platform=node --target=node20.16 --outdir=dist --external:@aws-sdk/*",
+    "test": "echo \"no test\" && exit 1"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2",
+    "jwks-rsa": "^3.1.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.0"
+  }
+}
