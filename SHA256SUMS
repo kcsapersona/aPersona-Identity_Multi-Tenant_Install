@@ -20,11 +20,11 @@ baf5bb9813917de54170da22ccc66d781a5abb9427ae28ee483c2d721e6c9854  ./amfa-service
 a4ea30eda5160f6ff13918d791ad19649f271f64d5d80cfe3c13ffad69bb5be2  ./amfa-service-multi-tenants/lib/logging.sh
 d7f7b93b4c5be3a071486a7af7228c779fee314e993e605a133f61a98c6e2cf1  ./amfa-service-multi-tenants/lib/validation.sh
 7cffaa8d66176819281f9d9d4cee7f3b13ebb6a5d35fe444cf82b68936ebf44d  ./amfa-service-multi-tenants/build/assets/index-B7gFQHcR.css
-d1087bc23701003e3dff673e2c35dc34647f73cf536189f6e1b5d5a894cb8373  ./amfa-service-multi-tenants/build/assets/index-CduWa-rw.js
+44faeae73c4d3eac1e24b630b223447a52811a0c6e08778f9a1aa96b5220a3f0  ./amfa-service-multi-tenants/build/assets/index-smP1QYKT.js
 21e71b1bf90bff819d901bdddfe8f3eaa00c9fb7d2047fb94c905afc6bd84f8e  ./amfa-service-multi-tenants/build/manifest.json
 02029f28b71ff53a5395cfdf132edf844a27e3b7136258bb313ffb176b0a7879  ./amfa-service-multi-tenants/build/favicon.ico
 90d24bc3bf698ac1e173739502298ccca72adf1f564fab05f484b8c48d1cadd2  ./amfa-service-multi-tenants/build/robots.txt
-09faf0d0b9f2b656838b9dcc7cce347edd65cbd85b37142b426747bb12dd1de0  ./amfa-service-multi-tenants/build/index.html
+fd8c4abb957bcb0e15e7891653ba3ded1ace10ea5c04fc2fd327a56214f91966  ./amfa-service-multi-tenants/build/index.html
 fb099fd6e38a925d46e200120f0600584526fc59cf1d0bd5ff8c6dced7cde976  ./amfa-service-multi-tenants/build/46gr72sv5mp94v3.4a.js
 eab5d90a71736f267af39fdf32caa8c71673fd06703279b01e0f92b0d7be0bfc  ./amfa-service-multi-tenants/build/crypto-js.min.js
 4edaab0ba5ad027f8fd75f7e07578af2f53ff6d1620956317d7d21f8836a8ba3  ./amfa-service-multi-tenants/cdk/bin/amfa-cdk.js
