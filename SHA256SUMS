@@ -3,11 +3,11 @@ e6ad82fa6c63ebdedbd57c378bce402f180db39ff746cad15ef2acbc0f6c9e5c  ./amfa-service
 16968cfde43838ab1ccada0c3ed45d677e191f6dbebee5df39368b9bfad88f8c  ./amfa-service-multi-tenants/index.html
 99e4c4524f3afa94aacc28af3a1bc836f9c4d64e3399520d0e6d19bbc9af43d6  ./amfa-service-multi-tenants/spportal/dist/astro.png
 0c20d2981eb23c008992e698e196bb4ebc1bfc980ac8e4a65cc41e455a84627a  ./amfa-service-multi-tenants/spportal/dist/saml.png
-b4aa981153857b01edfa64ccfecadc04dd7950840055f01cf1439f04a87bd9d6  ./amfa-service-multi-tenants/spportal/dist/assets/index-DROrkUhz.js
+633d72d8e0b97d2c9d3cb8c47701f6e99ceb52f50cfcb666c865437ab3dff0cf  ./amfa-service-multi-tenants/spportal/dist/assets/index-D2YemMgv.js
 0292230d8155727ef603204b7008d54c50de8451f5e39b32b9b7bf95b1c04cf0  ./amfa-service-multi-tenants/spportal/dist/manifest.json
 02029f28b71ff53a5395cfdf132edf844a27e3b7136258bb313ffb176b0a7879  ./amfa-service-multi-tenants/spportal/dist/favicon.ico
 19a58d300dbf4b63276f83ac8c6c7542badc833d05d81d2c79418dc078cbf230  ./amfa-service-multi-tenants/spportal/dist/cloud.png
-1acd876f6ff9ae8f0eed4eb8e8c51d17a8fc146b23baeec9796f88f297448ac2  ./amfa-service-multi-tenants/spportal/dist/index.html
+7419e54fca1bdde383e00ad94f5b44cb6a8f66fd4a20fc0dad438d6addc02ed9  ./amfa-service-multi-tenants/spportal/dist/index.html
 f3d61e6f14d8a7274841cbdc665753a8bf487d04c9237b91e0471b1cc00e2e0d  ./amfa-service-multi-tenants/spportal/dist/branding.json
 17c7b036b11009b4c72fb1d693714b134503361178088640ecd4af99e913a2e6  ./amfa-service-multi-tenants/spportal/dist/oidc.png
 e15553d8c3ac5c8f7a9b47b25313faf1daa52f916ef011f478ab49b65ca3a00f  ./amfa-service-multi-tenants/cdk.json
@@ -20,11 +20,11 @@ baf5bb9813917de54170da22ccc66d781a5abb9427ae28ee483c2d721e6c9854  ./amfa-service
 a4ea30eda5160f6ff13918d791ad19649f271f64d5d80cfe3c13ffad69bb5be2  ./amfa-service-multi-tenants/lib/logging.sh
 d7f7b93b4c5be3a071486a7af7228c779fee314e993e605a133f61a98c6e2cf1  ./amfa-service-multi-tenants/lib/validation.sh
 7cffaa8d66176819281f9d9d4cee7f3b13ebb6a5d35fe444cf82b68936ebf44d  ./amfa-service-multi-tenants/build/assets/index-B7gFQHcR.css
-0f3f220049417423487b7fc0be32252901228ebcf395d6efa452af0ab19d20bb  ./amfa-service-multi-tenants/build/assets/index-DwXKgVjU.js
+b35f58e35b73b5c7fe2d3914efbb0e279c54f0f90cffdd5678f32f5683cd6bcc  ./amfa-service-multi-tenants/build/assets/index-C-REW6RX.js
 21e71b1bf90bff819d901bdddfe8f3eaa00c9fb7d2047fb94c905afc6bd84f8e  ./amfa-service-multi-tenants/build/manifest.json
 02029f28b71ff53a5395cfdf132edf844a27e3b7136258bb313ffb176b0a7879  ./amfa-service-multi-tenants/build/favicon.ico
 90d24bc3bf698ac1e173739502298ccca72adf1f564fab05f484b8c48d1cadd2  ./amfa-service-multi-tenants/build/robots.txt
-dd265a752cdf1b88a8eda1d0db84b9266e35c316481faecebaa94d94d4538b18  ./amfa-service-multi-tenants/build/index.html
+490ef7e466c99c616bddd25dab4a8be6c9a92b0fecfba48d6014fc0cad52a966  ./amfa-service-multi-tenants/build/index.html
 fb099fd6e38a925d46e200120f0600584526fc59cf1d0bd5ff8c6dced7cde976  ./amfa-service-multi-tenants/build/46gr72sv5mp94v3.4a.js
 eab5d90a71736f267af39fdf32caa8c71673fd06703279b01e0f92b0d7be0bfc  ./amfa-service-multi-tenants/build/crypto-js.min.js
 4edaab0ba5ad027f8fd75f7e07578af2f53ff6d1620956317d7d21f8836a8ba3  ./amfa-service-multi-tenants/cdk/bin/amfa-cdk.js
