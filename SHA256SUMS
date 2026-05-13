@@ -338,8 +338,8 @@ e3e927b91578662ee526a6dbb7f613d6ab4ccf07d667acbd82bea0c1f23b3c1b  ./amfa-admin-p
 d724e7c76b7ada8d6812f3381755f677e7114b439f41cba2e609c6c2e3fe78cb  ./amfa-admin-portal-multi-tenants/cdk/lambda/samlslist/package.json
 2b9f95cf3feca3dcdd1421c4a122d14a5234eee327eb0a49ad1d1091545025fd  ./amfa-admin-portal-multi-tenants/cdk/lambda/importusersworker/dist/kmsUtil.js.map
 3d0170bc544d5e8366f567e30b6bec5b521cabac58ef0e9506e0cb8143d8c4f2  ./amfa-admin-portal-multi-tenants/cdk/lambda/importusersworker/dist/kmsUtil.js
-5303154d10f17677a11243db1260fcb03901ec4c0e20bd4eba45cf9df05e4fb9  ./amfa-admin-portal-multi-tenants/cdk/lambda/importusersworker/dist/index.js
-0fbbb4b4cb0851f3667bf3144b5cee85fcebd46bbf4914923711c06ded921b0e  ./amfa-admin-portal-multi-tenants/cdk/lambda/importusersworker/dist/index.js.map
+6aa4e78005605775eac29e0dce176ed68deb7f48ff9287066ed0803b7eea980e  ./amfa-admin-portal-multi-tenants/cdk/lambda/importusersworker/dist/index.js
+7c06af42ecb0464ac0547829adc999db50aa964c1c98d42c6bf0d75327c865d2  ./amfa-admin-portal-multi-tenants/cdk/lambda/importusersworker/dist/index.js.map
 2770cd923374d66dd5bc8da9221efa3ff30a559602aed5ca6b33f9cbe842dff1  ./amfa-admin-portal-multi-tenants/cdk/lambda/importusersworker/package.json
 faa74553aed5b4e4a96257ba65ab64c2a29bd1a2fd12fe74a5191139bbdf108c  ./amfa-admin-portal-multi-tenants/cdk/lambda/appclients/dist/put.js
 7638b4e9f3addeb470dd046f5478a1fe7eb77d4ada90723d5bdb9c2ba07d3f81  ./amfa-admin-portal-multi-tenants/cdk/lambda/appclients/dist/get.js.map
@@ -372,7 +372,7 @@ f3b53f757398228e3814ac328861abf69f68220c8420f638be0ea69e9189642e  ./amfa-admin-p
 a7df702c61f105e17e23c58a9f41bce33a9bae35412575645892ef0300ed143a  ./amfa-admin-portal-multi-tenants/cdk/lib/userpool.js
 00341ad323224f950a5ba08a40545ad5c77da53ef6ca9ee72555aac3a6bfd8db  ./amfa-admin-portal-multi-tenants/cdk/lib/monitoring.js
 bdfc8e20cbf0583fc7890109e4a74d22a9a94f364f036892b28090a75ec48c49  ./amfa-admin-portal-multi-tenants/cdk/lib/webapp.js
-c4ccd4cf16f7aa54c6f13e97ad9d90d175bd56b62ad0ecfc4ea5c9197786825b  ./amfa-admin-portal-multi-tenants/cdk/lib/httpapi.js
+1b6d70786281fc4791ced477d0483143e24cd95865301d6980b1b7a768eaf4ba  ./amfa-admin-portal-multi-tenants/cdk/lib/httpapi.js
 49217e0d5c63e99d673804776348ef305a0b68e86abdacce55c235a88460dd4c  ./amfa-admin-portal-multi-tenants/cdk/lib/postDeployment.js
 0fb2ee589769a291cde58439079249b5b9c78f2653a16620ded2caa776693c6f  ./amfa-admin-portal-multi-tenants/cdk/lambda-layers/auth-layer/nodejs/node_modules/admin-auth/asm-utils.mjs
 deb77854c98f8b3a4aa1887672a1fefdd99d29de547105d8f9dd116cd71a3a5f  ./amfa-admin-portal-multi-tenants/cdk/lambda-layers/auth-layer/nodejs/node_modules/admin-auth/cors-utils.mjs
