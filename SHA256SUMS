@@ -138,8 +138,8 @@ c60ea0aec6a98cce04823f11d133c47a66ba4642cd3d61d5ba9892cd75c347f9  ./amfa-admin-p
 2d343e60fbaa6f9b124b5e577d37020514f489a7423e0cac004844ac138d07eb  ./amfa-admin-portal-multi-tenants/tsconfig.cdk.json
 607b4bf5552db6e87d7499d7935e456b0b8ce3af7a721aee01204d709241887c  ./amfa-admin-portal-multi-tenants/vite.config.ts
 b268430358ba109cace2148701d5cff554bc5af7b083893e1fa48dc5ba24404e  ./amfa-admin-portal-multi-tenants/cdk/bin/sso-cup.js
-80e1cac7e57c664cbea66c36f774eae3405ccef8e60c88c77342abba509e8538  ./amfa-admin-portal-multi-tenants/cdk/lambda/adsyncconfig/dist/index.js
-ceb33acf6158f4d272466f859a24388e2976cd7880118a58802b74b6e5d3c4e9  ./amfa-admin-portal-multi-tenants/cdk/lambda/adsyncconfig/dist/index.js.map
+081a983d719a750ebc1dc333a8de8112d0756cc8fea7c593b2de9ecf1d4dbbb5  ./amfa-admin-portal-multi-tenants/cdk/lambda/adsyncconfig/dist/index.js
+2a94450920d49b746cba90f9bea8b260220afb3c6b60db53f99c34cd81a64a8c  ./amfa-admin-portal-multi-tenants/cdk/lambda/adsyncconfig/dist/index.js.map
 973b1b5c85ef905d4287c485fbaba7eff9086e2cfba1bc95649e5f3981ebb67a  ./amfa-admin-portal-multi-tenants/cdk/lambda/adsyncconfig/package.json
 0220ab8cefc8b2761840dd13ba4979b4028753b6290cf7e9674d2d8907973e7f  ./amfa-admin-portal-multi-tenants/cdk/lambda/tenant-reader/dist/index.js
 41547fa67e35ed3b66a249492adbc4435993fcb27dbc0e4579200dd4aaa91785  ./amfa-admin-portal-multi-tenants/cdk/lambda/tenant-reader/dist/index.js.map
