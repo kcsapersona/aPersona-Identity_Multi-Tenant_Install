@@ -113,7 +113,7 @@ d1ed760c9af9a13ce2ca211bd73808c85680c4276aca7a68a8fce1eced1247e4  ./amfa-service
 f813e5f83b5be6b7ea3cac9fde64c29951120ccebe846a7aedd0e87879fb4ff0  ./amfa-service-multi-tenants/cdk/lib/types.js
 992edac22a00a4c1dc5940da74b5eb270269ac4eea79f8e3cd785aa518071f83  ./amfa-service-multi-tenants/cdk/lib/config.d.ts
 3149862dbd998499ca79bb2aecc987cd765f7b989118045df3402471c0b4e867  ./amfa-service-multi-tenants/cdk/lib/const.js
-f130f43b3cbc834e7c1f112a3325ffdaae9278990f795940f8af117f2d90558b  ./amfa-service-multi-tenants/cdk/lib/shared-api-gateway.js
+4f95ee1e54bf7fb4759d9cbf4cb2182a1ab0abf4098a5406cea874572a6aa0e1  ./amfa-service-multi-tenants/cdk/lib/shared-api-gateway.js
 c9c2f3dac6b0dfd9169963b9af0030720fc87aed576759b2c3b105ba19bb0247  ./amfa-service-multi-tenants/cdk/lib/certificate.js
 6d0f7485b565f22e6d2a7412155bf411b0f13c9a7ceb381ceaaedd1105b698b4  ./amfa-service-multi-tenants/cdk/lib/postdeployment.js
 6601306681d5c401f8ffbf3014e9eae8cbe068f9d6e45023dc064a49abc16b27  ./amfa-service-multi-tenants/cdk/lib/sp-portal-shared.d.ts
