@@ -4,7 +4,7 @@
   "description": "AD Sync Worker Lambda — batch sync per tenant",
   "main": "index.mjs",
   "scripts": {
-    "build": "rm -rf dist && esbuild ./*.mjs --entry-names=./[name] --bundle --minify --sourcemap --platform=node --target=node20.16 --format=esm --out-extension:.js=.mjs --outdir=dist --external:@aws-sdk/*",
+    "build": "rm -rf dist && esbuild ./*.mjs --entry-names=./[name] --bundle --minify --sourcemap --platform=node --target=node20.16 --format=esm --out-extension:.js=.mjs --outdir=dist --external:@aws-sdk/* --banner:js=\"import { createRequire } from 'module'; const require = createRequire(import.meta.url);\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "ISC",
