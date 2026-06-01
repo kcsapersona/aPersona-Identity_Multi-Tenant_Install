@@ -47,9 +47,9 @@ b46c85195e835501dd51e1ccaf584a948cdfaa94b8148475b5e30d43399387c0  ./amfa-service
 f4937c9dba145145e4c062dda3a8dac05c12b2e227a4fcf6339bfcba9163bb2d  ./amfa-service-multi-tenants/cdk/lambda/customemailsender/dist/templates.js
 72d1a31c252117261a45d333642558c1476b0b7b84195cfc7b6187cc55d0fb17  ./amfa-service-multi-tenants/cdk/lambda/customemailsender/dist/fetchConfig.js.map
 90be8b88b2a4f02eacaf419baa59ae756c0e0f06963793d1e8f74b4291d9c367  ./amfa-service-multi-tenants/cdk/lambda/amfa/package.json
-7bb74a383bd1c3e6efc0e4fd20e157ce9fe15167525a218826f45ae8db4773b0  ./amfa-service-multi-tenants/cdk/lambda/amfa/dist/amfa.js
+988f6cb1efdd2ac5802beabfd318daa8a414909cb2d201867a22f02e8f72efcd  ./amfa-service-multi-tenants/cdk/lambda/amfa/dist/amfa.js
 9e4aebe4653c5ab1b6666f7e32aec7d70d953859317c5207f5b9ca0afc241425  ./amfa-service-multi-tenants/cdk/lambda/amfa/dist/const.js
-90fc8556ef80c095ef853486ebaec6f29a2c2a7aa8c44988f9e72398417e74a3  ./amfa-service-multi-tenants/cdk/lambda/amfa/dist/amfa.js.map
+e26ebdd91c90c724706be4c88ef9b5122a8b7476159077dac2c23e4d61f3ee2d  ./amfa-service-multi-tenants/cdk/lambda/amfa/dist/amfa.js.map
 c716d12766ea1f4f276b127e6b07b5674b054b168cddb81f20eefd27131ef4c3  ./amfa-service-multi-tenants/cdk/lambda/amfa/dist/const.js.map
 3897fe5db83ed937143f60c7d5f0e663a8e9784b68ddba4f44c3aaee097e4553  ./amfa-service-multi-tenants/cdk/lambda/token/mytoken.py
 c29f0073ab7a82df90280e886641c3eebc6460906df637750dffbd5e72b09ec3  ./amfa-service-multi-tenants/cdk/lambda/totptoken/package.json
@@ -134,10 +134,10 @@ a9c8e37316d508fda95957a6da3212151a1d5b5d583c45ca223adb6a530a1646  ./amfa-admin-p
 c60ea0aec6a98cce04823f11d133c47a66ba4642cd3d61d5ba9892cd75c347f9  ./amfa-admin-portal-multi-tenants/dist/apersona-logo2.png
 3a33a7c08c6dd5c2d89c1c4222ee8033617f90b1708ab65952aee0e4bfde7f7f  ./amfa-admin-portal-multi-tenants/dist/Logo.png
 5613fc96a4cabe85403d5ab67e261ca22d0ccb926d49975876d405c3a80d65eb  ./amfa-admin-portal-multi-tenants/dist/manifest.json
-0c37cda877dc208fe1b020485759edb7764820dac3c0bc4a56d6fc6bc7177870  ./amfa-admin-portal-multi-tenants/dist/index.html
+2581088b6274d5007205bb587462f1b00e323dc32484e374ac04043a0423962b  ./amfa-admin-portal-multi-tenants/dist/index.html
 02029f28b71ff53a5395cfdf132edf844a27e3b7136258bb313ffb176b0a7879  ./amfa-admin-portal-multi-tenants/dist/favicon.ico
 c3686924f40bba17e89ff856e1f8e3a7110de1e8aaad11722831924feba4fd4b  ./amfa-admin-portal-multi-tenants/dist/assets/index-DmjCeAXE.css
-18489d8245a1b643afb33f3f4f3ba18cf93826a633231d1e708c3d6926b33261  ./amfa-admin-portal-multi-tenants/dist/assets/index-BIGMlabm.js
+b70b8bdb6d4586d15ea05bb53f2a546f7262ca5d697f16c9e2724427db92f63f  ./amfa-admin-portal-multi-tenants/dist/assets/index-CVCG2h8u.js
 78b08cf60dc74ed4a6b2bc4a963f6d80dcc27a59e2a7901391337cbc113442d6  ./amfa-admin-portal-multi-tenants/cdk/lambda/tenantslist/package.json
 9f0781db3045105177aeb7f227038f6db3eed4165feb960fbf68cf90f6019af8  ./amfa-admin-portal-multi-tenants/cdk/lambda/tenantslist/dist/index.js
 95be89ef8cbfe1bccfb9289700503f0033189ec0c9c4c9fe67228e3e09fe316f  ./amfa-admin-portal-multi-tenants/cdk/lambda/tenantslist/dist/post.js.map
@@ -245,8 +245,8 @@ f3956743e1e70a1b3ab1bda76132017a87dfa4f7d9cf4b03d5418f9db0f8b489  ./amfa-admin-p
 1ac355ff248220cc6a3496fda460571457510e2e1707f3f8fe14bda139f23ebd  ./amfa-admin-portal-multi-tenants/cdk/lambda/spmetadatas/dist/delete.js
 03a6c8368471658bccc37e948c91a6752c27e7e630b6e4a3f37e649475484ef3  ./amfa-admin-portal-multi-tenants/cdk/lambda/spmetadatas/dist/get.js
 c66b20e60903310e9393e3bffdb48b382222b5f0ebe7952f9d3502def16165dc  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/package.json
-9c8371c407f726a6947b2b6fda237421f6c81a1c907125f8553e19efdd1cc8e2  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/index.mjs
-66d248b704b418538688fba4ee8bce73083932a02461fd6a492585bc55af3599  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/index.mjs.map
+6a5bc2b9cafe5abba96921af30896828a1c2abda0875d4ffe9aa94a010a54324  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/index.mjs
+507b43dcf3475be75e71b60d4e0190824b38428fec3d23a27a0c8d6150656359  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/index.mjs.map
 6a07da0511555749e54dadd1620b85ad0718738b3d44dfbd6dd287fdfc73a43d  ./amfa-admin-portal-multi-tenants/cdk/lambda/platforminfo/package.json
 3092c9a501d49cc03a0d0dcd628e9ab0a92966eb5234551d8c06b693ae5b5661  ./amfa-admin-portal-multi-tenants/cdk/lambda/platforminfo/dist/index.js
 61afb7102f87a2c9f88f8ccab4e8841f9848cd794913cb1aa9ddb9afc14a7dcc  ./amfa-admin-portal-multi-tenants/cdk/lambda/platforminfo/dist/index.js.map
@@ -318,8 +318,8 @@ ac59a194185582f7b5863be0a77879fcdf26889887e68b617aa2400df7bb41af  ./amfa-admin-p
 0c3dc388452769196cb9c9303b9dd53b7f1cddeafc8627c243fa10ed2cf76a69  ./amfa-admin-portal-multi-tenants/cdk/lambda/samls/dist/put.js.map
 7b77a3edc5b7596eba5d182b1f5edf0d1e1dfe967e12ee617a75e885fb424427  ./amfa-admin-portal-multi-tenants/cdk/lambda/samls/dist/put.js
 0d8ec928fe7658c8e26dac80abb8ef08b4f3fabab578a24c7762c5c534b51644  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/package.json
-0436b51da553924654c5963f2abb46bd80ec3d65a9908f2fa4e19e40a5e5f450  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/index.js
-1b122fd2549c711b0ad88efcb5df4f721808941128794f78912e6497a94790fe  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/index.js.map
+d48d1eb511b23685ec0af1ecdb008f85b10264ab06579578599b6d1b1e7824e5  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/index.js
+0adee28a1efd55b87df23945037268f50daeec592e73c559620125820a692445  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/index.js.map
 a612e54e04652dd35d62490b0422b026a86f6fa5203c6955d134b156e02557f2  ./amfa-admin-portal-multi-tenants/cdk/lambda/importuserslist/package.json
 366dc057a5a1194dd90f00ef51837f18d4925825dbc51a162ac20f4d8e438e9b  ./amfa-admin-portal-multi-tenants/cdk/lambda/importuserslist/dist/index.js
 c77347638418afb2081271438ee01d142f27b3e78116c4b3a56ce39f343db2f9  ./amfa-admin-portal-multi-tenants/cdk/lambda/importuserslist/dist/post.js.map
