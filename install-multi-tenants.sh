@@ -69,6 +69,44 @@ else
     exit 1
 fi
 
+# ============================================================
+# Parse command-line arguments
+# ============================================================
+# NON_INTERACTIVE mode: skips all interactive prompts (confirmations auto-approved)
+# Requires ACCEPT_TERMS=true env var for T&C acceptance
+export NON_INTERACTIVE="${NON_INTERACTIVE:-false}"
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --non-interactive|--ci|--auto-approve)
+            export NON_INTERACTIVE=true
+            shift
+            ;;
+        --accept-terms)
+            export ACCEPT_TERMS=true
+            shift
+            ;;
+        --help|-h)
+            echo "Usage: install-multi-tenants.sh [OPTIONS]"
+            echo ""
+            echo "Options:"
+            echo "  --non-interactive, --ci    Skip all interactive prompts (auto-approve)"
+            echo "  --accept-terms             Accept Terms & Conditions (required in non-interactive mode)"
+            echo "  --help, -h                 Show this help message"
+            echo ""
+            echo "Environment variables (for non-interactive mode):"
+            echo "  NON_INTERACTIVE=true       Same as --non-interactive flag"
+            echo "  ACCEPT_TERMS=true          Same as --accept-terms flag"
+            echo ""
+            exit 0
+            ;;
+        *)
+            # Pass unknown args through to CDK deploy
+            break
+            ;;
+    esac
+done
+
 # Ensure nvm-managed Node.js is available in PATH
 # Required when running after init_deploy.sh installs Node.js via nvm
 export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
@@ -154,17 +192,27 @@ main() {
     fi
 
     # Display terms and conditions
-    echo ""
-    if [[ -f "$SCRIPT_DIR/aPersona_ASM-and-aPersona_Identity_Mgr_Ts_Cs.txt" ]]; then
-        cat "$SCRIPT_DIR/aPersona_ASM-and-aPersona_Identity_Mgr_Ts_Cs.txt"
+    if [[ "${NON_INTERACTIVE}" == "true" ]]; then
+        # In non-interactive mode, ACCEPT_TERMS must be explicitly set
+        if [[ "${ACCEPT_TERMS:-false}" != "true" ]]; then
+            log_error "Non-interactive mode requires ACCEPT_TERMS=true environment variable"
+            log_error "Set ACCEPT_TERMS=true or use --accept-terms flag to accept Terms & Conditions"
+            exit $EXIT_USER_CANCEL
+        fi
+        log_info "[non-interactive] Terms & Conditions accepted via ACCEPT_TERMS=true"
     else
-        log_warning "Terms and conditions file not found, skipping..."
-    fi
-    echo ""
+        echo ""
+        if [[ -f "$SCRIPT_DIR/aPersona_ASM-and-aPersona_Identity_Mgr_Ts_Cs.txt" ]]; then
+            cat "$SCRIPT_DIR/aPersona_ASM-and-aPersona_Identity_Mgr_Ts_Cs.txt"
+        else
+            log_warning "Terms and conditions file not found, skipping..."
+        fi
+        echo ""
 
-    if ! confirm_with_timeout "Please review and agree to the aPersona Identity Manager Terms and Conditions" 60 "n"; then
-        log_info "Terms and conditions not accepted"
-        exit $EXIT_USER_CANCEL
+        if ! confirm_with_timeout "Please review and agree to the aPersona Identity Manager Terms and Conditions" 60 "n"; then
+            log_info "Terms and conditions not accepted"
+            exit $EXIT_USER_CANCEL
+        fi
     fi
 
     # Load and validate global configuration from JSON

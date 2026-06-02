@@ -40,10 +40,17 @@ echo_time() {
 }
 
 # User confirmation with timeout and better UX
+# In non-interactive mode (NON_INTERACTIVE=true), auto-approves all confirmations
 confirm_with_timeout() {
     local prompt=$1
     local timeout=${2:-30}
     local default_response=${3:-"n"}
+
+    # Non-interactive mode: auto-approve all confirmations
+    if [[ "${NON_INTERACTIVE:-false}" == "true" ]]; then
+        log_info "[non-interactive] Auto-approved: $prompt"
+        return 0
+    fi
 
     echo ""
     echo -e "${BOLD}${YELLOW}$prompt${NC}"
