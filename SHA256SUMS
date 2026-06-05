@@ -245,8 +245,8 @@ f3956743e1e70a1b3ab1bda76132017a87dfa4f7d9cf4b03d5418f9db0f8b489  ./amfa-admin-p
 1ac355ff248220cc6a3496fda460571457510e2e1707f3f8fe14bda139f23ebd  ./amfa-admin-portal-multi-tenants/cdk/lambda/spmetadatas/dist/delete.js
 03a6c8368471658bccc37e948c91a6752c27e7e630b6e4a3f37e649475484ef3  ./amfa-admin-portal-multi-tenants/cdk/lambda/spmetadatas/dist/get.js
 0428e781d1902fb34e8854d36a854ceb32b62e300c86a0980f00762b1bfafde8  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/package.json
-5fa1a8d263a6ce9e233cffcd7ea4b36fcf524ab49bc1bfc53c679e23907e5867  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/index.js
-6c6102ef4067a74a610ad58ea9deddca0d1c86cc5d5fa3c5ae2a8e1da8413762  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/index.js.map
+c77887f37e1e324c13ece5a701ab1c7dfd3fc85ccf1f991dd9d931316b2ea3a9  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/index.js
+c0f813fdfd4938be7c729099cdcc88400f464311f0b734831cae1455fcc51a6c  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/index.js.map
 fdf02f1b53a4651a3eea731e2ad0a9c7d4fd8646430a5935d551e610e8d469fc  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/node_modules/@esbuild/linux-x64/package.json
 bab29b2ca7a9e89b67cf720b77b2d743f9f31f5cf0d5bd74ee8c8de30ced7014  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/node_modules/@esbuild/linux-x64/bin/esbuild
 3b0ebdffe92e5b77c948c4ac0bf4bc4a38803b15405d0425b517705221c27a2f  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/node_modules/@esbuild/linux-x64/README.md
@@ -772,8 +772,8 @@ ac59a194185582f7b5863be0a77879fcdf26889887e68b617aa2400df7bb41af  ./amfa-admin-p
 0c3dc388452769196cb9c9303b9dd53b7f1cddeafc8627c243fa10ed2cf76a69  ./amfa-admin-portal-multi-tenants/cdk/lambda/samls/dist/put.js.map
 7b77a3edc5b7596eba5d182b1f5edf0d1e1dfe967e12ee617a75e885fb424427  ./amfa-admin-portal-multi-tenants/cdk/lambda/samls/dist/put.js
 c95baa343b0c76ab8046b0fa149e4f7c9edb528a703259c564e7e6d90b2f90ac  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/package.json
-de3469924b8359000b5e03eec46fb3c718fb6d2a2b970cfc22192150533cc485  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/index.js
-f840075c0c8879cdb1c8cc052f9d0fc0e1cb1dfebf581ccf789d5c373020d974  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/index.js.map
+fa35f593abfd9c226f7702ff798245c470b9efdf80f488985fcfa51f4fdbe1b5  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/index.js
+7bf04d9028175d1582c12c6e9b8db0c1690022200debb18b385b6f1526a909d6  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/index.js.map
 fdf02f1b53a4651a3eea731e2ad0a9c7d4fd8646430a5935d551e610e8d469fc  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/node_modules/@esbuild/linux-x64/package.json
 bab29b2ca7a9e89b67cf720b77b2d743f9f31f5cf0d5bd74ee8c8de30ced7014  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/node_modules/@esbuild/linux-x64/bin/esbuild
 3b0ebdffe92e5b77c948c4ac0bf4bc4a38803b15405d0425b517705221c27a2f  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/node_modules/@esbuild/linux-x64/README.md
