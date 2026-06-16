@@ -131,11 +131,11 @@ d5ab74cd2f10d786d1a9121efcf8cbce457d1c6167ffb6d1ebaaed0a2a6d3f73  ./aPersona_ASM
 4f9c6d4e5fcc71bf38e7ecaed5cf3b4134e301c91078d8658c19834be5e66432  ./tenants-config.json
 fc36a5a88f2d640ef502c893fc49645015788290b4b465c1ecfdb945b419f1bb  ./NOTICE
 02029f28b71ff53a5395cfdf132edf844a27e3b7136258bb313ffb176b0a7879  ./amfa-admin-portal-multi-tenants/dist/favicon.ico
-c56e140370ca0d4e21689465589a34fea980761932301218ce394892fd99dbd8  ./amfa-admin-portal-multi-tenants/dist/assets/index-Yw2p-Iso.js
+cc20108d966266870495e363fdf57f417bf40daa1617eee9368886449b886597  ./amfa-admin-portal-multi-tenants/dist/assets/index-DLvDEVlT.js
 c3686924f40bba17e89ff856e1f8e3a7110de1e8aaad11722831924feba4fd4b  ./amfa-admin-portal-multi-tenants/dist/assets/index-DmjCeAXE.css
 c60ea0aec6a98cce04823f11d133c47a66ba4642cd3d61d5ba9892cd75c347f9  ./amfa-admin-portal-multi-tenants/dist/apersona-logo2.png
 90d24bc3bf698ac1e173739502298ccca72adf1f564fab05f484b8c48d1cadd2  ./amfa-admin-portal-multi-tenants/dist/robots.txt
-7fc94501be412d1310fd055d77bb23f1204d08f091696a28aed8cae67cc8e092  ./amfa-admin-portal-multi-tenants/dist/index.html
+92711cd6d113aba64471f8fd22f5065b9548cf476ab98bdc6bbf503a36a17e83  ./amfa-admin-portal-multi-tenants/dist/index.html
 5613fc96a4cabe85403d5ab67e261ca22d0ccb926d49975876d405c3a80d65eb  ./amfa-admin-portal-multi-tenants/dist/manifest.json
 3a33a7c08c6dd5c2d89c1c4222ee8033617f90b1708ab65952aee0e4bfde7f7f  ./amfa-admin-portal-multi-tenants/dist/Logo.png
 5605abcf31d5fa9550641f81324c64d994c4345ea7d1ae16adc1639afacd7513  ./amfa-admin-portal-multi-tenants/cdk.json
@@ -186,7 +186,7 @@ f34c3f2cd0a754bad2bde69c281c4c5acf26fdd421412e74bf3209435205dd71  ./amfa-admin-p
 8cc029476b92a801ee4b32fee3310203c4bbdf03cd1b225cadf802e67993ec30  ./amfa-admin-portal-multi-tenants/cdk/lambda/admingroupslist/dist/post.js.map
 acf56dbaa7f9aa4658211d02c2e528dfc2a5b8bd7517caceea33ecf3bed5fa6c  ./amfa-admin-portal-multi-tenants/cdk/lambda/admingroupslist/dist/index.js.map
 60d1bc4d02bd6c75a1d115456902d2619854d855837ef9413cabe73637a3513e  ./amfa-admin-portal-multi-tenants/cdk/lambda/admingroupslist/package.json
-53c297d2030e70701a9a1c785948a983cda76b849178e55c974d8f46a7c992e5  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/index.js
+136a9d30aa0eb120ed525a36aa4ff5a462329c61488f70ea837e469763914b14  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/index.js
 10f6fa3644d8d23d066ff67b0ae449074e75884503546a9fedb667f1dcb9ade2  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/node_modules/esbuild/install.js
 6d481cd60ec3c679e5e395f547ab4221147f35642894f6b95a8df38fd25c87bd  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/node_modules/esbuild/README.md
 0d1241812c443111d39475dfc66836003e9ef8b87e54d990dd67df29d20010e1  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/node_modules/esbuild/lib/main.js
@@ -641,7 +641,7 @@ e173bffc6cde613d3e6d06e49f2b1d05385cb02aa68c4931656b5b051ab649dd  ./amfa-admin-p
 bf66f8b6b3246ae0a774c7a05d9121f830550576e76b57562d5d7a1ca18a265c  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/node_modules/process-warning/examples/example.js
 67dcd2013ebde5683fd6684194a6df609eeed7de80098198f59a7e07b5c19eba  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/node_modules/process-warning/.github/dependabot.yml
 1ff3f84f5e66d89c2cb01030dfca71c6011916e802e0dcc6b89d32e580e67432  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/node_modules/process-warning/.github/workflows/ci.yml
-e996c6fb3811262b7a38b63340ca017353d0c6b6c95916e3c8e736a69c615c23  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/index.js.map
+19b183cc70dc7c094f6e7649d8355b0f07bbb5277a475b156ab306c542c761b7  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/index.js.map
 c95baa343b0c76ab8046b0fa149e4f7c9edb528a703259c564e7e6d90b2f90ac  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/package.json
 98be50f933e831d14094da7c591b4915e64e09089b5ac207e7f882026a96a721  ./amfa-admin-portal-multi-tenants/cdk/lambda/serviceproviderslist/dist/index.js
 13591a1857db9a8af1b1b1a47784cc13e74d75a8ce0d443247a3102bbaeb6e42  ./amfa-admin-portal-multi-tenants/cdk/lambda/serviceproviderslist/dist/index.js.map
@@ -800,7 +800,7 @@ aa3760e0c1df1988a16e0fd902e7dc59c150555e9cd38b623c65e3a51112b0b8  ./amfa-admin-p
 c63fe806f8906b5e37f994abc288425c1be1f4741608a5b5a781eefd3c68cf5f  ./amfa-admin-portal-multi-tenants/cdk/lambda/usercustomsps/dist/index.js.map
 f5089925f76a91527386710d4898ee95c9889d5e2e395021b781a1dadeccd5ae  ./amfa-admin-portal-multi-tenants/cdk/lambda/usercustomsps/dist/put.js
 eab14e9bd0e5c953230d9db77a47617e3e073ecaea95a56baf5cfd16540f779a  ./amfa-admin-portal-multi-tenants/cdk/lambda/usercustomsps/package.json
-c85c24d71e4397ea6546a5573abfa61950c2d2b1f94dbfc85c3dbf4786e543c5  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/index.js
+e950932ecd7081a616c92e18d07d826251cc117cf2c53cf600c9367bead7ed60  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/index.js
 10f6fa3644d8d23d066ff67b0ae449074e75884503546a9fedb667f1dcb9ade2  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/node_modules/esbuild/install.js
 6d481cd60ec3c679e5e395f547ab4221147f35642894f6b95a8df38fd25c87bd  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/node_modules/esbuild/README.md
 0d1241812c443111d39475dfc66836003e9ef8b87e54d990dd67df29d20010e1  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/node_modules/esbuild/lib/main.js
@@ -1255,7 +1255,7 @@ e173bffc6cde613d3e6d06e49f2b1d05385cb02aa68c4931656b5b051ab649dd  ./amfa-admin-p
 bf66f8b6b3246ae0a774c7a05d9121f830550576e76b57562d5d7a1ca18a265c  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/node_modules/process-warning/examples/example.js
 67dcd2013ebde5683fd6684194a6df609eeed7de80098198f59a7e07b5c19eba  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/node_modules/process-warning/.github/dependabot.yml
 1ff3f84f5e66d89c2cb01030dfca71c6011916e802e0dcc6b89d32e580e67432  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/node_modules/process-warning/.github/workflows/ci.yml
-10d0825095227839e1eea9d770013a43efa92b5dd46f306aff1294d59b5a1a25  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/index.js.map
+219fe0f463cf1db07123d5c1c580f5049a2eb05fa74a9579bf55a0bfdfd19904  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/dist/index.js.map
 0428e781d1902fb34e8854d36a854ceb32b62e300c86a0980f00762b1bfafde8  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-worker/package.json
 937ecbb13ecde8944ad0b27c2721980e9cc81f5c08f02c339d876f9f1f71fa05  ./amfa-admin-portal-multi-tenants/cdk/lambda/idpslist/dist/index.js
 98816c6632f8e4a387b90432e68f59e52daa869c66c126db9cae37425b30de36  ./amfa-admin-portal-multi-tenants/cdk/lambda/idpslist/dist/index.js.map
@@ -1300,4 +1300,4 @@ fbb594384b4e7d309d840b13b340999ed14bfd43d9024447a8a9f4d35c31b42a  ./amfa-admin-p
 2d343e60fbaa6f9b124b5e577d37020514f489a7423e0cac004844ac138d07eb  ./amfa-admin-portal-multi-tenants/tsconfig.cdk.json
 607b4bf5552db6e87d7499d7935e456b0b8ce3af7a721aee01204d709241887c  ./amfa-admin-portal-multi-tenants/vite.config.ts
 a9c8e37316d508fda95957a6da3212151a1d5b5d583c45ca223adb6a530a1646  ./amfa-admin-portal-multi-tenants/package.json
-a466ef209f5c3aee5ff0c702e2e9d5cced4783d2a655e8ab66330f21a5557b3f  ./VERSION
+c9f56eb9348cbc8345bdaea7ca24c9f960e1598af05472794760a2682ff07a8c  ./VERSION
