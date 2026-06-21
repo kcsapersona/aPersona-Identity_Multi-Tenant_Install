@@ -1300,4 +1300,4 @@ fbb594384b4e7d309d840b13b340999ed14bfd43d9024447a8a9f4d35c31b42a  ./amfa-admin-p
 2d343e60fbaa6f9b124b5e577d37020514f489a7423e0cac004844ac138d07eb  ./amfa-admin-portal-multi-tenants/tsconfig.cdk.json
 607b4bf5552db6e87d7499d7935e456b0b8ce3af7a721aee01204d709241887c  ./amfa-admin-portal-multi-tenants/vite.config.ts
 a9c8e37316d508fda95957a6da3212151a1d5b5d583c45ca223adb6a530a1646  ./amfa-admin-portal-multi-tenants/package.json
-c9f56eb9348cbc8345bdaea7ca24c9f960e1598af05472794760a2682ff07a8c  ./VERSION
+dcdecbc7866cc9413935ee7a76b92beba1e4494f63aa0df5d8b5afe979d16260  ./VERSION
