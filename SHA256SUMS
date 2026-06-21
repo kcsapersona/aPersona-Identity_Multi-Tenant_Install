@@ -100,8 +100,8 @@ a6ac8ba52f08d99baeaa09f5f5d889dbf2fd3e65dd4d4b98fd1b9722b7e62d32  ./amfa-service
 115c2e1b8dcc1bb5a1fc9607d755359df51806c18b41b420d7e5c3c55db1f742  ./amfa-service-multi-tenants/cdk/lambda/passwordreset/dist/htmlTemplatePwd.js
 91812fa2d3265fb18329ff6e957cac23776ccc84f0d59206a5a20d463f0ed75b  ./amfa-service-multi-tenants/cdk/lambda/passwordreset/dist/mailer.js.map
 9ff27066298926310d3bc8a4346c1bab16027c5ea4c26c0632b57d8c4d889868  ./amfa-service-multi-tenants/cdk/lambda/passwordreset/package.json
-dbdd8f8d941b7a2d8f858d2b99314aad559d1762227a8a798a978574ef2b49fe  ./amfa-service-multi-tenants/cdk/lambda/verifyrecaptcha/dist/verifyrecaptcha.js
-b9ecee6047ce153968f06424d77be3dc280112e8ea3bfe110f4a4c87c015d9d0  ./amfa-service-multi-tenants/cdk/lambda/verifyrecaptcha/dist/verifyrecaptcha.js.map
+698ff3f8a8aaec0432c4f7a5f06e41c30fe7ef90fba3fd6dad624ba51435d482  ./amfa-service-multi-tenants/cdk/lambda/verifyrecaptcha/dist/verifyrecaptcha.js
+e872da51176029b76f4720c497541b4b0a52490a5a67b811483b615734c516a5  ./amfa-service-multi-tenants/cdk/lambda/verifyrecaptcha/dist/verifyrecaptcha.js.map
 2d9a2f4dc0ab4cc22252b455ca35df792480adec4f5a0b92ea1af7fb0b2822df  ./amfa-service-multi-tenants/cdk/lambda/verifyrecaptcha/package.json
 3897fe5db83ed937143f60c7d5f0e663a8e9784b68ddba4f44c3aaee097e4553  ./amfa-service-multi-tenants/cdk/lambda/token/mytoken.py
 030ffae3adfcb7e5f9b848ac2923ab5f4622630158cec93e8cc9b1b1198e4e37  ./amfa-service-multi-tenants/cdk/lambda/postdeployment/dist/config.js
@@ -1300,4 +1300,4 @@ fbb594384b4e7d309d840b13b340999ed14bfd43d9024447a8a9f4d35c31b42a  ./amfa-admin-p
 2d343e60fbaa6f9b124b5e577d37020514f489a7423e0cac004844ac138d07eb  ./amfa-admin-portal-multi-tenants/tsconfig.cdk.json
 607b4bf5552db6e87d7499d7935e456b0b8ce3af7a721aee01204d709241887c  ./amfa-admin-portal-multi-tenants/vite.config.ts
 a9c8e37316d508fda95957a6da3212151a1d5b5d583c45ca223adb6a530a1646  ./amfa-admin-portal-multi-tenants/package.json
-dcdecbc7866cc9413935ee7a76b92beba1e4494f63aa0df5d8b5afe979d16260  ./VERSION
+c9f56eb9348cbc8345bdaea7ca24c9f960e1598af05472794760a2682ff07a8c  ./VERSION
