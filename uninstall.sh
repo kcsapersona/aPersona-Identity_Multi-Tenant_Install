@@ -144,10 +144,6 @@ load_config_for_uninstall() {
     export SMTP_SECURE=$(jq -r '.smtp.secure' "$config_file")
     export SMTP_PORT=$(jq -r '.smtp.port' "$config_file")
     
-    # reCAPTCHA Configuration (optional)
-    export RECAPTCHA_KEY=$(jq -r '.recaptcha.key // empty' "$config_file")
-    export RECAPTCHA_SECRET=$(jq -r '.recaptcha.secret // empty' "$config_file")
-    
     # Validate required fields for uninstall
     if [[ -z "$ROOT_DOMAIN_NAME" || "$ROOT_DOMAIN_NAME" == "null" ]]; then
         log_error "ROOT_DOMAIN_NAME is required in tenants-config.json"

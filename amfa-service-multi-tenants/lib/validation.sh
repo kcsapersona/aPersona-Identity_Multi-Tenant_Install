@@ -74,13 +74,6 @@ load_config_from_json() {
     export SMTP_SECURE=$(jq -r '.smtp.secure' "$config_file")
     export SMTP_PORT=$(jq -r '.smtp.port' "$config_file")
     
-    # reCAPTCHA Configuration (optional)
-    local recaptcha_key recaptcha_secret
-    recaptcha_key=$(jq -r '.recaptcha.key // empty' "$config_file")
-    recaptcha_secret=$(jq -r '.recaptcha.secret // empty' "$config_file")
-    export RECAPTCHA_KEY="${recaptcha_key}"
-    export RECAPTCHA_SECRET="${recaptcha_secret}"
-    
     log_success "Configuration loaded successfully from tenants-config.json"
     
     # Store ASM install key in Secrets Manager for use by admin portal Lambdas

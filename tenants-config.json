@@ -24,10 +24,6 @@
   "samlgw2": {
     "adminToken": ""
   },
-  "recaptcha": {
-    "key": "",
-    "secret": ""
-  },
   "_schema": {
     "description": "Bootstrap configuration for initial tenant deployment",
     "notes": [

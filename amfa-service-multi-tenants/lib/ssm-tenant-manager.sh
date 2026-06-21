@@ -60,8 +60,6 @@ save_tenant_to_ssm() {
     local sp_portal_url=$5
     local extra_app_url=$6
     local saml_proxy=${7:-true}
-    local recaptcha_key=${8:-}
-    local recaptcha_secret=${9:-}
     local smtp_host=${10:-}
     local smtp_user=${11:-}
     local smtp_pass=${12:-}
@@ -80,8 +78,6 @@ save_tenant_to_ssm() {
         --arg sp_portal_url "$sp_portal_url" \
         --arg extra_app_url "$extra_app_url" \
         --argjson saml_proxy "$saml_proxy" \
-        --arg recaptcha_key "$recaptcha_key" \
-        --arg recaptcha_secret "$recaptcha_secret" \
         --arg smtp_host "$smtp_host" \
         --arg smtp_user "$smtp_user" \
         --arg smtp_pass "$smtp_pass" \
@@ -94,8 +90,6 @@ save_tenant_to_ssm() {
             sp_portal_url: $sp_portal_url,
             extra_app_url: $extra_app_url,
             saml_proxy: $saml_proxy,
-            recaptcha_key: $recaptcha_key,
-            recaptcha_secret: $recaptcha_secret,
             smtp_host: $smtp_host,
             smtp_user: $smtp_user,
             smtp_pass: $smtp_pass,
@@ -159,8 +153,6 @@ load_tenant_from_conf() {
         --arg tenant_name "${TENANT_NAME:-}" \
         --arg contact_email "${CONTACT_EMAIL:-}" \
         --arg extra_app_url "${EXTRA_APP_URL:-}" \
-        --arg recaptcha_key "${RECAPTCHA_KEY:-}" \
-        --arg recaptcha_secret "${RECAPTCHA_SECRET:-}" \
         --arg smtp_host "${SMTP_HOST:-}" \
         --arg smtp_user "${SMTP_USER:-}" \
         --arg smtp_pass "${SMTP_PASS:-}" \
@@ -171,8 +163,6 @@ load_tenant_from_conf() {
                 tenant_name: $tenant_name,
                 contact_email: $contact_email,
                 extra_app_url: $extra_app_url,
-                recaptcha_key: $recaptcha_key,
-                recaptcha_secret: $recaptcha_secret,
                 smtp_host: $smtp_host,
                 smtp_user: $smtp_user,
                 smtp_pass: $smtp_pass,
@@ -251,15 +241,12 @@ sync_tenants_to_ssm() {
                         local ssm_config
                         if ssm_config=$(load_tenant_from_ssm "$tenant_id" 2>/dev/null); then
                             # Extract key values from both configs for comparison
-                            local tenant_recaptcha_key tenant_recaptcha_secret
                             local tenant_smtp_host tenant_smtp_user tenant_smtp_pass tenant_smtp_secure tenant_smtp_port
                             local contact_email extra_app_url
                             
                             # Load from conf file
                             contact_email=$(echo "$tenant_config" | jq -r '.contact_email')
                             extra_app_url=$(echo "$tenant_config" | jq -r '.extra_app_url')
-                            tenant_recaptcha_key=$(echo "$tenant_config" | jq -r '.recaptcha_key')
-                            tenant_recaptcha_secret=$(echo "$tenant_config" | jq -r '.recaptcha_secret')
                             tenant_smtp_host=$(echo "$tenant_config" | jq -r '.smtp_host')
                             tenant_smtp_user=$(echo "$tenant_config" | jq -r '.smtp_user')
                             tenant_smtp_pass=$(echo "$tenant_config" | jq -r '.smtp_pass')
@@ -267,8 +254,6 @@ sync_tenants_to_ssm() {
                             tenant_smtp_port=$(echo "$tenant_config" | jq -r '.smtp_port')
                             
                             # Use tenant-specific values if provided, otherwise fall back to global values
-                            local final_recaptcha_key="${tenant_recaptcha_key:-${RECAPTCHA_KEY:-}}"
-                            local final_recaptcha_secret="${tenant_recaptcha_secret:-${RECAPTCHA_SECRET:-}}"
                             local final_smtp_host="${tenant_smtp_host:-${SMTP_HOST:-}}"
                             local final_smtp_user="${tenant_smtp_user:-${SMTP_USER:-}}"
                             local final_smtp_pass="${tenant_smtp_pass:-${SMTP_PASS:-}}"
@@ -277,13 +262,10 @@ sync_tenants_to_ssm() {
                             
                             # Load from SSM
                             local ssm_contact_email ssm_extra_app_url
-                            local ssm_recaptcha_key ssm_recaptcha_secret
                             local ssm_smtp_host ssm_smtp_user ssm_smtp_pass ssm_smtp_secure ssm_smtp_port
                             
                             ssm_contact_email=$(echo "$ssm_config" | jq -r '.contact // empty')
                             ssm_extra_app_url=$(echo "$ssm_config" | jq -r '.extra_app_url // empty')
-                            ssm_recaptcha_key=$(echo "$ssm_config" | jq -r '.recaptcha_key // empty')
-                            ssm_recaptcha_secret=$(echo "$ssm_config" | jq -r '.recaptcha_secret // empty')
                             ssm_smtp_host=$(echo "$ssm_config" | jq -r '.smtp_host // empty')
                             ssm_smtp_user=$(echo "$ssm_config" | jq -r '.smtp_user // empty')
                             ssm_smtp_pass=$(echo "$ssm_config" | jq -r '.smtp_pass // empty')
@@ -293,8 +275,6 @@ sync_tenants_to_ssm() {
                             # Compare values - if any differ, mark as changed
                             if [[ "$contact_email" != "$ssm_contact_email" ]] || \
                                [[ "$extra_app_url" != "$ssm_extra_app_url" ]] || \
-                               [[ "$final_recaptcha_key" != "$ssm_recaptcha_key" ]] || \
-                               [[ "$final_recaptcha_secret" != "$ssm_recaptcha_secret" ]] || \
                                [[ "$final_smtp_host" != "$ssm_smtp_host" ]] || \
                                [[ "$final_smtp_user" != "$ssm_smtp_user" ]] || \
                                [[ "$final_smtp_pass" != "$ssm_smtp_pass" ]] || \
@@ -337,14 +317,11 @@ sync_tenants_to_ssm() {
                 
                 if [[ "$conf_tenant_id" == "$tenant_id" ]]; then
                     local tenant_name contact_email extra_app_url
-                    local tenant_recaptcha_key tenant_recaptcha_secret
                     local tenant_smtp_host tenant_smtp_user tenant_smtp_pass tenant_smtp_secure tenant_smtp_port
                     
                     tenant_name=$(echo "$tenant_config" | jq -r '.tenant_name')
                     contact_email=$(echo "$tenant_config" | jq -r '.contact_email')
                     extra_app_url=$(echo "$tenant_config" | jq -r '.extra_app_url')
-                    tenant_recaptcha_key=$(echo "$tenant_config" | jq -r '.recaptcha_key')
-                    tenant_recaptcha_secret=$(echo "$tenant_config" | jq -r '.recaptcha_secret')
                     tenant_smtp_host=$(echo "$tenant_config" | jq -r '.smtp_host')
                     tenant_smtp_user=$(echo "$tenant_config" | jq -r '.smtp_user')
                     tenant_smtp_pass=$(echo "$tenant_config" | jq -r '.smtp_pass')
@@ -352,8 +329,6 @@ sync_tenants_to_ssm() {
                     tenant_smtp_port=$(echo "$tenant_config" | jq -r '.smtp_port')
                     
                     # Use tenant-specific values if provided, otherwise fall back to global values
-                    local final_recaptcha_key="${tenant_recaptcha_key:-${RECAPTCHA_KEY:-}}"
-                    local final_recaptcha_secret="${tenant_recaptcha_secret:-${RECAPTCHA_SECRET:-}}"
                     local final_smtp_host="${tenant_smtp_host:-${SMTP_HOST:-}}"
                     local final_smtp_user="${tenant_smtp_user:-${SMTP_USER:-}}"
                     local final_smtp_pass="${tenant_smtp_pass:-${SMTP_PASS:-}}"
@@ -371,8 +346,6 @@ sync_tenants_to_ssm() {
                     echo "  SP Portal URL: $sp_portal_url"
                     echo "  Extra App URL: ${extra_app_url:-<none>}"
                     echo "  SAML Proxy: true"
-                    echo "  reCAPTCHA Key: ${final_recaptcha_key:-<none>}"
-                    echo "  reCAPTCHA Secret: ${final_recaptcha_secret:+***hidden***}"
                     echo "  SMTP Host: ${final_smtp_host:-<none>}"
                     echo "  SMTP User: ${final_smtp_user:-<none>}"
                     echo "  SMTP Pass: ${final_smtp_pass:+***hidden***}"
@@ -449,14 +422,11 @@ sync_tenants_to_ssm() {
             
             if [[ "$conf_tenant_id" == "$tenant_id" ]]; then
                 local tenant_name contact_email extra_app_url
-                local tenant_recaptcha_key tenant_recaptcha_secret
                 local tenant_smtp_host tenant_smtp_user tenant_smtp_pass tenant_smtp_secure tenant_smtp_port
                 
                 tenant_name=$(echo "$tenant_config" | jq -r '.tenant_name')
                 contact_email=$(echo "$tenant_config" | jq -r '.contact_email')
                 extra_app_url=$(echo "$tenant_config" | jq -r '.extra_app_url')
-                tenant_recaptcha_key=$(echo "$tenant_config" | jq -r '.recaptcha_key')
-                tenant_recaptcha_secret=$(echo "$tenant_config" | jq -r '.recaptcha_secret')
                 tenant_smtp_host=$(echo "$tenant_config" | jq -r '.smtp_host')
                 tenant_smtp_user=$(echo "$tenant_config" | jq -r '.smtp_user')
                 tenant_smtp_pass=$(echo "$tenant_config" | jq -r '.smtp_pass')
@@ -464,8 +434,6 @@ sync_tenants_to_ssm() {
                 tenant_smtp_port=$(echo "$tenant_config" | jq -r '.smtp_port')
                 
                 # Use tenant-specific values if provided, otherwise fall back to global values
-                local final_recaptcha_key="${tenant_recaptcha_key:-${RECAPTCHA_KEY:-}}"
-                local final_recaptcha_secret="${tenant_recaptcha_secret:-${RECAPTCHA_SECRET:-}}"
                 local final_smtp_host="${tenant_smtp_host:-${SMTP_HOST:-}}"
                 local final_smtp_user="${tenant_smtp_user:-${SMTP_USER:-}}"
                 local final_smtp_pass="${tenant_smtp_pass:-${SMTP_PASS:-}}"
@@ -478,7 +446,6 @@ sync_tenants_to_ssm() {
                 
                 if save_tenant_to_ssm "$tenant_id" "$tenant_name" "$contact_email" \
                 "$url" "$sp_portal_url" "$extra_app_url" "true" \
-                "$final_recaptcha_key" "$final_recaptcha_secret" \
                 "$final_smtp_host" "$final_smtp_user" "$final_smtp_pass" "$final_smtp_secure" "$final_smtp_port"; then
                     log_success "Tenant $tenant_id added to SSM"
                 else
@@ -504,14 +471,11 @@ sync_tenants_to_ssm() {
             
             if [[ "$conf_tenant_id" == "$tenant_id" ]]; then
                 local tenant_name contact_email extra_app_url
-                local tenant_recaptcha_key tenant_recaptcha_secret
                 local tenant_smtp_host tenant_smtp_user tenant_smtp_pass tenant_smtp_secure tenant_smtp_port
                 
                 tenant_name=$(echo "$tenant_config" | jq -r '.tenant_name')
                 contact_email=$(echo "$tenant_config" | jq -r '.contact_email')
                 extra_app_url=$(echo "$tenant_config" | jq -r '.extra_app_url')
-                tenant_recaptcha_key=$(echo "$tenant_config" | jq -r '.recaptcha_key')
-                tenant_recaptcha_secret=$(echo "$tenant_config" | jq -r '.recaptcha_secret')
                 tenant_smtp_host=$(echo "$tenant_config" | jq -r '.smtp_host')
                 tenant_smtp_user=$(echo "$tenant_config" | jq -r '.smtp_user')
                 tenant_smtp_pass=$(echo "$tenant_config" | jq -r '.smtp_pass')
@@ -519,8 +483,6 @@ sync_tenants_to_ssm() {
                 tenant_smtp_port=$(echo "$tenant_config" | jq -r '.smtp_port')
                 
                 # Use tenant-specific values if provided, otherwise fall back to global values
-                local final_recaptcha_key="${tenant_recaptcha_key:-${RECAPTCHA_KEY:-}}"
-                local final_recaptcha_secret="${tenant_recaptcha_secret:-${RECAPTCHA_SECRET:-}}"
                 local final_smtp_host="${tenant_smtp_host:-${SMTP_HOST:-}}"
                 local final_smtp_user="${tenant_smtp_user:-${SMTP_USER:-}}"
                 local final_smtp_pass="${tenant_smtp_pass:-${SMTP_PASS:-}}"
@@ -533,7 +495,6 @@ sync_tenants_to_ssm() {
                 
                 if save_tenant_to_ssm "$tenant_id" "$tenant_name" "$contact_email" \
                 "$url" "$sp_portal_url" "$extra_app_url" "true" \
-                "$final_recaptcha_key" "$final_recaptcha_secret" \
                 "$final_smtp_host" "$final_smtp_user" "$final_smtp_pass" "$final_smtp_secure" "$final_smtp_port"; then
                     log_success "Tenant $tenant_id updated in SSM"
                 else

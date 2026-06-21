@@ -13,8 +13,8 @@ f3d61e6f14d8a7274841cbdc665753a8bf487d04c9237b91e0471b1cc00e2e0d  ./amfa-service
 9a8542e1e7e54b01e8f7122ff1f69acf2db2fdeea5aa9e0557c3ec2340149be5  ./amfa-service-multi-tenants/lib/tenant-utils.sh
 baf5bb9813917de54170da22ccc66d781a5abb9427ae28ee483c2d721e6c9854  ./amfa-service-multi-tenants/lib/admin-portal.sh
 8cabc4b251eb82fa4120cb041ee7bf83262f16b4a1f6c5be9497bc1d58a13127  ./amfa-service-multi-tenants/lib/logging.sh
-1ae5124b1f1247fee2f36f61f3c9d9f3c1d640e8233b293fafa14d948afb0c62  ./amfa-service-multi-tenants/lib/ssm-tenant-manager.sh
-d7f7b93b4c5be3a071486a7af7228c779fee314e993e605a133f61a98c6e2cf1  ./amfa-service-multi-tenants/lib/validation.sh
+a0d954c3cf25ce8532a2b583ea3088df726724ecdf7205af704f13b4c58a2d26  ./amfa-service-multi-tenants/lib/ssm-tenant-manager.sh
+0cdf86ff0f7c28344d49dadffa9c9ad4879f6809f1fdb504b6513fdecf069c49  ./amfa-service-multi-tenants/lib/validation.sh
 e15553d8c3ac5c8f7a9b47b25313faf1daa52f916ef011f478ab49b65ca3a00f  ./amfa-service-multi-tenants/cdk.json
 16968cfde43838ab1ccada0c3ed45d677e191f6dbebee5df39368b9bfad88f8c  ./amfa-service-multi-tenants/index.html
 e6ad82fa6c63ebdedbd57c378bce402f180db39ff746cad15ef2acbc0f6c9e5c  ./amfa-service-multi-tenants/delegationPolicy.json
@@ -32,7 +32,7 @@ c255ece98f4ee6be04e624573097194d930ba14bf4f432ede39b4ebaad2f4386  ./amfa-service
 6d0f7485b565f22e6d2a7412155bf411b0f13c9a7ceb381ceaaedd1105b698b4  ./amfa-service-multi-tenants/cdk/lib/postdeployment.js
 852cea7c971c83f380e3f40a808c887c7645e61500ab754383027a85b51b22b9  ./amfa-service-multi-tenants/cdk/lib/const.d.ts
 3149862dbd998499ca79bb2aecc987cd765f7b989118045df3402471c0b4e867  ./amfa-service-multi-tenants/cdk/lib/const.js
-992edac22a00a4c1dc5940da74b5eb270269ac4eea79f8e3cd785aa518071f83  ./amfa-service-multi-tenants/cdk/lib/config.d.ts
+bb85b207a4979ccdc1483f7ac728227b1e7b9568e4a17d9e3a231a4b18044b6b  ./amfa-service-multi-tenants/cdk/lib/config.d.ts
 f813e5f83b5be6b7ea3cac9fde64c29951120ccebe846a7aedd0e87879fb4ff0  ./amfa-service-multi-tenants/cdk/lib/types.js
 02437c9c1581a3d57d41e0b292270fa06e261ebe270749046ca02114f74e839d  ./amfa-service-multi-tenants/cdk/lib/lambda.js
 5cc52c396e465e3c49b949dbaa6424316fa97f0e3c2cf6302521b66a0297a124  ./amfa-service-multi-tenants/cdk/lib/amfa-stack.js
@@ -127,8 +127,8 @@ ad846544111e94cede0c6f629ddaf0fe2fa89764dee60483702611f2184f6a5c  ./amfa-service
 d536cd2b3b9b3f8959baa7a2b4ef4efcc54deb965df667658c9e6a7f34cee254  ./README.md
 d5ab74cd2f10d786d1a9121efcf8cbce457d1c6167ffb6d1ebaaed0a2a6d3f73  ./aPersona_ASM-and-aPersona_Identity_Mgr_Ts_Cs.txt
 3174c201bf31b17ee2b3d60e41bf7874bde5fe5a10f381e996230f80b4ebe81d  ./install-multi-tenants.sh
-73c65e7946cc7aa999b7cff7d33d606fe5ea766b34a9d38acdae87c1e97ff1c4  ./uninstall.sh
-4f9c6d4e5fcc71bf38e7ecaed5cf3b4134e301c91078d8658c19834be5e66432  ./tenants-config.json
+2d397a0401591201e8238c6893333e7ccce0974f6a01ba4136731efd7fed2994  ./uninstall.sh
+f0cc0837ef2ea221b0e7dc6cd76c43565907e866ae22b9c80b2fb816e2524cba  ./tenants-config.json
 fc36a5a88f2d640ef502c893fc49645015788290b4b465c1ecfdb945b419f1bb  ./NOTICE
 02029f28b71ff53a5395cfdf132edf844a27e3b7136258bb313ffb176b0a7879  ./amfa-admin-portal-multi-tenants/dist/favicon.ico
 996acc27f3edf4e70aa09246d84568fd6fbcd0ba9bd5494a2967a819ea8d0794  ./amfa-admin-portal-multi-tenants/dist/assets/index-D_KFGD6t.js

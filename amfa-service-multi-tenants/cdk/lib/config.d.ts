@@ -31,8 +31,6 @@ export interface TenantConfig {
     providerId: string | undefined;
     mobileTokenSalt: string | undefined;
     asmSalt: string | undefined;
-    recaptchaKey: string | undefined;
-    recaptchaSecret: string | undefined;
     smtpHost: string | undefined;
     smtpUser: string | undefined;
     smtpPass: string | undefined;
