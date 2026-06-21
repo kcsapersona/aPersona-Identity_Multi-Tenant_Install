@@ -100,8 +100,8 @@ a6ac8ba52f08d99baeaa09f5f5d889dbf2fd3e65dd4d4b98fd1b9722b7e62d32  ./amfa-service
 115c2e1b8dcc1bb5a1fc9607d755359df51806c18b41b420d7e5c3c55db1f742  ./amfa-service-multi-tenants/cdk/lambda/passwordreset/dist/htmlTemplatePwd.js
 91812fa2d3265fb18329ff6e957cac23776ccc84f0d59206a5a20d463f0ed75b  ./amfa-service-multi-tenants/cdk/lambda/passwordreset/dist/mailer.js.map
 9ff27066298926310d3bc8a4346c1bab16027c5ea4c26c0632b57d8c4d889868  ./amfa-service-multi-tenants/cdk/lambda/passwordreset/package.json
-698ff3f8a8aaec0432c4f7a5f06e41c30fe7ef90fba3fd6dad624ba51435d482  ./amfa-service-multi-tenants/cdk/lambda/verifyrecaptcha/dist/verifyrecaptcha.js
-e872da51176029b76f4720c497541b4b0a52490a5a67b811483b615734c516a5  ./amfa-service-multi-tenants/cdk/lambda/verifyrecaptcha/dist/verifyrecaptcha.js.map
+f496e264af2a6c30969a281f2fa4b834b4fca0444a2f7e93309593fb8e4f42f2  ./amfa-service-multi-tenants/cdk/lambda/verifyrecaptcha/dist/verifyrecaptcha.js
+5db246efb9fce83062934d052ab0c3ea6bdf9dc230a179ddb5ab76dffdcc9b92  ./amfa-service-multi-tenants/cdk/lambda/verifyrecaptcha/dist/verifyrecaptcha.js.map
 2d9a2f4dc0ab4cc22252b455ca35df792480adec4f5a0b92ea1af7fb0b2822df  ./amfa-service-multi-tenants/cdk/lambda/verifyrecaptcha/package.json
 3897fe5db83ed937143f60c7d5f0e663a8e9784b68ddba4f44c3aaee097e4553  ./amfa-service-multi-tenants/cdk/lambda/token/mytoken.py
 030ffae3adfcb7e5f9b848ac2923ab5f4622630158cec93e8cc9b1b1198e4e37  ./amfa-service-multi-tenants/cdk/lambda/postdeployment/dist/config.js
