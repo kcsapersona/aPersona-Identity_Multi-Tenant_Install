@@ -736,11 +736,11 @@ d4d0a4241800447560187ce5d844c8cbc3d70dbe9a2d47c4a18bd06a621f0ac8  ./amfa-admin-p
 3e63417bd13596489960d8238085b4ed23ccf9e8afeb9569538c7fb2c4235607  ./amfa-admin-portal-multi-tenants/cdk/lambda/totptoken-authorizer/dist/index.js.map
 ac193f6de0865fdfcb6ebdddb32c17f3953b6d06d74a4638f1c3111d6e7835fe  ./amfa-admin-portal-multi-tenants/cdk/lambda/totptoken-authorizer/package.json
 0660c54baea595a568d98823e50fcde442b40f6c82638385a7d3ca7714fec6b4  ./amfa-admin-portal-multi-tenants/cdk/lambda/adminslist/dist/get.js.map
-b0ebde4a32d137e28322cbab59878479f2e8a46b20f4d55fa1f4d4186de3100c  ./amfa-admin-portal-multi-tenants/cdk/lambda/adminslist/dist/index.js
-62510568b23c0fbdc434b42bf1c44b8f91c55406fe6e8cf7ccd567e9694112cb  ./amfa-admin-portal-multi-tenants/cdk/lambda/adminslist/dist/post.js
-4b7f074c3ac4594789f925ce5d918fe381796d96ab014429b24b01559d2c2dc0  ./amfa-admin-portal-multi-tenants/cdk/lambda/adminslist/dist/post.js.map
+a624903715038b0dbf0b283cf72d6586d04f83330046c02f85b9e7154f846415  ./amfa-admin-portal-multi-tenants/cdk/lambda/adminslist/dist/index.js
+fdd51af718b7c3e7a95b664a6b8c3130bc58986ab2432c9017cf40240dfcf425  ./amfa-admin-portal-multi-tenants/cdk/lambda/adminslist/dist/post.js
+2b221d4087a90f1eabae812b9a90facba41a294fe51b0aa40690dea9dad92f1a  ./amfa-admin-portal-multi-tenants/cdk/lambda/adminslist/dist/post.js.map
 20f429ea1cb4768826de657687f9210139986489a149a49d1f79a507365d21ab  ./amfa-admin-portal-multi-tenants/cdk/lambda/adminslist/dist/get.js
-5a1ecd13dad8d0dd6ac434a7b068b1d8b3317292853094b4e096abc138909b50  ./amfa-admin-portal-multi-tenants/cdk/lambda/adminslist/dist/index.js.map
+a0f916d939e0f724ad428728c38aedfdc9929826163b7fef26cd1c8a5cf3721e  ./amfa-admin-portal-multi-tenants/cdk/lambda/adminslist/dist/index.js.map
 540f3d39bd90d104b19691ad44a2e43968fe445368de9f431e075b4ce15c9678  ./amfa-admin-portal-multi-tenants/cdk/lambda/adminslist/package.json
 030bb085f98dbf70a80ebb0a7ccd3474d7171f162d0c0441e44bad1a17ce68de  ./amfa-admin-portal-multi-tenants/cdk/lambda/groups/dist/put.js.map
 e78596eec47d74ae407ee456bd654257e053a33675907424ba4186d980a6feb0  ./amfa-admin-portal-multi-tenants/cdk/lambda/groups/dist/delete.js
