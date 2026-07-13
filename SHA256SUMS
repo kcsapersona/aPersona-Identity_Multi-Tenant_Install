@@ -145,7 +145,7 @@ a7df702c61f105e17e23c58a9f41bce33a9bae35412575645892ef0300ed143a  ./amfa-admin-p
 155ecc150b4d80b061f7dfd1af121c1fefe95dba6687123bae6d191988af8c17  ./amfa-admin-portal-multi-tenants/cdk/lib/ad-sync-infrastructure.js
 1f9f86a685c724773595fa187d9a27d77b9de36dccb7329fd30643d6fe591174  ./amfa-admin-portal-multi-tenants/cdk/lib/certificate.js
 bdfc8e20cbf0583fc7890109e4a74d22a9a94f364f036892b28090a75ec48c49  ./amfa-admin-portal-multi-tenants/cdk/lib/webapp.js
-03e73cadb772a7cd4684db0ef9c2df2d046654f7298f1b6af1b176ffa4452311  ./amfa-admin-portal-multi-tenants/cdk/lib/httpapi.js
+5a71846a89ce701625b4a44e3132a77114a8b9a8c8d7a696fbc4603d641ddee7  ./amfa-admin-portal-multi-tenants/cdk/lib/httpapi.js
 8fdb49f5439a493153cd819c2f82a0c9a75e9b0010339a3500c2c4a9f16d09c3  ./amfa-admin-portal-multi-tenants/cdk/lib/monitoring.js
 7dad9c1e574f4e74042a7266376d16e5a9bcee04a878c67ddf6e6fc7440fc917  ./amfa-admin-portal-multi-tenants/cdk/lib/application.js
 f3b53f757398228e3814ac328861abf69f68220c8420f638be0ea69e9189642e  ./amfa-admin-portal-multi-tenants/cdk/config/index.js
@@ -1293,7 +1293,7 @@ e754dbda0702b4bd520b8ce35e89e4c6449043c59f47bf51bc9a64d392da5aa9  ./amfa-admin-p
 900856da3cadcec8e8f0a06216b0a9d8fa14be58702bdfa81f96a0dd931e4413  ./amfa-admin-portal-multi-tenants/cdk/lambda-layers/auth-layer/nodejs/node_modules/admin-auth/index.mjs
 260a2edbf1f37ccdad305efa51a0375dfe8d09cfb2b7a8db9755c0c05ee54609  ./amfa-admin-portal-multi-tenants/cdk/lambda-layers/auth-layer/nodejs/node_modules/admin-auth/tenant-utils.mjs
 505d83a5445bffca8753feb446decb234db36a99dbdcc8562bbea9ca4d072ad3  ./amfa-admin-portal-multi-tenants/cdk/lambda-layers/auth-layer/nodejs/node_modules/admin-auth/logger.mjs
-0fb2ee589769a291cde58439079249b5b9c78f2653a16620ded2caa776693c6f  ./amfa-admin-portal-multi-tenants/cdk/lambda-layers/auth-layer/nodejs/node_modules/admin-auth/asm-utils.mjs
+b1f89a27be22ec844eca0c56a7f720a017ecf58df19448e848631ce3274c6274  ./amfa-admin-portal-multi-tenants/cdk/lambda-layers/auth-layer/nodejs/node_modules/admin-auth/asm-utils.mjs
 e67ceac45e0a1f265c981de5e7bdf9ab9b0c6c6d1568c331d3790a84f6afceec  ./amfa-admin-portal-multi-tenants/cdk/lambda-layers/auth-layer/nodejs/node_modules/admin-auth/index.cjs
 d24f6a41719651db5f0a301c59dde340efbc0f23612ddb79bde5dabf1c7a72f8  ./amfa-admin-portal-multi-tenants/cdk/lambda-layers/auth-layer/nodejs/node_modules/admin-auth/authorize.mjs
 fbb594384b4e7d309d840b13b340999ed14bfd43d9024447a8a9f4d35c31b42a  ./amfa-admin-portal-multi-tenants/cdk/lambda-layers/auth-layer/nodejs/node_modules/admin-auth/package.json
