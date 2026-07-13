@@ -185,6 +185,27 @@ EOF
     export ADMINPORTAL_DISTRIBUTION_ID=$(aws ssm get-parameter --name "/amfa/shared/adminportal-distribution-id" --query 'Parameter.Value' --output text 2>/dev/null || echo "")
     debug_log "ADMINPORTAL_DISTRIBUTION_ID: ${ADMINPORTAL_DISTRIBUTION_ID:-not found}"
 
+    # Ensure IGW SSM parameter exists (needed for dedicated IP provisioning)
+    local vpc_id_for_igw
+    vpc_id_for_igw=$(aws ssm get-parameter --name "/amfa/vpc/vpc-id" --query 'Parameter.Value' --output text 2>/dev/null || echo "")
+    if [[ -n "$vpc_id_for_igw" && "$vpc_id_for_igw" != "None" ]]; then
+        local existing_igw
+        existing_igw=$(aws ssm get-parameter --name "/amfa/vpc/igw-id" --query 'Parameter.Value' --output text 2>/dev/null || echo "")
+        if [[ -z "$existing_igw" || "$existing_igw" == "None" ]]; then
+            log_info "Auto-detecting Internet Gateway for VPC $vpc_id_for_igw..."
+            local igw_id
+            igw_id=$(aws ec2 describe-internet-gateways --filters "Name=attachment.vpc-id,Values=$vpc_id_for_igw" --query 'InternetGateways[0].InternetGatewayId' --output text 2>/dev/null || echo "")
+            if [[ -n "$igw_id" && "$igw_id" != "None" ]]; then
+                aws ssm put-parameter --name "/amfa/vpc/igw-id" --value "$igw_id" --type String --overwrite >/dev/null 2>&1
+                log_info "✓ Set /amfa/vpc/igw-id = $igw_id"
+            else
+                debug_log "No IGW found for VPC $vpc_id_for_igw (dedicated IP provisioning will not work)"
+            fi
+        else
+            debug_log "IGW SSM parameter already set: $existing_igw"
+        fi
+    fi
+
     # Deploy admin portal stack
     debug_log "=========================================="
     debug_log "CDK DEPLOYMENT START"
