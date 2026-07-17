@@ -278,6 +278,29 @@ EOF
     # Note: amfaext.js is deployed alongside dist/ in a single CDK BucketDeployment.
     # Admin user + SA group creation is handled by the post-deployment Lambda.
 
+    # ─── Upload AD Sync Worker code to S3 (post-deploy, bucket now exists) ────
+    # Per-tenant dedicated IP Lambdas are created at runtime from this S3 artifact.
+    # Must run AFTER CDK deploy (S3 bucket is created by CDK).
+    local worker_dist="$(pwd)/cdk/lambda/ad-sync-worker/dist"
+    if [[ -d "$worker_dist" ]]; then
+        local s3_bucket="${CDK_DEPLOY_ACCOUNT}-${CDK_DEPLOY_REGION}-ad-sync-state"
+        local worker_version
+        worker_version=$(jq -r '.version // "0.0.0"' "$REPO_ROOT/package.json" 2>/dev/null || echo "0.0.0")
+        local zip_file="/tmp/ad-sync-worker-code.zip"
+
+        log_info "Uploading AD sync worker code to S3 (v${worker_version})..."
+        (cd "$worker_dist" && zip -qr "$zip_file" .)
+
+        if aws s3 cp "$zip_file" "s3://${s3_bucket}/worker-code/v${worker_version}.zip" --quiet 2>/dev/null; then
+            aws s3 cp "$zip_file" "s3://${s3_bucket}/worker-code/latest.zip" --quiet 2>/dev/null
+            log_success "Worker code uploaded to S3 (v${worker_version} + latest)"
+        else
+            log_warning "⚠ Failed to upload worker code to S3 (bucket may not exist yet on first deploy)"
+        fi
+
+        rm -f "$zip_file"
+    fi
+
     log_success "Admin portal deployed successfully"
 }
 
