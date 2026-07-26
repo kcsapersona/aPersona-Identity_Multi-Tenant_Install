@@ -944,10 +944,10 @@ a9c8e37316d508fda95957a6da3212151a1d5b5d583c45ca223adb6a530a1646  ./amfa-admin-p
 3a33a7c08c6dd5c2d89c1c4222ee8033617f90b1708ab65952aee0e4bfde7f7f  ./amfa-admin-portal-multi-tenants/dist/Logo.png
 90d24bc3bf698ac1e173739502298ccca72adf1f564fab05f484b8c48d1cadd2  ./amfa-admin-portal-multi-tenants/dist/robots.txt
 02029f28b71ff53a5395cfdf132edf844a27e3b7136258bb313ffb176b0a7879  ./amfa-admin-portal-multi-tenants/dist/favicon.ico
-92495085fbab83b7a4d4fa618d254c6212e7b6a576e57a150dab7021a2294cf8  ./amfa-admin-portal-multi-tenants/dist/index.html
+9059860a21fc5d443c7d5ba66aa44c7943f9b157e8d084654559f5e02bf7668e  ./amfa-admin-portal-multi-tenants/dist/index.html
 c60ea0aec6a98cce04823f11d133c47a66ba4642cd3d61d5ba9892cd75c347f9  ./amfa-admin-portal-multi-tenants/dist/apersona-logo2.png
 5613fc96a4cabe85403d5ab67e261ca22d0ccb926d49975876d405c3a80d65eb  ./amfa-admin-portal-multi-tenants/dist/manifest.json
-35c93454cd21553cbfd0ddc7cce801f8fbeaea17ceeaf18182d52adee6d036da  ./amfa-admin-portal-multi-tenants/dist/assets/index-BQkAl0YI.js
+38a6a23f1d9ff5f5607f20c47840fe73c08f2f16cce2e8b5cd118d0869780294  ./amfa-admin-portal-multi-tenants/dist/assets/index-C7z_ecOh.js
 c3686924f40bba17e89ff856e1f8e3a7110de1e8aaad11722831924feba4fd4b  ./amfa-admin-portal-multi-tenants/dist/assets/index-DmjCeAXE.css
 607b4bf5552db6e87d7499d7935e456b0b8ce3af7a721aee01204d709241887c  ./amfa-admin-portal-multi-tenants/vite.config.ts
 f4e7cb5d1779a55ea69a3c4984b81a5dd78f0945a930ad104d9ce47e50840311  ./tenants-config.json
