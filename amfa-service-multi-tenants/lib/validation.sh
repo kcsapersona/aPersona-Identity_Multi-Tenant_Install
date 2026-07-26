@@ -10,14 +10,6 @@ readonly EXIT_USER_CANCEL=2
 readonly EXIT_CONFIG_ERROR=3
 readonly EXIT_AWS_ERROR=4
 
-# ASM Portal URLs — hardcoded per environment
-# Source repo uses dev server; release repo uses prod server (swapped by CI strip-source.sh)
-# Must be 'export' (not just 'readonly') so CDK child processes can read them
-# as process.env.ASM_PORTAL_URL / process.env.ASM_SERVICE_URL
-# release shall use https://asm.apersona.com/asm_portal
-export ASM_PORTAL_URL='https://asmdev.apersonadev2.com:8443/asm_portal'
-export ASM_SERVICE_URL='https://asmdev.apersonadev2.com:8443/asm'
-
 # Load configuration from tenants-config.json
 load_config_from_json() {
     # Use TENANTS_CONFIG_FILE if set, otherwise search REPO_ROOT then PROJECT_DIR
@@ -59,7 +51,9 @@ load_config_from_json() {
     # DNS Configuration
     export ROOT_DOMAIN_NAME=$(jq -r '.dns.rootDomain' "$config_file")
     
-    # ASM Configuration (portalUrl/serviceUrl are hardcoded constants, not from config)
+    # ASM Configuration — URLs from config (required)
+    export ASM_PORTAL_URL=$(jq -r '.asm.portalUrl' "$config_file")
+    export ASM_SERVICE_URL=$(jq -r '.asm.serviceUrl' "$config_file")
     export ASM_INSTAL_KEY=$(jq -r '.asm.installKey' "$config_file")
     export ADMIN_EMAIL=$(jq -r '.asm.adminEmail' "$config_file")
     local installer_email
@@ -128,7 +122,7 @@ validate_required_var() {
     local var_value=$2
     local config_file=${3:-"tenants-config.json"}
     
-    if [[ -z "$var_value" ]]; then
+    if [[ -z "$var_value" || "$var_value" == "null" ]]; then
         log_error "$var_name is not set, please set $var_name in $config_file"
         exit $EXIT_CONFIG_ERROR
     fi
@@ -153,11 +147,23 @@ validate_domain_name() {
     fi
 }
 
+validate_url_format() {
+    local var_name=$1
+    local value=$2
+    
+    if [[ ! "$value" =~ ^https:// ]]; then
+        log_error "$var_name must start with https:// (got: $value)"
+        exit $EXIT_CONFIG_ERROR
+    fi
+}
+
 # Validate global configuration
 validate_global_config() {
     # Validate required global configuration
     validate_required_var "ASM_PORTAL_URL" "$ASM_PORTAL_URL"
     validate_required_var "ASM_SERVICE_URL" "$ASM_SERVICE_URL"
+    validate_url_format "ASM_PORTAL_URL" "$ASM_PORTAL_URL"
+    validate_url_format "ASM_SERVICE_URL" "$ASM_SERVICE_URL"
     validate_required_var "ROOT_DOMAIN_NAME" "$ROOT_DOMAIN_NAME"
     validate_required_var "ASM_INSTAL_KEY" "$ASM_INSTAL_KEY"
     validate_required_var "SMTP_HOST" "$SMTP_HOST"

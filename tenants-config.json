@@ -9,6 +9,8 @@
     "rootDomain": "your-domain.example.com"
   },
   "asm": {
+    "portalUrl": "",
+    "serviceUrl": "",
     "installKey": "",
     "adminEmail": "admin@example.com",
     "installerEmail": "",

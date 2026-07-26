@@ -78,3 +78,76 @@ update_mobile_token_global() {
     log_success "Mobile token details updated successfully with ASM portal"
     return 0
 }
+
+# Update ASM URLs for all existing tenants in DynamoDB
+# Called during redeployment to propagate new ASM_SERVICE_URL/ASM_PORTAL_URL to existing tenants
+update_existing_tenants_asm_urls() {
+    local asm_service_url="${ASM_SERVICE_URL:-}"
+    local asm_portal_url="${ASM_PORTAL_URL:-}"
+
+    if [[ -z "$asm_service_url" || -z "$asm_portal_url" ]]; then
+        log_warning "ASM_SERVICE_URL or ASM_PORTAL_URL not set, skipping DDB update"
+        return 0
+    fi
+
+    log_info "Updating ASM URLs for existing tenants in amfa-configtable..."
+
+    # Check if config table exists
+    if ! aws dynamodb describe-table --table-name "amfa-configtable" --region "$CDK_DEPLOY_REGION" >/dev/null 2>&1; then
+        log_info "amfa-configtable not found — no existing tenants to update"
+        return 0
+    fi
+
+    # Scan all amfaConfigs records
+    local items
+    if ! items=$(aws dynamodb scan \
+        --table-name "amfa-configtable" \
+        --filter-expression "configtype = :ct" \
+        --expression-attribute-values '{":ct":{"S":"amfaConfigs"}}' \
+        --region "$CDK_DEPLOY_REGION" \
+        --output json 2>/dev/null); then
+        log_warning "Failed to scan amfa-configtable — existing tenants were NOT updated with new ASM URLs"
+        return 0
+    fi
+
+    local count
+    count=$(echo "$items" | jq '.Items | length')
+
+    if [[ "$count" -eq 0 ]]; then
+        log_info "No existing tenant configs found — nothing to update"
+        return 0
+    fi
+
+    local updated=0
+    for i in $(seq 0 $((count - 1))); do
+        local tenant_id current_value updated_value
+        tenant_id=$(echo "$items" | jq -r ".Items[$i].id.S")
+        current_value=$(echo "$items" | jq -r ".Items[$i].value.S")
+
+        # Update asmurl and asm_portal_url in the JSON value
+        updated_value=$(echo "$current_value" | jq \
+            --arg asmurl "$asm_service_url" \
+            --arg portal "$asm_portal_url" \
+            '.asmurl = $asmurl | .asm_portal_url = $portal')
+
+        # Write back to DynamoDB
+        local escaped_value
+        escaped_value=$(echo "$updated_value" | jq -c . | jq -Rs .)
+
+        if aws dynamodb update-item \
+            --table-name "amfa-configtable" \
+            --key "{\"id\":{\"S\":\"$tenant_id\"},\"configtype\":{\"S\":\"amfaConfigs\"}}" \
+            --update-expression "SET #v = :v" \
+            --expression-attribute-names '{"#v":"value"}' \
+            --expression-attribute-values "{\":v\":{\"S\":$escaped_value}}" \
+            --region "$CDK_DEPLOY_REGION" >/dev/null 2>&1; then
+            updated=$((updated + 1))
+            log_info "  ✓ Updated tenant: $tenant_id"
+        else
+            log_warning "  ✗ Failed to update tenant: $tenant_id"
+        fi
+    done
+
+    log_success "Updated ASM URLs for $updated/$count tenant(s)"
+    return 0
+}

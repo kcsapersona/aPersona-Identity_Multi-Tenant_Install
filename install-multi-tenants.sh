@@ -303,6 +303,9 @@ main() {
     # Deploy admin portal
     deploy_admin_portal "$@"
 
+    # Post-deploy: update ASM URLs for existing tenants in DynamoDB
+    update_existing_tenants_asm_urls
+
     # Show comprehensive summary
     show_deployment_summary
 

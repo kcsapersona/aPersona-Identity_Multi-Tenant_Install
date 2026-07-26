@@ -125,11 +125,9 @@ load_config_for_uninstall() {
     # DNS Configuration
     export ROOT_DOMAIN_NAME=$(jq -r '.dns.rootDomain' "$config_file")
     
-    # ASM Configuration
-    # ASM Portal URLs — hardcoded per environment (not from config)
-    # Source repo uses dev server; release repo uses prod server (swapped by CI)
-    export ASM_PORTAL_URL='https://asmdev.apersonadev2.com:8443/asm_portal'
-    export ASM_SERVICE_URL='https://asmdev.apersonadev2.com:8443/asm'
+    # ASM Configuration — URLs from config (required)
+    export ASM_PORTAL_URL=$(jq -r '.asm.portalUrl' "$config_file")
+    export ASM_SERVICE_URL=$(jq -r '.asm.serviceUrl' "$config_file")
     export ASM_INSTAL_KEY=$(jq -r '.asm.installKey' "$config_file")
     export ADMIN_EMAIL=$(jq -r '.asm.adminEmail' "$config_file")
     local installer_email

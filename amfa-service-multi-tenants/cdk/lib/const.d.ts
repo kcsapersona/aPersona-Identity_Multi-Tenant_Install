@@ -2,8 +2,8 @@ export declare const RootHostedZoneDelegationRoleName = "CrossAccountDnsDelegati
 export declare const RootHostedZoneDelegationRoleArn: string;
 export declare const RootDomainName: any;
 export declare const RootHostedZoneId: any;
-export declare const AsmServiceUrl = "https://asmdev.apersonadev2.com:8443/asm";
-export declare const AsmPortalUrl = "https://asmdev.apersonadev2.com:8443/asm_portal";
+export declare const AsmServiceUrl: any;
+export declare const AsmPortalUrl: any;
 export declare const AMFAIdPName = "apersona";
 export declare const serviceName = "amfa";
 export declare const getAMFAUserPoolName: (tenantId: string) => string;
