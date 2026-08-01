@@ -1091,6 +1091,6 @@ f3d61e6f14d8a7274841cbdc665753a8bf487d04c9237b91e0471b1cc00e2e0d  ./amfa-service
 f144bc9c0281aa6df4a5a91a611f8fce0736a407f0ec4eb01999017e75825466  ./amfa-service-multi-tenants/spportal/dist/assets/index-EFGdVLVf.js
 052e141403a692a8bf2a3b0fcd6219ba1d659c822711282a503150f2d86373ad  ./amfa-service-multi-tenants/vite.config.js
 36ef92e4273004946361bd9097e3884589ef6ed434ee4bc71e0822dd8cf90eec  ./uninstall.sh
-34bf52562bae401de106933a7565c9d3a5c8dc83c04b0b29492dd3f6f3983b7a  ./VERSION
+986d95a92d1538ad7a755e6776e7bf62e90e6deb9c26c5aecc40e3a0346daee6  ./VERSION
 ffad461c7b1f4213e9d36c0e064a38ba3747c5c7daa07235d377a23ea5e677e6  ./install-multi-tenants.sh
 d536cd2b3b9b3f8959baa7a2b4ef4efcc54deb965df667658c9e6a7f34cee254  ./README.md
