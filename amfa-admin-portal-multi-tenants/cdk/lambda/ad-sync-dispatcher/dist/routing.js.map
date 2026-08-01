@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../routing.mjs", "../../shared/dedicated-worker-routing.mjs"],
+  "sourcesContent": ["export {\n  isDedicatedWorkerArn,\n  selectAdSyncWorker as selectWorker,\n} from '../shared/dedicated-worker-routing.mjs';\n", "const DEDICATED_WORKER_ARN =\n  /^arn:aws:lambda:[a-z0-9-]+:\\d{12}:function:ad-sync-worker-tenant-/;\n\nexport function isDedicatedWorkerArn(value) {\n  return typeof value === 'string' && DEDICATED_WORKER_ARN.test(value);\n}\n\nexport function selectAdSyncWorker(state, sharedWorker) {\n  const dedicatedLambdaArn = state?.dedicatedLambdaArn;\n  if (state?.mode !== 'dedicated' || !dedicatedLambdaArn) return sharedWorker;\n  return isDedicatedWorkerArn(dedicatedLambdaArn)\n    ? dedicatedLambdaArn\n    : sharedWorker;\n}\n"],
+  "mappings": "yaAAA,IAAAA,EAAA,GAAAC,EAAAD,EAAA,0BAAAE,EAAA,iBAAAC,IAAA,eAAAC,EAAAJ,GCAA,IAAMK,EACJ,oEAEK,SAASC,EAAqBC,EAAO,CAC1C,OAAO,OAAOA,GAAU,UAAYF,EAAqB,KAAKE,CAAK,CACrE,CAEO,SAASC,EAAmBC,EAAOC,EAAc,CACtD,IAAMC,EAAqBF,GAAO,mBAClC,OAAIA,GAAO,OAAS,aAAe,CAACE,EAA2BD,EACxDJ,EAAqBK,CAAkB,EAC1CA,EACAD,CACN",
+  "names": ["routing_exports", "__export", "isDedicatedWorkerArn", "selectAdSyncWorker", "__toCommonJS", "DEDICATED_WORKER_ARN", "isDedicatedWorkerArn", "value", "selectAdSyncWorker", "state", "sharedWorker", "dedicatedLambdaArn"]
+}

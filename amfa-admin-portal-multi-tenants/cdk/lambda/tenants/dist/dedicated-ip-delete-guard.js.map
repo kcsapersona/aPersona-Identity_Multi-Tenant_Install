@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../dedicated-ip-delete-guard.mjs"],
+  "sourcesContent": ["export function assertDedicatedIpStateAllowsTenantDeletion(item) {\n  const mode = item?.mode?.S || 'shared';\n  const resources = item?.resources?.M || {};\n  if (mode === 'shared' && Object.keys(resources).length === 0) return;\n\n  const error = new Error(\n    'Dedicated IP resources must be cleaned up before deleting this tenant.',\n  );\n  error.statusCode = 409;\n  error.code = 'DEDICATED_IP_CLEANUP_REQUIRED';\n  throw error;\n}\n"],
+  "mappings": "yaAAA,IAAAA,EAAA,GAAAC,EAAAD,EAAA,gDAAAE,IAAA,eAAAC,EAAAH,GAAO,SAASE,EAA2CE,EAAM,CAC/D,IAAMC,EAAOD,GAAM,MAAM,GAAK,SACxBE,EAAYF,GAAM,WAAW,GAAK,CAAC,EACzC,GAAIC,IAAS,UAAY,OAAO,KAAKC,CAAS,EAAE,SAAW,EAAG,OAE9D,IAAMC,EAAQ,IAAI,MAChB,wEACF,EACA,MAAAA,EAAM,WAAa,IACnBA,EAAM,KAAO,gCACPA,CACR",
+  "names": ["dedicated_ip_delete_guard_exports", "__export", "assertDedicatedIpStateAllowsTenantDeletion", "__toCommonJS", "item", "mode", "resources", "error"]
+}

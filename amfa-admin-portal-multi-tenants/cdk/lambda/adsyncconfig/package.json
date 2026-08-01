@@ -4,11 +4,17 @@
   "description": "AD Sync Config API Lambda",
   "main": "index.mjs",
   "scripts": {
-    "build": "rm -rf dist && esbuild ./*.mjs --entry-names=./[name] --bundle --minify --sourcemap --platform=node --target=node20.16 --outdir=dist --external:@aws-sdk/* --external:admin-auth",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf dist && esbuild index.mjs public-config.mjs --entry-names=./[name] --bundle --minify --sourcemap --platform=node --target=node20.16 --outdir=dist --external:@aws-sdk/* --external:admin-auth",
+    "test": "node --preserve-symlinks --test ./*.test.mjs"
   },
   "license": "ISC",
   "devDependencies": {
+    "@aws-sdk/client-dynamodb": "^3.0.0",
+    "@aws-sdk/client-lambda": "^3.0.0",
+    "@aws-sdk/client-secrets-manager": "^3.0.0",
     "esbuild": "^0.25.0"
+  },
+  "dependencies": {
+    "admin-auth": "file:../../lambda-layers/auth-layer/nodejs/node_modules/admin-auth"
   }
 }
