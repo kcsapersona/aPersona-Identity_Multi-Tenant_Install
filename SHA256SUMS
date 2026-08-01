@@ -467,12 +467,12 @@ c135fea20e4a5bace28b5aa271df8f02f97e79f9005abf3be7054aba4726123d  ./amfa-admin-p
 8f3e8bfbcede7270c6e7c0a6b0152f5d4ee952584cc2b1ebfed812ba406883fd  ./amfa-admin-portal-multi-tenants/cdk/lambda/brandings/dist/index.js.map
 51bdb90968d2a36bbaef54b03f0fe4bbbe6e859d88951738e05b7f5b4735d35d  ./amfa-admin-portal-multi-tenants/cdk/lambda/vpnconfig/package.json
 b757eb7840ace8c83b72faa592503d64a7db9f6bdc6e83c9bcba7084fdb4dc9d  ./amfa-admin-portal-multi-tenants/cdk/lambda/vpnconfig/dist/dedicated-ip-resources.js.map
-30caaea2d095a58cc3563ee0ed75502beacfc699906a73cae144555faae64b58  ./amfa-admin-portal-multi-tenants/cdk/lambda/vpnconfig/dist/dedicated-ip.js.map
-44368e4e161e75896907bbe21acdf6d28326d67e32ead2279b9e7d09515493ba  ./amfa-admin-portal-multi-tenants/cdk/lambda/vpnconfig/dist/dedicated-ip.js
-353d4deaddce18d1cf54ceb28ba89cad91c1c009442dbf37ba7d31f05ee69b2d  ./amfa-admin-portal-multi-tenants/cdk/lambda/vpnconfig/dist/index.js
+2b86686e51db38479f7b230b55905517e7f52e8ecff3fa7b798309292ff97fe2  ./amfa-admin-portal-multi-tenants/cdk/lambda/vpnconfig/dist/dedicated-ip.js.map
+1f71fd4d135db106e516bdd970782571bdbb6d28b7c3a22d7104c741e06ea7bd  ./amfa-admin-portal-multi-tenants/cdk/lambda/vpnconfig/dist/dedicated-ip.js
+b44a6c07f5d028861305cdc2a88e2d42cbdb97ac0c26fc9a93cae93aeaba5b0d  ./amfa-admin-portal-multi-tenants/cdk/lambda/vpnconfig/dist/index.js
 8fb4cb4576ce8d516aa6cf8fb5842fa85006b319434a1b8c78f41d5c0c05dead  ./amfa-admin-portal-multi-tenants/cdk/lambda/vpnconfig/dist/dedicated-ip-resources.js
 d58c4a476f0c642d0c9da96c9ca7b9074d11f514b2c92ba8d8833b7bc0e329ae  ./amfa-admin-portal-multi-tenants/cdk/lambda/vpnconfig/dist/dedicated-ip-state.js
-8e0cc4d977617c8f9ef14bb8b124788f1bd5a269804e9fb25dd6418ab8b054d9  ./amfa-admin-portal-multi-tenants/cdk/lambda/vpnconfig/dist/index.js.map
+3f6122523459e9221cc751d8734b00e84234959818fc9ab02123731c1e80e3fb  ./amfa-admin-portal-multi-tenants/cdk/lambda/vpnconfig/dist/index.js.map
 a7a96497fa2fcee197fb6abd6a2d96a2435d16f94565c743997092ea390ba6c1  ./amfa-admin-portal-multi-tenants/cdk/lambda/vpnconfig/dist/dedicated-ip-state.js.map
 c95baa343b0c76ab8046b0fa149e4f7c9edb528a703259c564e7e6d90b2f90ac  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/package.json
 a0d455915db6f81bf8e65bd185f9523b8fce4ef732a03b9a7f255fd278bf80e0  ./amfa-admin-portal-multi-tenants/cdk/lambda/ad-sync-single-user/dist/node_modules/assert-plus/CHANGES.md
