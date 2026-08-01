@@ -251,6 +251,20 @@ export class SamlGw2Client {
     );
   }
 
+  /**
+   * Delete a customer from an IT Organization.
+   *
+   * @param {string} itorgId - IT Org ID
+   * @param {string} customerName - Customer name
+   * @returns {Promise<Object>} { success: true } on 204
+   */
+  async deleteCustomer(itorgId, customerName) {
+    return this.request(
+      "DELETE",
+      `/itorgs/${itorgId}/customers/${customerName}`
+    );
+  }
+
   // ==================== Relying Party Operations ====================
 
   /**
