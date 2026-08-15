@@ -86,6 +86,35 @@ source "$LIB_DIR/aws-utils.sh"
 
 # SAML proxy constants
 readonly SAMLPROXY_API_URL="https://api.samlproxy.apersona-id.com/samlproxy"
+# SAML GW2 constants (must match packages/admin-portal/cdk/config/config.ts)
+readonly SAMLGW2_API_BASE="https://samlgw2.apersona-id.com/api"
+
+# Bash replica of samlgw2-client hashAwsAccount(): 32-bit JS string hash in base36.
+# Must stay in sync with packages/admin-portal/cdk/lambda/samlgw2-client/index.mjs
+hash_aws_account() {
+    local str
+    str=$(printf '%s' "$1" | tr '[:upper:]' '[:lower:]')
+    local -i hash=0 i code
+    local c
+    for ((i = 0; i < ${#str}; i++)); do
+        c="${str:$i:1}"
+        code=$(printf '%d' "'$c")
+        # JS: hash = ((hash << 5) - hash + code) | 0  ==  (hash*31 + code) mod 2^32
+        hash=$(( (hash * 31 + code) & 0xFFFFFFFF ))
+    done
+    # JS: (hash >>> 0).toString(36)
+    local digits="0123456789abcdefghijklmnopqrstuvwxyz" out=""
+    local -i n=$hash
+    if (( n == 0 )); then
+        printf '0'
+        return 0
+    fi
+    while (( n > 0 )); do
+        out="${digits:$((n % 36)):1}$out"
+        n=$((n / 36))
+    done
+    printf '%s' "$out"
+}
 
 # Counters for summary
 declare -i TOTAL_SUCCESS=0
@@ -116,6 +145,7 @@ load_config_for_uninstall() {
         exit 1
     fi
     log_info "Using config: $config_file"
+    export CONFIG_FILE="$config_file"
     
     if ! jq empty "$config_file" >/dev/null 2>&1; then
         log_error "Invalid JSON in $config_file"
@@ -370,7 +400,8 @@ read_tenant_data() {
     # Check if tenant table exists
     if ! aws dynamodb describe-table --table-name "amfa-tenanttable" --region "$CDK_DEPLOY_REGION" >/dev/null 2>&1; then
         log_warning "amfa-tenanttable not found - no tenant data to process"
-        TENANT_DATA="[]"
+        TENANT_DATA='{"Items": []}'
+        ORG_DATA='{"Items": []}'
         ORG_IDS=()
         return 0
     fi
@@ -384,6 +415,8 @@ read_tenant_data() {
     
     # Extract tenant records (type = "tenant")
     TENANT_DATA=$(echo "$ALL_DATA" | jq '{ Items: [.Items[] | select(.type.S == "tenant")] }')
+    # Extract organization records (type = "organization") for samlgw2 itorg lookup
+    ORG_DATA=$(echo "$ALL_DATA" | jq '{ Items: [.Items[] | select(.type.S == "organization")] }')
     local tenant_count
     tenant_count=$(echo "$TENANT_DATA" | jq '.Items | length')
     log_info "Found $tenant_count tenant(s) in DynamoDB"
@@ -448,23 +481,20 @@ cleanup_saml_proxy() {
     fi
     
     # Iterate over each tenant
-    for row in $(echo "$TENANT_DATA" | jq -c '.Items[]'); do
-        local tenant_id saml_client_id saml_client_secret saml_enabled
-        
+    while IFS= read -r row; do
+        local tenant_id saml_client_id saml_client_secret
+
         tenant_id=$(echo "$row" | jq -r '.id.S // ""' | sed 's/^TENANT#//')
         saml_client_id=$(echo "$row" | jq -r '.samlClientId.S // ""')
         saml_client_secret=$(echo "$row" | jq -r '.samlClientSecret.S // ""')
-        saml_enabled=$(echo "$row" | jq -r '.samlproxy.BOOL // true')
-        
+
         if [[ -z "$tenant_id" ]]; then
             continue
         fi
-        
-        if [[ "$saml_enabled" == "false" ]]; then
-            record_skip "SAML proxy disabled for tenant '$tenant_id'"
-            continue
-        fi
-        
+
+        # Note: the legacy samlproxy flag is intentionally ignored here.
+        # Every tenant gets SAML GW provisioned, so cleanup must always run.
+
         log_info "Deleting SAML proxy registration for tenant: $tenant_id"
         
         if [[ "$DRY_RUN" == "true" ]]; then
@@ -487,7 +517,95 @@ cleanup_saml_proxy() {
         else
             record_failure "SAML proxy deletion failed for tenant '$tenant_id' (HTTP $http_code): $body"
         fi
-    done
+    done < <(echo "$TENANT_DATA" | jq -c '.Items[]')
+}
+
+# ============================================================================
+# Phase 2b: SAML GW2 Customer Cleanup
+# ============================================================================
+
+cleanup_samlgw2_customers() {
+    log_info "═══════════════════════════════════════════════════════"
+    log_info "Phase 2b: Deleting SAML GW2 customers"
+    log_info "═══════════════════════════════════════════════════════"
+
+    local tenant_count
+    tenant_count=$(echo "$TENANT_DATA" | jq '.Items | length')
+    if [[ $tenant_count -eq 0 ]]; then
+        record_skip "No tenants found for samlgw2 customer cleanup"
+        return 0
+    fi
+
+    # Admin token: Secrets Manager first, tenants-config.json fallback
+    local gw2_token=""
+    local secret
+    secret=$(aws secretsmanager get-secret-value \
+        --secret-id "apersona/samlgw2/admin-token" \
+        --region "$CDK_DEPLOY_REGION" \
+        --query 'SecretString' --output text 2>/dev/null || echo "")
+    if [[ -n "$secret" ]]; then
+        gw2_token=$(echo "$secret" | jq -r '.adminToken // ""')
+    fi
+    if [[ -z "$gw2_token" && -n "${CONFIG_FILE:-}" && -f "${CONFIG_FILE:-}" ]]; then
+        gw2_token=$(jq -r '.samlgw2.adminToken // ""' "$CONFIG_FILE")
+    fi
+    if [[ -z "$gw2_token" ]]; then
+        record_skip "samlgw2 admin token not found (Secrets Manager or config) - skipping GW2 customer cleanup"
+        return 0
+    fi
+
+    # Account ID for the computed itorg-ID fallback (matches provisioning behavior)
+    local aws_account_id
+    aws_account_id=$(aws sts get-caller-identity --query Account --output text 2>/dev/null || echo "")
+
+    while IFS= read -r row; do
+        local tenant_id org_id itorg_id
+        tenant_id=$(echo "$row" | jq -r '.id.S // ""' | sed 's/^TENANT#//')
+        org_id=$(echo "$row" | jq -r '.org_id.S // ""')
+
+        if [[ -z "$tenant_id" ]]; then
+            continue
+        fi
+
+        # Resolve the org's samlgw2 itorg ID from the organization record
+        itorg_id=""
+        if [[ -n "$org_id" ]]; then
+            itorg_id=$(echo "$ORG_DATA" | jq -r --arg oid "ORG#$org_id" \
+                '.Items[] | select(.id.S == $oid) | .samlgw2_itorg_id.S // ""')
+        fi
+        if [[ -z "$itorg_id" && -n "$org_id" && -n "$aws_account_id" ]]; then
+            # Fallback: compute the ID the same way provisioning does
+            # (buildSamlgw2ItorgId: hash(accountId)-orgId, lowercased)
+            itorg_id=$(printf '%s-%s' "$(hash_aws_account "$aws_account_id")" "$org_id" | tr '[:upper:]' '[:lower:]')
+            log_info "Computed fallback samlgw2 itorg ID for org '$org_id': $itorg_id"
+        fi
+        if [[ -z "$itorg_id" ]]; then
+            record_skip "No samlgw2_itorg_id for tenant '$tenant_id' (org '$org_id') - skipping GW2 customer deletion"
+            continue
+        fi
+
+        log_info "Deleting samlgw2 customer '$tenant_id' under IT Org '$itorg_id'"
+
+        if [[ "$DRY_RUN" == "true" ]]; then
+            log_info "[DRY-RUN] Would DELETE $SAMLGW2_API_BASE/itorgs/$itorg_id/customers/$tenant_id"
+            continue
+        fi
+
+        local response http_code body
+        response=$(curl -s -w "\n%{http_code}" -X DELETE \
+            "$SAMLGW2_API_BASE/itorgs/$itorg_id/customers/$tenant_id" \
+            -H "X-Admin-Token: $gw2_token" \
+            -H "Content-Type: application/json" \
+        2>/dev/null || echo -e "\n000")
+        http_code=$(echo "$response" | tail -1)
+        body=$(echo "$response" | sed '$d')
+
+        if [[ "$http_code" == "200" || "$http_code" == "204" || "$http_code" == "404" ]]; then
+            record_success "samlgw2 customer deleted for tenant '$tenant_id'"
+        else
+            record_failure "samlgw2 customer deletion failed for tenant '$tenant_id' (HTTP $http_code): $body"
+        fi
+    done < <(echo "$TENANT_DATA" | jq -c '.Items[]')
 }
 
 # ============================================================================
@@ -507,7 +625,7 @@ cleanup_asm_tenants() {
         return 0
     fi
     
-    for row in $(echo "$TENANT_DATA" | jq -c '.Items[]'); do
+    while IFS= read -r row; do
         local tenant_id asm_client_id org_id admin_email tenant_name
         tenant_id=$(echo "$row" | jq -r '.id.S // ""' | sed 's/^TENANT#//')
         asm_client_id=$(echo "$row" | jq -r '.asmClientId.S // ""')
@@ -607,7 +725,7 @@ cleanup_asm_tenants() {
         else
             record_skip "No ASM client ID for tenant '$tenant_id'"
         fi
-    done
+    done < <(echo "$TENANT_DATA" | jq -c '.Items[]')
 }
 
 # ============================================================================
@@ -688,7 +806,7 @@ cleanup_cognito_userpools() {
         return 0
     fi
     
-    for row in $(echo "$TENANT_DATA" | jq -c '.Items[]'); do
+    while IFS= read -r row; do
         local tenant_id user_pool_id oauth_domain
         tenant_id=$(echo "$row" | jq -r '.id.S // ""' | sed 's/^TENANT#//')
         user_pool_id=$(echo "$row" | jq -r '.userpool.S // ""')
@@ -745,7 +863,7 @@ cleanup_cognito_userpools() {
         else
             record_failure "Failed to delete Cognito UserPool '$user_pool_id' for tenant '$tenant_id'"
         fi
-    done
+    done < <(echo "$TENANT_DATA" | jq -c '.Items[]')
 }
 
 # ============================================================================
@@ -765,7 +883,7 @@ cleanup_tenant_dynamodb_tables() {
         return 0
     fi
     
-    for row in $(echo "$TENANT_DATA" | jq -c '.Items[]'); do
+    while IFS= read -r row; do
         local tenant_id
         tenant_id=$(echo "$row" | jq -r '.id.S // ""' | sed 's/^TENANT#//')
         
@@ -780,7 +898,7 @@ cleanup_tenant_dynamodb_tables() {
         for table_type in "${table_types[@]}"; do
             delete_dynamodb_table "amfa-${table_type}-${tenant_id}"
         done
-    done
+    done < <(echo "$TENANT_DATA" | jq -c '.Items[]')
 }
 
 # ============================================================================
@@ -796,7 +914,7 @@ cleanup_secrets() {
     local tenant_count
     tenant_count=$(echo "$TENANT_DATA" | jq '.Items | length')
     
-    for row in $(echo "$TENANT_DATA" | jq -c '.Items[]'); do
+    while IFS= read -r row; do
         local tenant_id
         tenant_id=$(echo "$row" | jq -r '.id.S // ""' | sed 's/^TENANT#//')
         
@@ -809,7 +927,7 @@ cleanup_secrets() {
         delete_secret "apersona/${tenant_id}/secret"
         delete_secret "apersona/${tenant_id}/asm"
         delete_secret "apersona/asm/tenant/${tenant_id}"
-    done
+    done < <(echo "$TENANT_DATA" | jq -c '.Items[]')
     
     # Per-org secrets
     for org_id in "${ORG_IDS[@]+"${ORG_IDS[@]}"}"; do
@@ -1248,7 +1366,10 @@ main() {
     
     # Phase 2: SAML Proxy cleanup (external service - do before deleting Cognito)
     cleanup_saml_proxy
-    
+
+    # Phase 2b: SAML GW2 customer cleanup (external service)
+    cleanup_samlgw2_customers
+
     # Phase 3: ASM tenant deregistration (external service - do before deleting tenants)
     cleanup_asm_tenants
     
