@@ -303,6 +303,14 @@ main() {
     # Deploy admin portal
     deploy_admin_portal "$@"
 
+    # Post-deploy: ensure configtype-index GSI exists on amfa-configtable
+    # (idempotent; required by ad-sync-dispatcher and the dedicated IP reconciler;
+    # kept out of CDK because existing environments created it manually)
+    if [[ -x "${SCRIPT_DIR}/../scripts/create-configtype-gsi.sh" ]]; then
+        "${SCRIPT_DIR}/../scripts/create-configtype-gsi.sh" --region "$CDK_DEPLOY_REGION" \
+            || log_warning "configtype-index creation failed - run scripts/create-configtype-gsi.sh manually"
+    fi
+
     # Post-deploy: update ASM URLs for existing tenants in DynamoDB
     update_existing_tenants_asm_urls
 
