@@ -38,6 +38,58 @@ const secretsManager = new SecretsManagerClient({
 // Cache the admin token in memory (Lambda warm start reuse)
 let cachedAdminToken = null;
 
+const MAX_LEGACY_SAML_RP_NAME_LENGTH = 256;
+const UNSAFE_LEGACY_SAML_RP_NAME_PATTERN = /[%/?#\\\u0000-\u001F\u007F]/;
+
+function isUrlDotSegment(value) {
+  return value === "." || value === "..";
+}
+
+/**
+ * Check whether an RP name can be encoded as a gateway URL path segment.
+ *
+ * Safe legacy names are accepted. Path delimiters, encoded delimiters,
+ * controls, and malformed Unicode are rejected.
+ *
+ * @param {unknown} rpName
+ * @returns {boolean}
+ */
+export function isEncodableSamlRpName(rpName) {
+  if (typeof rpName !== "string"
+    || rpName.length === 0
+    || rpName.length > MAX_LEGACY_SAML_RP_NAME_LENGTH
+    || isUrlDotSegment(rpName)
+    || UNSAFE_LEGACY_SAML_RP_NAME_PATTERN.test(rpName)) {
+    return false;
+  }
+
+  try {
+    encodeURIComponent(rpName);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Encode an RP name as one gateway URL path segment.
+ *
+ * Legacy names can contain characters outside the current slug format. Exact
+ * dot segments are always rejected because URL parsers normalize them.
+ *
+ * @param {unknown} rpName
+ * @returns {string}
+ */
+export function encodeSamlRpNamePathSegment(rpName) {
+  if (!isEncodableSamlRpName(rpName)) {
+    throw new Error("RP name cannot be encoded as a gateway path segment");
+  }
+  // RFC 3986 path encoding: also escape !'()* which encodeURIComponent
+  // leaves bare. Downstream URL validators only accept %XX escapes.
+  return encodeURIComponent(rpName.toLowerCase())
+    .replace(/[!'()*]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`);
+}
+
 /**
  * Hash an AWS Account ID to a short deterministic string.
  * Used to prefix IT Org IDs to ensure global uniqueness across AWS accounts.
@@ -272,7 +324,7 @@ export class SamlGw2Client {
    *
    * @param {string} itorgId - IT Org ID
    * @param {string} customerName - Customer name (tenant ID)
-   * @param {string} rpName - Relying Party name (slug, lowercase)
+   * @param {string} rpName - Safe Relying Party identifier
    * @param {Object} rpConfig - RP configuration
    * @param {string} rpConfig.display_name - Display name
    * @param {string} rpConfig.login_url - SP login URL
@@ -287,9 +339,12 @@ export class SamlGw2Client {
    * @returns {Promise<Object>} { message, itorg, customer, relying_party }
    */
   async createRelyingParty(itorgId, customerName, rpName, rpConfig) {
+    if (!isEncodableSamlRpName(rpName)) {
+      throw new Error("Invalid SAML RP name");
+    }
     return this.request(
       "POST",
-      `/itorgs/${itorgId}/customers/${customerName}/relying-parties/${rpName.toLowerCase()}`,
+      `/itorgs/${itorgId}/customers/${customerName}/relying-parties/${encodeSamlRpNamePathSegment(rpName)}`,
       rpConfig
     );
   }
@@ -305,7 +360,7 @@ export class SamlGw2Client {
   async deleteRelyingParty(itorgId, customerName, rpName) {
     return this.request(
       "DELETE",
-      `/itorgs/${itorgId}/customers/${customerName}/relying-parties/${rpName.toLowerCase()}`
+      `/itorgs/${itorgId}/customers/${customerName}/relying-parties/${encodeSamlRpNamePathSegment(rpName)}`
     );
   }
 
@@ -321,7 +376,8 @@ export class SamlGw2Client {
    * @returns {string} IDP metadata URL
    */
   getIdpMetadataUrl(itorgId, customerName, rpName) {
-    return `${this.baseUrl}/samlidp/${itorgId}/${customerName}/${rpName}.xml`;
+    const rpPathSegment = encodeSamlRpNamePathSegment(rpName);
+    return `${this.baseUrl}/samlidp/${itorgId}/${customerName}/${rpPathSegment}.xml`;
   }
 
   /**
@@ -334,7 +390,8 @@ export class SamlGw2Client {
    * @returns {string} OIDC callback URL
    */
   getOidcCallbackUrl(itorgId, customerName, rpName) {
-    return `${this.baseUrl}/oidcsp/${itorgId}/${customerName}/${rpName}/upstream/cb`;
+    const rpPathSegment = encodeSamlRpNamePathSegment(rpName);
+    return `${this.baseUrl}/oidcsp/${itorgId}/${customerName}/${rpPathSegment}/upstream/cb`;
   }
 }
 

@@ -4,12 +4,15 @@
 	"description": "",
 	"main": "index.mjs",
 	"scripts": {
-		"build": "rm -rf dist && esbuild ./*.mjs --entry-names=./[name] --bundle --minify --sourcemap --platform=node --target=node18.4 --outdir=dist --external:@aws-sdk/* --external:admin-auth",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"build": "rm -rf dist && esbuild ./index.mjs ./get.mjs ./put.mjs ./delete.mjs ./idp-metadata.mjs --entry-names=./[name] --bundle --minify --sourcemap --platform=node --target=node18.4 --outdir=dist --external:@aws-sdk/* --external:admin-auth",
+		"test": "node --test ./*.test.mjs"
 	},
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
+		"@aws-sdk/client-cognito-identity-provider": "^3.1101.0",
+		"@aws-sdk/client-dynamodb": "^3.1101.0",
+		"@aws-sdk/client-secrets-manager": "^3.1101.0",
 		"esbuild": ">=0.25.0"
 	},
 	"dependencies": {

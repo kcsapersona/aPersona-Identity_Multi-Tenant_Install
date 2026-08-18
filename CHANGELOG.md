@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.6.6 (2026-08-17)
+## v0.6.6 (2026-08-18)
 
 Release version 0.6.6 (release channel)
 
