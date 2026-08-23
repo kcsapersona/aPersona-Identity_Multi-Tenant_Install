@@ -24,6 +24,30 @@ debug_log() {
     fi
 }
 
+# Resolve the release version in both packaged and source repository layouts.
+resolve_worker_version() {
+    local repo_root=$1
+    local version=""
+    local package_json
+
+    if [[ -s "$repo_root/VERSION" ]]; then
+        version=$(tr -d '[:space:]' < "$repo_root/VERSION")
+    fi
+
+    if [[ -z "$version" ]]; then
+        for package_json in \
+            "$repo_root/package.json" \
+            "$repo_root/${APERSONAADM_REPO_NAME:-packages/admin-portal}/package.json"; do
+            if [[ -f "$package_json" ]]; then
+                version=$(jq -er '.version // empty' "$package_json" 2>/dev/null || true)
+                [[ -n "$version" ]] && break
+            fi
+        done
+    fi
+
+    printf '%s\n' "${version:-0.0.0}"
+}
+
 # Enhanced admin portal deployment
 deploy_admin_portal() {
     debug_log "=========================================="
@@ -285,7 +309,7 @@ EOF
     if [[ -d "$worker_dist" ]]; then
         local s3_bucket="${CDK_DEPLOY_ACCOUNT}-${CDK_DEPLOY_REGION}-ad-sync-state"
         local worker_version
-        worker_version=$(jq -r '.version // "0.0.0"' "$REPO_ROOT/package.json" 2>/dev/null || echo "0.0.0")
+        worker_version=$(resolve_worker_version "$REPO_ROOT")
         local zip_file="/tmp/ad-sync-worker-code.zip"
 
         log_info "Uploading AD sync worker code to S3 (v${worker_version})..."
@@ -303,4 +327,3 @@ EOF
 
     log_success "Admin portal deployed successfully"
 }
-
