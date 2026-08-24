@@ -16,7 +16,7 @@
  *
  * Note on Cognito custom attributes in claim_mappings:
  *   samlgw2 uses ";" instead of ":" for custom attribute prefix.
- *   e.g., "custom:ad-immutable-id" → "custom;ad-immutable-id"
+ *   e.g., "custom:immutableId" → "custom;immutableId"
  *   The gateway handles the translation internally.
  */
 
@@ -35,14 +35,17 @@ export const RP_TEMPLATES = {
         UserPrincipalName: ["email"],
       },
       oidc_to_saml: {
+        // Microsoft federated sign-in requires IDPEmail = UserPrincipalName;
+        // the ImmutableID travels in the NameID (saml.nameid.source_claim below)
         email: ["UserPrincipalName", "IDPEmail"],
-        "custom;ad-immutable-id": ["mobile"],
       },
     },
     saml: {
       nameid: {
         format: "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent",
-        source_claim: "custom:ad-immutable-id",
+        // Must be the Entra OnPremisesImmutableId, i.e. base64(objectGUID),
+        // which AD Sync writes to the Cognito attribute custom:immutableId
+        source_claim: "custom:immutableId",
       },
     },
     editable_fields: [
