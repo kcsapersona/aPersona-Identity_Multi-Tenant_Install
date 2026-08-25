@@ -350,6 +350,52 @@ export class SamlGw2Client {
   }
 
   /**
+   * Update a SAML Relying Party.
+   *
+   * The gateway API exposes only POST (create — 409 when the RP already
+   * exists) and DELETE for relying parties; there is no in-place update.
+   * An update is therefore read → merge → delete → recreate. If the
+   * recreate fails, the previous configuration is restored so the RP is
+   * never left deleted.
+   *
+   * @param {string} itorgId - IT Org ID
+   * @param {string} customerName - Customer name (tenant ID)
+   * @param {string} rpName - Safe Relying Party identifier
+   * @param {Object} rpConfig - Partial RP configuration; top-level keys
+   *   (display_name, login_url, logo_url, sp, claim_mappings, saml)
+   *   replace the existing values, unspecified keys are preserved
+   * @returns {Promise<Object>} gateway create response
+   */
+  async updateRelyingParty(itorgId, customerName, rpName, rpConfig) {
+    if (!isEncodableSamlRpName(rpName)) {
+      throw new Error("Invalid SAML RP name");
+    }
+
+    const customerData = await this.getCustomer(itorgId, customerName);
+    const existing = customerData?.doc?.relying_parties?.[rpName];
+    if (!existing) {
+      // Nothing to merge or delete — a plain create
+      return this.createRelyingParty(itorgId, customerName, rpName, rpConfig);
+    }
+
+    const merged = { ...existing, ...rpConfig };
+
+    await this.deleteRelyingParty(itorgId, customerName, rpName);
+    try {
+      return await this.createRelyingParty(itorgId, customerName, rpName, merged);
+    } catch (recreateError) {
+      // Restore the previous configuration so the RP is not lost
+      try {
+        await this.createRelyingParty(itorgId, customerName, rpName, existing);
+        logger.error(`[SamlGw2] RP '${rpName}' update failed; previous configuration restored`);
+      } catch (restoreError) {
+        logger.error(`[SamlGw2] RP '${rpName}' update failed AND restore failed: ${restoreError.message}`);
+      }
+      throw recreateError;
+    }
+  }
+
+  /**
    * Delete a SAML Relying Party from a customer.
    *
    * @param {string} itorgId - IT Org ID
