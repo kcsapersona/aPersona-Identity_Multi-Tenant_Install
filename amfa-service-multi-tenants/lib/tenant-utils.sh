@@ -118,11 +118,20 @@ update_existing_tenants_asm_urls() {
         return 0
     fi
 
-    local updated=0
+    local updated=0 skipped=0
     for i in $(seq 0 $((count - 1))); do
         local tenant_id current_value updated_value
         tenant_id=$(echo "$items" | jq -r ".Items[$i].id.S")
         current_value=$(echo "$items" | jq -r ".Items[$i].value.S")
+
+        # Skip if the tenant already has the current ASM URLs
+        if echo "$current_value" | jq -e \
+            --arg asmurl "$asm_service_url" \
+            --arg portal "$asm_portal_url" \
+            '.asmurl == $asmurl and .asm_portal_url == $portal' >/dev/null; then
+            skipped=$((skipped + 1))
+            continue
+        fi
 
         # Update asmurl and asm_portal_url in the JSON value
         updated_value=$(echo "$current_value" | jq \
@@ -148,6 +157,10 @@ update_existing_tenants_asm_urls() {
         fi
     done
 
-    log_success "Updated ASM URLs for $updated/$count tenant(s)"
+    if [[ "$skipped" -eq "$count" ]]; then
+        log_info "All $count tenant(s) already have the current ASM URLs — nothing to update"
+    else
+        log_success "Updated ASM URLs for $updated/$count tenant(s) ($skipped already up to date)"
+    fi
     return 0
 }
