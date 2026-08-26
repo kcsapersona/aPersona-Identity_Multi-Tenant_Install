@@ -1048,8 +1048,8 @@ a6ac8ba52f08d99baeaa09f5f5d889dbf2fd3e65dd4d4b98fd1b9722b7e62d32  ./amfa-service
 9b2a9f5549131fa7113caad3a34d93e6bdc7fcf3dc4387eb265a8cfa4d57cd45  ./amfa-service-multi-tenants/cdk/lambda/createauthchallenge/createauthchallenge.py
 04d756a2b7f05b47dd85a634ebd94e73ce00e120d8da968ce1bebdac9c108b90  ./amfa-service-multi-tenants/cdk/lambda/defineauthchallenge/defineauthchallenge.js
 90be8b88b2a4f02eacaf419baa59ae756c0e0f06963793d1e8f74b4291d9c367  ./amfa-service-multi-tenants/cdk/lambda/amfa/package.json
-adb2175bc170cdeda848de1199281a6c0582564d8ea7700071f61b636c4da4f2  ./amfa-service-multi-tenants/cdk/lambda/amfa/dist/amfa.js
-e305f0d58db1f5a910ab800b595eac81be669f17386d53b325c6d2dd4f6d739f  ./amfa-service-multi-tenants/cdk/lambda/amfa/dist/amfa.js.map
+bed8a8fcc8b0197d2031bb58b41e79ff319f721259372d6106a3958a329cbf59  ./amfa-service-multi-tenants/cdk/lambda/amfa/dist/amfa.js
+9aa14c70ebbc0cebfe71b5f38e18a21842835a82c676e08452661b80119a4a9e  ./amfa-service-multi-tenants/cdk/lambda/amfa/dist/amfa.js.map
 9e4aebe4653c5ab1b6666f7e32aec7d70d953859317c5207f5b9ca0afc241425  ./amfa-service-multi-tenants/cdk/lambda/amfa/dist/const.js
 c716d12766ea1f4f276b127e6b07b5674b054b168cddb81f20eefd27131ef4c3  ./amfa-service-multi-tenants/cdk/lambda/amfa/dist/const.js.map
 5e90cbf076bd034ed945065eb8d779ff3ddaa0919474a8807ae942ad215e43f3  ./amfa-service-multi-tenants/cdk/bin/amfa-cdk.d.ts
