@@ -965,12 +965,14 @@ c3686924f40bba17e89ff856e1f8e3a7110de1e8aaad11722831924feba4fd4b  ./amfa-admin-p
 c60ea0aec6a98cce04823f11d133c47a66ba4642cd3d61d5ba9892cd75c347f9  ./amfa-admin-portal-multi-tenants/dist/apersona-logo2.png
 5613fc96a4cabe85403d5ab67e261ca22d0ccb926d49975876d405c3a80d65eb  ./amfa-admin-portal-multi-tenants/dist/manifest.json
 c692f9c63cca7e00a55f654944ba33ebf9d3352b6af0fbe8d3f981bfbefd127c  ./amfa-admin-portal-multi-tenants/vite.config.ts
-08189a2937da325a0f07ee4a75010527a7a0b55d41ebc625bc112a8522b030ea  ./amfa-service-multi-tenants/build/index.html
+8cbe4d5d1e4645b7ab6ed3773284cff41d18273fafcee615533d00e126243e22  ./amfa-service-multi-tenants/build/index.html
 fb099fd6e38a925d46e200120f0600584526fc59cf1d0bd5ff8c6dced7cde976  ./amfa-service-multi-tenants/build/46gr72sv5mp94v3.4a.js
 90d24bc3bf698ac1e173739502298ccca72adf1f564fab05f484b8c48d1cadd2  ./amfa-service-multi-tenants/build/robots.txt
 02029f28b71ff53a5395cfdf132edf844a27e3b7136258bb313ffb176b0a7879  ./amfa-service-multi-tenants/build/favicon.ico
-fe7ccf2c93f57f49962921db98881e255ff4256c10f8f81f05688a6eaeb76da8  ./amfa-service-multi-tenants/build/assets/index-BXB3tkvP.js
-32bb11a36872508d7f80652f514c070d47ecbbd738db12d3c04aed8af898537f  ./amfa-service-multi-tenants/build/assets/index-B15kfISt.css
+c50b99f4852538dbbe392bbffc30022744c25c6dd5d4a31c8bb42b4fd51554be  ./amfa-service-multi-tenants/build/assets/index-ICCBpUx-.js
+4f64d44484f489f8f25c63ce1e679295b4f5cb262a91d9ff99d807df78798f73  ./amfa-service-multi-tenants/build/assets/polyfills-legacy-B3aE-N7c.js
+381dd80aa8e3ae6b03e457fa1fd58a38da6c0f1114274f517900ea9e8c3bf487  ./amfa-service-multi-tenants/build/assets/index-legacy-CYnEtbff.js
+72034893febdd0b3bd6f64b4ac6057290967bed69ebc1cd1e9cf10ae931767f2  ./amfa-service-multi-tenants/build/assets/index-CbO4uWdS.css
 eab5d90a71736f267af39fdf32caa8c71673fd06703279b01e0f92b0d7be0bfc  ./amfa-service-multi-tenants/build/crypto-js.min.js
 21e71b1bf90bff819d901bdddfe8f3eaa00c9fb7d2047fb94c905afc6bd84f8e  ./amfa-service-multi-tenants/build/manifest.json
 19a58d300dbf4b63276f83ac8c6c7542badc833d05d81d2c79418dc078cbf230  ./amfa-service-multi-tenants/spportal/dist/cloud.png
@@ -983,8 +985,8 @@ f144bc9c0281aa6df4a5a91a611f8fce0736a407f0ec4eb01999017e75825466  ./amfa-service
 0c20d2981eb23c008992e698e196bb4ebc1bfc980ac8e4a65cc41e455a84627a  ./amfa-service-multi-tenants/spportal/dist/saml.png
 0292230d8155727ef603204b7008d54c50de8451f5e39b32b9b7bf95b1c04cf0  ./amfa-service-multi-tenants/spportal/dist/manifest.json
 16968cfde43838ab1ccada0c3ed45d677e191f6dbebee5df39368b9bfad88f8c  ./amfa-service-multi-tenants/index.html
-052e141403a692a8bf2a3b0fcd6219ba1d659c822711282a503150f2d86373ad  ./amfa-service-multi-tenants/vite.config.js
-ad846544111e94cede0c6f629ddaf0fe2fa89764dee60483702611f2184f6a5c  ./amfa-service-multi-tenants/package.json
+865ea015fd01c1391ef2c9d33c21283c557ea64a220064502f579deeb5097ea4  ./amfa-service-multi-tenants/vite.config.js
+241e5c9f16fe4fc2e53cc066e17fbb76ecb3acf04f02d3bcfcd521b9fad6c982  ./amfa-service-multi-tenants/package.json
 d633f4e6b89e956f72c8b277a99327fb273cf9ad34581a1b5b2c7a492346d061  ./amfa-service-multi-tenants/cdk/lambda/postdeployment/package.json
 935844d2e98acd09af492132a74ee786a752536edd8a51c18d4b951b08f1b560  ./amfa-service-multi-tenants/cdk/lambda/postdeployment/dist/postdeployment.js.map
 2ff23a4551eb7ac629dfd32d86599e026ac5ad4e52d6bbfb5edc8541d58027be  ./amfa-service-multi-tenants/cdk/lambda/postdeployment/dist/postdeployment.js
@@ -1091,7 +1093,7 @@ a0d954c3cf25ce8532a2b583ea3088df726724ecdf7205af704f13b4c58a2d26  ./amfa-service
 8958007bfb7896788c8223675206e2074213784fc814b283830c2ac6cbbaecb1  ./amfa-service-multi-tenants/lib/validation.sh
 8dc7ebd24cac6193ddd0244e8400fff02cb5e4412b4ff8bb55475e98945f8db0  ./amfa-service-multi-tenants/lib/build-utils.sh
 e6ad82fa6c63ebdedbd57c378bce402f180db39ff746cad15ef2acbc0f6c9e5c  ./amfa-service-multi-tenants/delegationPolicy.json
-986d95a92d1538ad7a755e6776e7bf62e90e6deb9c26c5aecc40e3a0346daee6  ./VERSION
+a44c09a63563688578d3d87354e992d7ce974922707d70d563fbf884ac571c5f  ./VERSION
 11b40a7f2a1335bc3026fd786d058e6dc534d39bd0199eca3143999c7356c0b2  ./install-multi-tenants.sh
 d536cd2b3b9b3f8959baa7a2b4ef4efcc54deb965df667658c9e6a7f34cee254  ./README.md
 fc36a5a88f2d640ef502c893fc49645015788290b4b465c1ecfdb945b419f1bb  ./NOTICE

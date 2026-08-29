@@ -1,7 +1,7 @@
 # Changelog
 
-## v0.6.6 (2026-08-27)
+## v0.6.7 (2026-08-29)
 
-Release version 0.6.6 (release channel)
+Release version 0.6.7 (release channel)
 
 Built from source repo: https://github.com/kcsapersona/aPersona-Identity_Multi-Tenant_Source
