@@ -965,13 +965,13 @@ c3686924f40bba17e89ff856e1f8e3a7110de1e8aaad11722831924feba4fd4b  ./amfa-admin-p
 c60ea0aec6a98cce04823f11d133c47a66ba4642cd3d61d5ba9892cd75c347f9  ./amfa-admin-portal-multi-tenants/dist/apersona-logo2.png
 5613fc96a4cabe85403d5ab67e261ca22d0ccb926d49975876d405c3a80d65eb  ./amfa-admin-portal-multi-tenants/dist/manifest.json
 c692f9c63cca7e00a55f654944ba33ebf9d3352b6af0fbe8d3f981bfbefd127c  ./amfa-admin-portal-multi-tenants/vite.config.ts
-457e60a060a564d1674dd80bbdf5172e5564cd600e4de3c60287598adb053283  ./amfa-service-multi-tenants/build/index.html
+6b92e2ece987f36c0df2c92f1ab0766fcf9b94f8eca7e4ece94eb2a29387f71e  ./amfa-service-multi-tenants/build/index.html
 fb099fd6e38a925d46e200120f0600584526fc59cf1d0bd5ff8c6dced7cde976  ./amfa-service-multi-tenants/build/46gr72sv5mp94v3.4a.js
 90d24bc3bf698ac1e173739502298ccca72adf1f564fab05f484b8c48d1cadd2  ./amfa-service-multi-tenants/build/robots.txt
 02029f28b71ff53a5395cfdf132edf844a27e3b7136258bb313ffb176b0a7879  ./amfa-service-multi-tenants/build/favicon.ico
 4f64d44484f489f8f25c63ce1e679295b4f5cb262a91d9ff99d807df78798f73  ./amfa-service-multi-tenants/build/assets/polyfills-legacy-B3aE-N7c.js
-3a6d07b22fec1c0393bd4799f8c28c60040f1e0aa63f1e70788b88f647521bdd  ./amfa-service-multi-tenants/build/assets/index-legacy-BxzFIPYp.js
-9833a4c21479a62894faa0cd261011a77f2e62678bc767e5693a765e323efdb4  ./amfa-service-multi-tenants/build/assets/index-Ct9V6xyP.js
+2eb2c1ba86d82f22f70849415fe8254699f7ae48e9d2f9239105c0d62ac11c12  ./amfa-service-multi-tenants/build/assets/index-B4GjPSFb.js
+2dbb66ff64b61f8b3e720ca95a1640167986e1682fc4909212d831e1eef885d9  ./amfa-service-multi-tenants/build/assets/index-legacy-DBvszD31.js
 72034893febdd0b3bd6f64b4ac6057290967bed69ebc1cd1e9cf10ae931767f2  ./amfa-service-multi-tenants/build/assets/index-CbO4uWdS.css
 eab5d90a71736f267af39fdf32caa8c71673fd06703279b01e0f92b0d7be0bfc  ./amfa-service-multi-tenants/build/crypto-js.min.js
 21e71b1bf90bff819d901bdddfe8f3eaa00c9fb7d2047fb94c905afc6bd84f8e  ./amfa-service-multi-tenants/build/manifest.json
