@@ -67,8 +67,36 @@ load_config_from_json() {
     export SMTP_PASS=$(jq -r '.smtp.pass' "$config_file")
     export SMTP_SECURE=$(jq -r '.smtp.secure' "$config_file")
     export SMTP_PORT=$(jq -r '.smtp.port' "$config_file")
+
+    # Billing (722lic.works Licensing) — optional; used by tenant self-signup.
+    # baseUrl: the licensing server, e.g. https://licdev.apersona.com:9443
+    # installUrl: the Installation URL sent as `url` on /v1 writes and quotes
+    export BILLING_BASE_URL=$(jq -r '.billing.baseUrl // empty' "$config_file")
+    export BILLING_INSTALL_URL=$(jq -r '.billing.installUrl // empty' "$config_file")
     
     log_success "Configuration loaded successfully from tenants-config.json"
+
+    # Store the billing API key (org-scoped, IP-pinned to the NAT EIP) in
+    # Secrets Manager. Read as a plain string by the billing client.
+    local billing_api_key
+    billing_api_key=$(jq -r '.billing.apiKey // empty' "$config_file")
+    if [[ -n "$billing_api_key" && "$billing_api_key" != "null" ]]; then
+        log_info "Storing billing API key in Secrets Manager..."
+        if aws secretsmanager describe-secret --secret-id "apersona/billing/apikey" --region "${CDK_DEPLOY_REGION:-$AWS_REGION}" >/dev/null 2>&1; then
+            aws secretsmanager put-secret-value \
+                --secret-id "apersona/billing/apikey" \
+                --secret-string "$billing_api_key" \
+                --region "${CDK_DEPLOY_REGION:-$AWS_REGION}" >/dev/null 2>&1 || true
+            log_info "Billing API key updated in Secrets Manager"
+        else
+            aws secretsmanager create-secret \
+                --name "apersona/billing/apikey" \
+                --secret-string "$billing_api_key" \
+                --description "722lic.works org-scoped API key for tenant self-signup billing" \
+                --region "${CDK_DEPLOY_REGION:-$AWS_REGION}" >/dev/null 2>&1 || true
+            log_info "Billing API key stored in Secrets Manager"
+        fi
+    fi
     
     # Store ASM install key in Secrets Manager for use by admin portal Lambdas
     if [[ -n "$ASM_INSTAL_KEY" && "$ASM_INSTAL_KEY" != "null" ]]; then
