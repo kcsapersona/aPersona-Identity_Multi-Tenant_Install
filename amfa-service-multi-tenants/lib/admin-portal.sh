@@ -237,6 +237,13 @@ EOF
     debug_log "Current directory: $(pwd)"
     debug_log "CDK Deploy Region: $CDK_DEPLOY_REGION"
     debug_log "CDK Deploy Account: $CDK_DEPLOY_ACCOUNT"
+    # Writer gate, step 1 (rounds 18–19 P1): close the SIGNUP# gate item BEFORE
+    # the deploy and drain in-flight requests, so no SIGNUP# write can land
+    # while CloudFormation may be replacing the D10 stream consumer's mapping.
+    # Re-opened by signup_gate_writers after the deploy, once the consumer is
+    # verified and has acked a canary.
+    signup_close_writers || return 1
+
     debug_log "Command: npx cdk deploy --require-approval never --all --outputs-file ../apersona_idp_mgt_deploy_outputs.json"
     
     log_info "Deploying admin portal stack..."
@@ -284,8 +291,10 @@ EOF
         debug_log "✓ Outputs file created: ../apersona_idp_mgt_deploy_outputs.json"
         debug_log "Outputs file content:"
         debug_log "$(cat ../apersona_idp_mgt_deploy_outputs.json | jq . 2>/dev/null || cat ../apersona_idp_mgt_deploy_outputs.json)"
+        signup_gate_writers "../apersona_idp_mgt_deploy_outputs.json" || return 1
     else
-        log_error "✗ Outputs file NOT created!"
+        log_error "✗ Outputs file NOT created! Cannot verify the signup-events consumer; aborting."
+        return 1
     fi
     
     # Verify CloudFormation stacks were created
@@ -326,4 +335,193 @@ EOF
     fi
 
     log_success "Admin portal deployed successfully"
+}
+
+# ---------------------------------------------------------------------------
+# Tenant self-signup writer gate (TENANT_SELF_SIGNUP_IMPLEMENTATION.md D10,
+# round 19).
+#
+# The D10 stream consumer must be reading before any SIGNUP# item is
+# written, and a CloudFormation update may replace the consumer's mapping
+# (LATEST: records written during the replacement would be missed). The
+# gate is a DynamoDB item, `SIGNUP#__gate__` / `GATE`, that EVERY SIGNUP#
+# write in lambda/shared/signup/state.mjs condition-checks in the same
+# transaction (closed -> 503 maintenance). It covers registration, setup,
+# retry and the orchestrator alike, which the earlier key-secret gate did
+# not (round 19 P1).
+#
+#   signup_close_writers  — before `cdk deploy`: write the gate item closed,
+#                           empty the registration key list (the only gate
+#                           Lambdas from a pre-gate release know), then wait
+#                           out the API Gateway timeout so every request
+#                           already in flight has either committed or been
+#                           refused.
+#   signup_gate_writers   — after `cdk deploy`: verify the consumer (mapping
+#                           Enabled, no PROBLEM processing result, function
+#                           Active), prove it is LIVE by writing a canary
+#                           item through the stream and waiting for its ack,
+#                           store the configured registration keys, and only
+#                           then reopen the gate. Any failure aborts the
+#                           install with the gate still closed.
+#
+# The key material is read from the config file here, in this function's
+# scope, and passed straight to Secrets Manager; it is never exported.
+# ---------------------------------------------------------------------------
+SIGNUP_SECRET_ID="apersona/signup/apikey"
+SIGNUP_EMPTY_KEYS='{"keys":[]}'
+SIGNUP_TENANT_TABLE="amfa-tenanttable"
+SIGNUP_GATE_ID="SIGNUP#__gate__"
+SIGNUP_GATE_SK="GATE"
+SIGNUP_CANARY_ID="SIGNUP#__canary__"
+SIGNUP_CANARY_SK="SIGNUP#PROFILE"   # the stream filter only delivers this sk
+SIGNUP_DRAIN_SECONDS=35             # > the 30 s API Gateway integration timeout
+SIGNUP_CANARY_POLLS=45              # x 2 s = ~90 s for the consumer to ack
+
+# Every regional call names its region: detect_aws_environment exports only
+# CDK_DEPLOY_REGION, and AWS_REGION is set only when config has aws.region, so
+# a bare `aws` call on an EC2 host can have no region at all (round 20 P1).
+signup_aws() { aws "$@" --region "${CDK_DEPLOY_REGION:-$AWS_REGION}"; }
+
+signup_now() { date -u +%Y-%m-%dT%H:%M:%SZ; }
+signup_nonce() {
+    uuidgen 2>/dev/null || cat /proc/sys/kernel/random/uuid 2>/dev/null || echo "$(date +%s)-$RANDOM$RANDOM"
+}
+
+# Configured keys as the secret JSON. The config file is mandatory and the
+# read must succeed: a missing file or a jq failure aborts instead of
+# silently storing an empty key list (round 19 P2). Only a config whose
+# `signup.keys` is really empty (or absent) yields {"keys":[]}.
+signup_configured_keys() {
+    local config_file="${TENANTS_CONFIG_FILE:-}"
+    if [[ -z "$config_file" || ! -f "$config_file" ]]; then
+        log_error "TENANTS_CONFIG_FILE is not set or does not exist ('${config_file}'); cannot read the registration keys."
+        return 1
+    fi
+    local keys
+    if ! keys=$(jq -c '{keys: [(.signup.keys // [])[] | select(.key != null and .key != "")]}' "$config_file" 2>&1); then
+        log_error "Failed to read signup.keys from $config_file: $keys"
+        return 1
+    fi
+    [[ "$keys" == \{* ]] || { log_error "Unexpected jq output for signup.keys: $keys"; return 1; }
+    echo "$keys"
+}
+
+# Write the gate item: closed=true|false.
+signup_write_gate() {
+    local closed="$1" reason="$2"
+    signup_aws dynamodb put-item --table-name "$SIGNUP_TENANT_TABLE" --item \
+        "{\"id\":{\"S\":\"$SIGNUP_GATE_ID\"},\"sk\":{\"S\":\"$SIGNUP_GATE_SK\"},\"closed\":{\"BOOL\":$closed},\"reason\":{\"S\":\"$reason\"},\"at\":{\"S\":\"$(signup_now)\"}}" \
+        >/dev/null
+}
+
+signup_close_writers() {
+    log_info "Closing self-signup writes (gate item $SIGNUP_GATE_ID closed) for the duration of the deploy..."
+    if ! signup_write_gate true deploy; then
+        log_error "Could not write the signup gate item to $SIGNUP_TENANT_TABLE; the deploy must not start."
+        return 1
+    fi
+    # Lambdas from a release before the gate item do not read it; for them
+    # the empty registration key list is still the only closure, so keep
+    # writing it until the deploy has replaced them (round 20 P1). The keys
+    # are restored by signup_gate_writers before the gate reopens.
+    log_info "Emptying the registration key list for writers that predate the gate item..."
+    store_secret_or_die "$SIGNUP_SECRET_ID" "$SIGNUP_EMPTY_KEYS" \
+        "Tenant self-signup registration API keys with per-key IP allowlist and org"
+    log_info "Draining in-flight signup requests (${SIGNUP_DRAIN_SECONDS}s)..."
+    sleep "$SIGNUP_DRAIN_SECONDS"
+    return 0
+}
+
+# Verify the stream consumer is really processing: mapping Enabled AND its
+# last processing result is not a problem AND the function is Active. Every
+# lookup failure is a failure (round 19 P2: an unknown function is not ready).
+signup_consumer_ready() {
+    local uuid="$1" state="" result="" fn="" fstate=""
+    local i
+    for i in $(seq 1 45); do
+        state=$(signup_aws lambda get-event-source-mapping --uuid "$uuid" --query State --output text 2>/dev/null) || state="(lookup failed)"
+        [[ "$state" == "Enabled" ]] && break
+        sleep 2
+    done
+    if [[ "$state" != "Enabled" ]]; then
+        log_error "signup-events stream consumer is '$state', not Enabled."
+        return 1
+    fi
+    result=$(signup_aws lambda get-event-source-mapping --uuid "$uuid" --query LastProcessingResult --output text 2>/dev/null) || result="(lookup failed)"
+    case "$result" in
+        OK|"No records processed"|None|null|"") ;;  # healthy, or nothing to process yet (liveness is proven by the canary)
+        *) log_error "signup-events stream consumer reports LastProcessingResult='$result'."; return 1 ;;
+    esac
+    fn=$(signup_aws lambda get-event-source-mapping --uuid "$uuid" --query FunctionArn --output text 2>/dev/null) || fn=""
+    if [[ -z "$fn" || "$fn" == "None" ]]; then
+        log_error "Could not resolve the signup-events function from mapping $uuid; not treating it as ready."
+        return 1
+    fi
+    fstate=$(signup_aws lambda get-function-configuration --function-name "$fn" --query State --output text 2>/dev/null) || fstate="(lookup failed)"
+    if [[ "$fstate" != "Active" ]]; then
+        log_error "signup-events function is '$fstate', not Active."
+        return 1
+    fi
+    return 0
+}
+
+# Liveness: write the canary item (its sk passes the stream filter) and
+# wait for the consumer to ack the nonce on the same item.
+signup_consumer_live() {
+    local nonce acked="" i
+    nonce=$(signup_nonce)
+    if ! signup_aws dynamodb put-item --table-name "$SIGNUP_TENANT_TABLE" --item \
+        "{\"id\":{\"S\":\"$SIGNUP_CANARY_ID\"},\"sk\":{\"S\":\"$SIGNUP_CANARY_SK\"},\"status\":{\"S\":\"canary\"},\"nonce\":{\"S\":\"$nonce\"},\"at\":{\"S\":\"$(signup_now)\"}}" \
+        >/dev/null; then
+        log_error "Could not write the signup canary item to $SIGNUP_TENANT_TABLE."
+        return 1
+    fi
+    for i in $(seq 1 "$SIGNUP_CANARY_POLLS"); do
+        acked=$(signup_aws dynamodb get-item --table-name "$SIGNUP_TENANT_TABLE" --consistent-read \
+            --key "{\"id\":{\"S\":\"$SIGNUP_CANARY_ID\"},\"sk\":{\"S\":\"$SIGNUP_CANARY_SK\"}}" \
+            --query 'Item.ackedNonce.S' --output text 2>/dev/null) || acked=""
+        [[ "$acked" == "$nonce" ]] && return 0
+        sleep 2
+    done
+    log_error "signup-events consumer did not ack the canary (nonce $nonce) within $((SIGNUP_CANARY_POLLS * 2))s: the stream is not being read."
+    return 1
+}
+
+signup_gate_writers() {
+    local outputs_file="$1"
+    local uuid
+    uuid=$(jq -r '.["SSO-CUPStack"].SignupEventsMappingUuid // empty' "$outputs_file" 2>/dev/null)
+    if [[ -z "$uuid" ]]; then
+        log_error "Deploy outputs carry no SignupEventsMappingUuid: the D10 stream consumer is not in this stack. Signup writes stay closed; aborting."
+        return 1
+    fi
+    log_info "Verifying the signup-events stream consumer ($uuid)..."
+    if ! signup_consumer_ready "$uuid"; then
+        log_error "Signup writes stay closed (gate item not reopened); aborting."
+        return 1
+    fi
+    log_info "Proving the consumer is live (canary through the stream)..."
+    if ! signup_consumer_live; then
+        log_error "Signup writes stay closed (gate item not reopened); aborting."
+        return 1
+    fi
+    log_info "signup-events stream consumer is ready and live"
+    local keys
+    if ! keys=$(signup_configured_keys); then
+        log_error "Signup writes stay closed (gate item not reopened); aborting."
+        return 1
+    fi
+    store_secret_or_die "$SIGNUP_SECRET_ID" "$keys" \
+        "Tenant self-signup registration API keys with per-key IP allowlist and org"
+    if [[ "$keys" == "$SIGNUP_EMPTY_KEYS" ]]; then
+        log_info "No registration keys in config: POST /signup is unusable (empty key list stored)"
+    else
+        log_info "Registration keys stored"
+    fi
+    if ! signup_write_gate false deployed; then
+        log_error "Could not reopen the signup gate item in $SIGNUP_TENANT_TABLE; signup writes stay closed. Aborting."
+        return 1
+    fi
+    log_info "Self-signup writes reopened (gate item $SIGNUP_GATE_ID open)"
+    return 0
 }

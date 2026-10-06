@@ -11,6 +11,32 @@ readonly EXIT_CONFIG_ERROR=3
 readonly EXIT_AWS_ERROR=4
 
 # Load configuration from tenants-config.json
+# Create or update a Secrets Manager secret and abort the install if the
+# write fails. A deploy that reports success while the Lambdas have no key
+# is worse than a loud failure (design review 2026-10-03 #5). The value is
+# never echoed.
+store_secret_or_die() {
+    local secret_id="$1" secret_value="$2" description="$3"
+    local region="${CDK_DEPLOY_REGION:-$AWS_REGION}"
+    log_info "Storing ${secret_id} in Secrets Manager..."
+    if aws secretsmanager describe-secret --secret-id "$secret_id" --region "$region" >/dev/null 2>&1; then
+        if ! aws secretsmanager put-secret-value --secret-id "$secret_id" \
+                --secret-string "$secret_value" --region "$region" >/dev/null; then
+            log_error "Failed to update ${secret_id}; the Lambdas would run without it. Aborting."
+            exit 1
+        fi
+        log_info "${secret_id} updated in Secrets Manager"
+    else
+        if ! aws secretsmanager create-secret --name "$secret_id" \
+                --secret-string "$secret_value" --description "$description" \
+                --region "$region" >/dev/null; then
+            log_error "Failed to create ${secret_id}; the Lambdas would run without it. Aborting."
+            exit 1
+        fi
+        log_info "${secret_id} stored in Secrets Manager"
+    fi
+}
+
 load_config_from_json() {
     # Use TENANTS_CONFIG_FILE if set, otherwise search REPO_ROOT then PROJECT_DIR
     local config_file="${TENANTS_CONFIG_FILE:-}"
@@ -76,28 +102,26 @@ load_config_from_json() {
     
     log_success "Configuration loaded successfully from tenants-config.json"
 
-    # Store the billing API key (org-scoped, IP-pinned to the NAT EIP) in
+    # Store the billing API key (Product Line-scoped, IP-pinned to the NAT EIP) in
     # Secrets Manager. Read as a plain string by the billing client.
     local billing_api_key
     billing_api_key=$(jq -r '.billing.apiKey // empty' "$config_file")
     if [[ -n "$billing_api_key" && "$billing_api_key" != "null" ]]; then
-        log_info "Storing billing API key in Secrets Manager..."
-        if aws secretsmanager describe-secret --secret-id "apersona/billing/apikey" --region "${CDK_DEPLOY_REGION:-$AWS_REGION}" >/dev/null 2>&1; then
-            aws secretsmanager put-secret-value \
-                --secret-id "apersona/billing/apikey" \
-                --secret-string "$billing_api_key" \
-                --region "${CDK_DEPLOY_REGION:-$AWS_REGION}" >/dev/null 2>&1 || true
-            log_info "Billing API key updated in Secrets Manager"
-        else
-            aws secretsmanager create-secret \
-                --name "apersona/billing/apikey" \
-                --secret-string "$billing_api_key" \
-                --description "722lic.works org-scoped API key for tenant self-signup billing" \
-                --region "${CDK_DEPLOY_REGION:-$AWS_REGION}" >/dev/null 2>&1 || true
-            log_info "Billing API key stored in Secrets Manager"
-        fi
+        store_secret_or_die "apersona/billing/apikey" "$billing_api_key" \
+            "722lic.works Product Line-scoped API key for tenant self-signup billing"
     fi
-    
+
+    # Store the signup registration API keys (+ per-key IP allowlist and org)
+    # in Secrets Manager. The secret is the `signup` object verbatim
+    # ({"keys":[{id,key,orgId,allowedIps}]}), read by the signup-authorizer
+    # Lambda. Skipped when no entry has a non-empty key.
+    # The registration keys are the writer gate for the D10 stream consumer
+    # and are handled by signup_close_writers / signup_gate_writers around the
+    # admin-portal deploy (installer/lib/admin-portal.sh). Nothing is read or
+    # exported here: the key material stays in tenants-config.json (mode 600,
+    # D18) and is read by the gate itself, in its own shell scope, when
+    # needed — never exported to the npm/CDK child processes (round 18 P2).
+
     # Store ASM install key in Secrets Manager for use by admin portal Lambdas
     if [[ -n "$ASM_INSTAL_KEY" && "$ASM_INSTAL_KEY" != "null" ]]; then
         log_info "Storing ASM install key in Secrets Manager..."

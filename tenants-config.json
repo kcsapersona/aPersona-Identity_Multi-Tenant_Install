@@ -26,6 +26,23 @@
   "samlgw2": {
     "adminToken": ""
   },
+  "billing": {
+    "_comment": "Optional. 722lic.works Licensing for tenant self-signup. apiKey is written to Secrets Manager apersona/billing/apikey; use an Product Line-scoped key pinned to this deployment NAT IP.",
+    "baseUrl": "",
+    "installUrl": "",
+    "apiKey": ""
+  },
+  "signup": {
+    "_comment": "Optional. Tenant self-signup registration API keys, written to Secrets Manager apersona/signup/apikey. allowedIps: CIDRs of the registration service; a key with no allowedIps never authorizes.",
+    "keys": [
+      {
+        "id": "launch",
+        "key": "",
+        "orgId": "apersona",
+        "allowedIps": []
+      }
+    ]
+  },
   "_schema": {
     "description": "Bootstrap configuration for initial tenant deployment",
     "notes": [

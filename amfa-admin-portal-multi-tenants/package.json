@@ -28,6 +28,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "cdk-build": "tsc --target ES2018 --moduleResolution node --module commonjs cdk/bin/sso-cup.ts",
+    "cdk-test": "node --test cdk/test/*.test.mjs",
     "lambda-build": "./scripts/build-lambdas.sh",
     "deploy": "npm run lambda-build && npm run cdk-build && cdk deploy --all --profile $npm_config_profile"
   },
