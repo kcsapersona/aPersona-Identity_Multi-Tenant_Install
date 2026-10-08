@@ -50,18 +50,33 @@ main() {
     mkdir -p "$BACKUP"
     for f in "${CONFIG_FILES[@]}"; do [[ -f "$f" ]] && cp -p "$f" "$BACKUP/"; done
     echo "Config backed up to $BACKUP"
+    # Restore on every exit path: `git checkout --force` resets tenants-config.json
+    # to the release template first and can still fail afterwards (root-owned
+    # files, full disk), which once left a customer with the template config.
+    restore_config() { for f in "${CONFIG_FILES[@]}"; do [[ -f "$BACKUP/$f" ]] && cp -p "$BACKUP/$f" "$f"; done; return 0; }
+    trap restore_config EXIT
 
     # Channel tags (latest, pre-release) and re-published version tags move, so
-    # always force-fetch the one ref we want.
-    git_as_owner fetch --force --no-tags origin "refs/tags/$REF:refs/tags/$REF"
+    # always force-fetch the one ref we want. Every release replaces the whole
+    # tree (node_modules, dist), so a full history is ~500 MB per release; fetch
+    # shallow and keep only this ref so the clone stays one release deep.
+    git_as_owner fetch --force --no-tags --depth 1 origin "refs/tags/$REF:refs/tags/$REF"
     git_as_owner checkout --force --detach "refs/tags/$REF"
+    restore_config
 
-    for f in "${CONFIG_FILES[@]}"; do [[ -f "$BACKUP/$f" ]] && cp -p "$BACKUP/$f" "$f"; done
+    # Best effort: drop the refs that keep older releases reachable (other tags,
+    # origin/* and the clone's own main branch; HEAD is detached), then prune.
+    for ref in $(git for-each-ref --format='%(refname)' refs/tags refs/remotes refs/heads); do
+        [[ "$ref" == "refs/tags/$REF" ]] || git_as_owner update-ref -d "$ref" || true
+    done
+    git_as_owner reflog expire --expire=now --all || true
+    git_as_owner gc --prune=now --quiet || true
 
     NEW="$(cat VERSION 2>/dev/null || echo unknown)"
     echo "Updated $CURRENT -> $NEW ($REF @ $(git rev-parse --short HEAD))"
 
     if [[ "$RUN_INSTALL" == true ]]; then
+        trap - EXIT   # exec replaces the process; config is already restored
         exec ./install-multi-tenants.sh "$@"
     fi
     echo "Next: ./install-multi-tenants.sh"
