@@ -964,10 +964,10 @@ d4d0a4241800447560187ce5d844c8cbc3d70dbe9a2d47c4a18bd06a621f0ac8  ./amfa-admin-p
 ac193f6de0865fdfcb6ebdddb32c17f3953b6d06d74a4638f1c3111d6e7835fe  ./amfa-admin-portal-multi-tenants/cdk/lambda/totptoken-authorizer/package.json
 4485eafa81aa827da5b26ed9bd28908ec9a8d69d5547aa7a851a8c6192ea3f0e  ./amfa-admin-portal-multi-tenants/cdk/lambda/tenantslist/dist/create-tenant.js
 95be89ef8cbfe1bccfb9289700503f0033189ec0c9c4c9fe67228e3e09fe316f  ./amfa-admin-portal-multi-tenants/cdk/lambda/tenantslist/dist/post.js.map
-f2aa335584bc1b58f214e3cd0726ad155d50611882baaaa814ad965ccd1be0ad  ./amfa-admin-portal-multi-tenants/cdk/lambda/tenantslist/dist/index.js.map
+57c50f4001ddedb0bf56059918c1b55d11227409bd1a0d4c0d74a1eff43b2bf2  ./amfa-admin-portal-multi-tenants/cdk/lambda/tenantslist/dist/index.js.map
 a176a7fabb03935357e9b829ea1ea0cf82e96833fe4414cb7736310bd173723c  ./amfa-admin-portal-multi-tenants/cdk/lambda/tenantslist/dist/org-utils.js
 26ae235e0d7841451dcd205d79656785f9209cc7890c2b7d58b60791e3e78982  ./amfa-admin-portal-multi-tenants/cdk/lambda/tenantslist/dist/org-utils.js.map
-68539f2bce6526fade879fbc827e1b6011ea4a7925e52c1aa2118a43f0bfe299  ./amfa-admin-portal-multi-tenants/cdk/lambda/tenantslist/dist/index.js
+81ed334be60368466665f65175a5058c7fef5247c57830ad1e06abd9574a2ee1  ./amfa-admin-portal-multi-tenants/cdk/lambda/tenantslist/dist/index.js
 70a5a3e8c4ef3b0ad1d3e88bbdb4d9c4eb0f8496580d1bfb9d8308c0cc7f9b59  ./amfa-admin-portal-multi-tenants/cdk/lambda/tenantslist/dist/create-tenant.js.map
 a42041b935f1279caa8fa3eaec1bea84723ca5eb6d77f5ac1811a74875ee8ec7  ./amfa-admin-portal-multi-tenants/cdk/lambda/tenantslist/dist/post.js
 78b08cf60dc74ed4a6b2bc4a963f6d80dcc27a59e2a7901391337cbc113442d6  ./amfa-admin-portal-multi-tenants/cdk/lambda/tenantslist/package.json
