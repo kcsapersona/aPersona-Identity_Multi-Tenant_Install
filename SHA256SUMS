@@ -983,13 +983,14 @@ fbb594384b4e7d309d840b13b340999ed14bfd43d9024447a8a9f4d35c31b42a  ./amfa-admin-p
 fdd2f6bf9942a73fe36e2ab2d9fb43fde2c5ee790424355a6b0b56ccbab3bbf5  ./amfa-admin-portal-multi-tenants/cdk/lambda-layers/auth-layer/nodejs/node_modules/admin-auth/index.cjs
 260a2edbf1f37ccdad305efa51a0375dfe8d09cfb2b7a8db9755c0c05ee54609  ./amfa-admin-portal-multi-tenants/cdk/lambda-layers/auth-layer/nodejs/node_modules/admin-auth/tenant-utils.mjs
 b268430358ba109cace2148701d5cff554bc5af7b083893e1fa48dc5ba24404e  ./amfa-admin-portal-multi-tenants/cdk/bin/sso-cup.js
+21c17e018cbf928f5a2399add98584d44b15af4c3f2fdf625c33f70a6cb9d9ae  ./update.sh
 11b40a7f2a1335bc3026fd786d058e6dc534d39bd0199eca3143999c7356c0b2  ./install-multi-tenants.sh
 fc36a5a88f2d640ef502c893fc49645015788290b4b465c1ecfdb945b419f1bb  ./NOTICE
 c9c7244b578bec64ac1941b20f24925afc48fa9b9ff2902eb3b0e25938f18def  ./uninstall.sh
 13eb74b44be6e3a85a0efa0dedf56aec05e9e50140e1c8bbc0d0fbd8097b0717  ./VERSION
 d5ab74cd2f10d786d1a9121efcf8cbce457d1c6167ffb6d1ebaaed0a2a6d3f73  ./aPersona_ASM-and-aPersona_Identity_Mgr_Ts_Cs.txt
 ee6bf7bd931ab191827b7380e14230a41f588830734ac853e6f11a607f3acbe8  ./tenants-config.json
-d536cd2b3b9b3f8959baa7a2b4ef4efcc54deb965df667658c9e6a7f34cee254  ./README.md
+a468bd30a6cba29e6a68aa05c6c57a7f602c6ad08a60ee2bd51ccd51cd63c8ff  ./README.md
 21e71b1bf90bff819d901bdddfe8f3eaa00c9fb7d2047fb94c905afc6bd84f8e  ./amfa-service-multi-tenants/build/manifest.json
 fb099fd6e38a925d46e200120f0600584526fc59cf1d0bd5ff8c6dced7cde976  ./amfa-service-multi-tenants/build/46gr72sv5mp94v3.4a.js
 2eb2c1ba86d82f22f70849415fe8254699f7ae48e9d2f9239105c0d62ac11c12  ./amfa-service-multi-tenants/build/assets/index-B4GjPSFb.js
