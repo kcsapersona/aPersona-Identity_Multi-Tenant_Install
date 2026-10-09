@@ -1,0 +1,1 @@
+"use strict";function grantToRole(o,e){for(const t of e)o.addToRolePolicy(t)}Object.defineProperty(exports,"__esModule",{value:!0}),exports.grantToRole=grantToRole;

@@ -1,0 +1,14 @@
+{
+  "name": "signup-quote",
+  "version": "1.0.0",
+  "description": "Tenant self-signup pricing API: GET /signup/pricing, POST /signup/quote (design doc 3.4 step 3, W10)",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "build": "rm -rf dist && esbuild ./index.mjs --entry-names=./[name] --bundle --minify --sourcemap --platform=node --target=node20.16 --outdir=dist --metafile=dist/meta.json",
+    "test": "node --test test/*.test.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.0"
+  }
+}
