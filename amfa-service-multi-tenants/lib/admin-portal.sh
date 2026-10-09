@@ -251,7 +251,8 @@ EOF
     # Clear cached CDK assets to ensure fresh Lambda bundles are deployed
     rm -rf cdk.out 2>/dev/null
 
-    local cdk_log_file="/tmp/admin-portal-cdk-deploy.log"
+    local cdk_log_file
+    cdk_log_file=$(mktemp /tmp/admin-portal-cdk-deploy.XXXXXX.log)  # per-run; see cdk-bootstrap log note
     
     if [[ "$DEBUG_MODE" == "1" ]]; then
         # Show full output in debug mode
@@ -319,7 +320,8 @@ EOF
         local s3_bucket="${CDK_DEPLOY_ACCOUNT}-${CDK_DEPLOY_REGION}-ad-sync-state"
         local worker_version
         worker_version=$(resolve_worker_version "$REPO_ROOT")
-        local zip_file="/tmp/ad-sync-worker-code.zip"
+        local zip_file
+        zip_file="$(mktemp -d /tmp/ad-sync-worker-code.XXXXXX)/worker.zip"  # zip refuses an existing (empty) file
 
         log_info "Uploading AD sync worker code to S3 (v${worker_version})..."
         (cd "$worker_dist" && zip -qr "$zip_file" .)
@@ -331,7 +333,7 @@ EOF
             log_warning "⚠ Failed to upload worker code to S3 (bucket may not exist yet on first deploy)"
         fi
 
-        rm -f "$zip_file"
+        rm -rf "$(dirname "$zip_file")"
     fi
 
     log_success "Admin portal deployed successfully"

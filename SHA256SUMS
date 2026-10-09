@@ -15,7 +15,7 @@ b8e6cb065e8fd8b9f477bd2703e4f4af0f7d55d7cc64ecfa37321ecf30c20ee6  ./amfa-admin-p
 5bd742ddda03f1226a27ed61492ff2c408b2b29f4ab7a967b69dadb5c8201329  ./amfa-admin-portal-multi-tenants/cdk/lib/lambda-integration.js
 07395c226ff295740e32804c1a476b4de6f161ee4b74eabe9baf65405dae3f1f  ./amfa-admin-portal-multi-tenants/cdk/lib/ad-sync-infrastructure.js
 e784da60c7183d26617d7a1fadbb2fe7a1eea6256872e7772d68b501fb37daef  ./amfa-admin-portal-multi-tenants/cdk/lib/source-maps-aspect.js
-1aa26be54b3e87fc5e6e612d34751333980e4717b01a2ebcd2bd6775ed95f649  ./amfa-admin-portal-multi-tenants/cdk/lib/httpapi.js
+5713db9395d38035d411957fe55077d88345f6ba91ecc19f270e4e9ee054d237  ./amfa-admin-portal-multi-tenants/cdk/lib/httpapi.js
 0d1a9556ec92fbed5141baf147b2959ba839c565bd046a165c3a0bde515a295c  ./amfa-admin-portal-multi-tenants/cdk/lib/userpool.js
 31f5dec13baa514f90869a11cc1db588da5821c4c6cf719bd3ac0b8a625f3c59  ./amfa-admin-portal-multi-tenants/cdk/lib/application.js
 8fdb49f5439a493153cd819c2f82a0c9a75e9b0010339a3500c2c4a9f16d09c3  ./amfa-admin-portal-multi-tenants/cdk/lib/monitoring.js
@@ -1014,8 +1014,8 @@ eab5d90a71736f267af39fdf32caa8c71673fd06703279b01e0f92b0d7be0bfc  ./amfa-service
 8dc7ebd24cac6193ddd0244e8400fff02cb5e4412b4ff8bb55475e98945f8db0  ./amfa-service-multi-tenants/lib/build-utils.sh
 6b397dfcc16322e898fb6ea8b0f3163be272f99b0e3e1e879b4afd956de82313  ./amfa-service-multi-tenants/lib/validation.sh
 a0d954c3cf25ce8532a2b583ea3088df726724ecdf7205af704f13b4c58a2d26  ./amfa-service-multi-tenants/lib/ssm-tenant-manager.sh
-7bff39a349b7bc52f3fcf79237a7acb761f29883852c447dd2013a687d3ea5e7  ./amfa-service-multi-tenants/lib/admin-portal.sh
-29d952671f453ac8388b64304c25d904f605c908b7ed133df9aebb27fd3be8a3  ./amfa-service-multi-tenants/lib/aws-utils.sh
+5a3ab11bf0a68a766cf6c6d9eb35c4fe9802b736c67addfb8fdf79cee5e963d7  ./amfa-service-multi-tenants/lib/admin-portal.sh
+5d8cb6bdd473c6ba79cd374e657c3af91a3ef325ba33d23db199f8b15bf29917  ./amfa-service-multi-tenants/lib/aws-utils.sh
 865ea015fd01c1391ef2c9d33c21283c557ea64a220064502f579deeb5097ea4  ./amfa-service-multi-tenants/vite.config.js
 16968cfde43838ab1ccada0c3ed45d677e191f6dbebee5df39368b9bfad88f8c  ./amfa-service-multi-tenants/index.html
 e15553d8c3ac5c8f7a9b47b25313faf1daa52f916ef011f478ab49b65ca3a00f  ./amfa-service-multi-tenants/cdk.json

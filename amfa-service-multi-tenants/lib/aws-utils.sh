@@ -257,7 +257,11 @@ bootstrap_cdk() {
         debug_log "Running in VERBOSE mode"
     fi
 
-    local bootstrap_log="/tmp/cdk-bootstrap.log"
+    # Per-run file: a fixed /tmp name owned by a previous (different) user is
+    # unwritable to this run under fs.protected_regular=1 and failed a sudo
+    # update on 2026-10-09 before any deploy happened.
+    local bootstrap_log
+    bootstrap_log=$(mktemp /tmp/cdk-bootstrap.XXXXXX.log)
 
     # Bootstrap us-east-1 (required for CloudFront)
     log_info "Bootstrapping CDK in us-east-1..."
