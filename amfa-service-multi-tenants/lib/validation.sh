@@ -87,7 +87,7 @@ load_config_from_json() {
     export INSTALLER_EMAIL="${installer_email:-$ADMIN_EMAIL}"
     export ASM_SALT=$(jq -r '.asm.salt' "$config_file")
     # W13: callback URL(s) of the ASM portal's OIDC login. Optional; when set,
-    # CDK creates the AsmPortalSsoClient app client on the admin user pool.
+    # CDK adds them to AdminPortalClient's callback and logout URL lists.
     export ASM_PORTAL_SSO_CALLBACK_URLS=$(jq -r '(.asm.ssoCallbackUrls // []) | if type == "array" then join(",") else . end' "$config_file")
     
     # SMTP Configuration

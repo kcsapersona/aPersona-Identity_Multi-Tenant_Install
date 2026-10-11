@@ -15,7 +15,7 @@
     "adminEmail": "admin@example.com",
     "installerEmail": "",
     "salt": "",
-    "_ssoCallbackUrls_comment": "Optional. Redirect URI(s) of the ASM portal OIDC login; when set, an AsmPortalSsoClient is created on the admin user pool and scripts/asm-sso-params.sh prints the OIDC parameters to hand to the ASM operator.",
+    "_ssoCallbackUrls_comment": "Optional. Redirect URI(s) of the ASM portal OIDC login (https://<asm-host>/asm_portal/oidcCallback.ap). Added to the AdminPortalClient callback and logout URL lists; ASM is configured with this client id, no secret.",
     "ssoCallbackUrls": []
   },
   "smtp": {
