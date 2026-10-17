@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Sign-in interrupted</title>
+  <!--
+    amfa-458: landing page for the WAF redirect of the Cognito hosted UI
+    /login fallback page. Served for every *.login.<root> host from the shared
+    SP portal bucket.
+
+    Hop 1: the WAF Location is tenant-neutral (signin-retry.login.<root>), so
+    the tenant comes from document.referrer. A 302 chain keeps the ORIGINAL
+    request's referrer, and in the amfa-458 path that request is the browser
+    leaving the aPersona IdP page for /oauth2/idpresponse, so the referrer is
+    https://<tenantId>.idapersona.<root>/ (seen on the /login request in the
+    ticket's HARs). A direct hit on the Cognito page gives the Cognito origin
+    <tenantId>-<hash>.auth.<region>.amazoncognito.com instead; both are
+    accepted, anything else leaves the generic message. We then move to the
+    tenant's own host so the branding fetch is same-origin.
+    Hop 2: on <tenantId>.login.<root>, read ?tenant=, load branding, and offer
+    one button back to the portal. The click is deliberate: it breaks the loop
+    a persistent Cognito error would otherwise produce.
+  -->
+  <style>
+    :root { color-scheme: light dark; --accent: #083173; }
+    body {
+      margin: 0; min-height: 100vh; display: grid; place-items: center;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: Canvas; color: CanvasText;
+    }
+    main {
+      max-width: 28rem; padding: 2rem; text-align: center;
+      border: 1px solid color-mix(in srgb, CanvasText 15%, transparent); border-radius: 12px;
+    }
+    img { max-width: 250px; max-height: 60px; margin-bottom: 1rem; }
+    h1 { font-size: 1.25rem; margin: 0 0 .75rem; }
+    p { line-height: 1.5; margin: 0 0 1.25rem; }
+    a.button {
+      display: inline-block; padding: .75rem 1.5rem; border-radius: 8px;
+      background: var(--accent); color: #fff; text-decoration: none; font-weight: 600;
+    }
+    a.button:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 50%, transparent); outline-offset: 2px; }
+  </style>
+</head>
+<body>
+  <main>
+    <img id="logo" alt="" hidden>
+    <h1>Sign-in was interrupted</h1>
+    <p id="message" aria-live="polite">Your sign-in did not complete. Please return to your application and sign in again.</p>
+    <a id="portal" class="button" href="#" hidden>Return to sign-in portal</a>
+  </main>
+  <script>
+    (function () {
+      var TENANT = /^[a-z0-9]{1,36}$/;
+      var host = location.hostname.split(".");
+      var label = host[0];
+      var base = host.slice(1).join(".");            // login.<root>
+      var root = host.slice(2).join(".");            // <root>
+      var tenant = new URLSearchParams(location.search).get("tenant");
+
+      if (!tenant) {
+        // Hop 1: see the comment in <head> for where each referrer comes from.
+        try {
+          var ref = new URL(document.referrer).hostname;
+          var idp = new RegExp("^([a-z0-9]+)\\.idapersona\\." + root.replace(/\./g, "\\.") + "$").exec(ref);
+          var cognito = /^([a-z0-9]+)-[a-z0-9]+\.auth\.[a-z0-9-]+\.amazoncognito\.com$/.exec(ref);
+          tenant = (idp || cognito || [])[1];
+        } catch (e) { /* no or unusable referrer: stay generic */ }
+      }
+      if (!TENANT.test(tenant || "")) return;        // generic message stays
+
+      if (label !== tenant) {
+        // Same base domain, validated label: cannot leave *.login.<root>.
+        location.replace("https://" + tenant + "." + base + location.pathname + "?tenant=" + tenant);
+        return;
+      }
+
+      var portal = document.getElementById("portal");
+      portal.href = "/";
+      portal.hidden = false;
+      document.getElementById("message").textContent =
+        "Your sign-in did not complete. Return to the portal and sign in again.";
+
+      fetch("/branding_" + tenant + ".json").then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (b) {
+          if (!b) return;
+          if (b.app_title_msg) {
+            document.title = b.app_title_msg + " - sign-in interrupted";
+            portal.textContent = "Return to " + b.app_title_msg;
+          }
+          if (b.app_bar_start_color) document.documentElement.style.setProperty("--accent", b.app_bar_start_color);
+          if (b.app_login_logo_url) {
+            var logo = document.getElementById("logo");
+            logo.src = b.app_login_logo_url;
+            logo.alt = b.app_title_msg || "";
+            logo.hidden = false;
+          }
+        })
+        .catch(function () { /* branding is optional */ });
+    })();
+  </script>
+</body>
+</html>
