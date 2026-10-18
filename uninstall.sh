@@ -360,18 +360,14 @@ empty_s3_bucket() {
         return 0
     fi
     
-    # Delete all object versions (for versioned buckets)
+    # Delete all object versions and delete markers (for versioned buckets).
+    # Keys are passed as arguments, never through eval: an object key is
+    # attacker-controlled data, not a shell command (amfa-442 #4). NUL
+    # separators keep keys with tabs, backslashes or newlines verbatim.
     aws s3api list-object-versions --bucket "$bucket_name" --output json 2>/dev/null | \
-    jq -r '.Versions[]? | "aws s3api delete-object --bucket '"$bucket_name"' --key \"\(.Key)\" --version-id \(.VersionId)"' | \
-    while IFS= read -r cmd; do
-        eval "$cmd" >/dev/null 2>&1 || true
-    done
-    
-    # Delete all delete markers
-    aws s3api list-object-versions --bucket "$bucket_name" --output json 2>/dev/null | \
-    jq -r '.DeleteMarkers[]? | "aws s3api delete-object --bucket '"$bucket_name"' --key \"\(.Key)\" --version-id \(.VersionId)"' | \
-    while IFS= read -r cmd; do
-        eval "$cmd" >/dev/null 2>&1 || true
+    jq -j '(.Versions[]?, .DeleteMarkers[]?) | .Key, "\u0000", .VersionId, "\u0000"' | \
+    while IFS= read -r -d '' key && IFS= read -r -d '' version_id; do
+        aws s3api delete-object --bucket "$bucket_name" --key "$key" --version-id "$version_id" >/dev/null 2>&1 || true
     done
     
     # Fallback: use s3 rm for non-versioned objects

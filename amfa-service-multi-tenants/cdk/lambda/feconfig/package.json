@@ -4,7 +4,7 @@
   "main": "index.mjs",
   "scripts": {
     "build": "rm -rf dist && esbuild ./*.mjs --entry-names=./[name] --bundle --minify --sourcemap --platform=node --target=node22 --outdir=dist --external:@aws-sdk/* --external:tenant-utils",
-    "test": "echo \"no test\" && exit 1"
+    "test": "node --test test/*.test.mjs"
   },
   "license": "ISC",
   "devDependencies": {

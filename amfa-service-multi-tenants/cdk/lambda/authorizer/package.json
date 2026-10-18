@@ -12,9 +12,11 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "build": "rm -rf dist && esbuild ./*.mjs --entry-names=./[name] --bundle --minify --sourcemap --platform=node --target=node20.16 --outdir=dist --external:@aws-sdk/*"
+    "build": "rm -rf dist && esbuild ./*.mjs --entry-names=./[name] --bundle --minify --sourcemap --platform=node --target=node20.16 --outdir=dist --external:@aws-sdk/*",
+    "test": "node --test test/*.test.mjs"
   },
   "devDependencies": {
+    "@aws-sdk/client-dynamodb": "^3.1152.0",
     "esbuild": "^0.25.0"
   }
 }
