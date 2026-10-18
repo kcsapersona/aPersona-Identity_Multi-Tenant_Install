@@ -9,6 +9,12 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.0.0",
+    "@aws-sdk/client-dynamodb": "^3.0.0",
+    "@aws-sdk/client-secrets-manager": "^3.0.0",
     "esbuild": "^0.25.0"
+  },
+  "dependencies": {
+    "admin-auth": "file:../../lambda-layers/auth-layer/nodejs/node_modules/admin-auth"
   }
 }
