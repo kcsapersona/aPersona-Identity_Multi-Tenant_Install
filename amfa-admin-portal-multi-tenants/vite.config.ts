@@ -30,5 +30,8 @@ export default defineConfig(({ mode }) => ({
         setupFiles: './src/test/setup.js',
         include: ['src/**/*.test.{js,jsx}'],
     },
-    base: './',
+    // Absolute base: with './' a deep link such as /tenants/{id}/show resolves
+    // ./assets/*.js against /tenants/{id}/, CloudFront's SPA fallback answers
+    // with index.html (text/html) and the module script never runs.
+    base: '/',
 }));
