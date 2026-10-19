@@ -102,12 +102,12 @@ Invalid`},Source:"invalid@invalid",Destinations:["invalid@invalid"]};e||(t=new P
 					</div>
 				</body>
 			</html>
-	`},ki=Va;var F=require("@aws-sdk/client-secrets-manager");var Ti=o=>`apersona/${o}/smtp`;var Xa=new F.SecretsManagerClient({region:process.env.AWS_REGION});var Si=async o=>{let e=await Xa.send(new F.GetSecretValueCommand({SecretId:Ti(o),VersionStage:"AWSCURRENT"})),t=JSON.parse(e.SecretString);return t.secure=t.secure==="true"||t.secure===!0,t};var Ja=async(o,e,t)=>{try{let s=await o.sendMail(e);t(s)}catch(s){console.log(s)}},Wa=async(o,e)=>{let t=Ai.default.createTransport(e);await Ja(t,o,s=>console.log("email send:",s))},Ya=async(o,e,t,s,i,a=!1)=>{if(e.length===0){console.log("error, mailer, No changed OTP type found, input type:",e);return}let n=`Hi ${o},
+	`},ki=Va;var F=require("@aws-sdk/client-secrets-manager");var Ti=o=>`apersona/${o}/smtp`;var Xa=new F.SecretsManagerClient({region:process.env.AWS_REGION});var Si=async o=>{let e=await Xa.send(new F.GetSecretValueCommand({SecretId:Ti(o),VersionStage:"AWSCURRENT"})),t=JSON.parse(e.SecretString);return t.secure=t.secure==="true"||t.secure===!0,t};var Ja=async(o,e,t)=>{try{let s=await o.sendMail(e);t(s)}catch(s){console.log(s)}},Wa=async(o,e)=>{let t=Ai.default.createTransport(e);await Ja(t,o,s=>console.log("email send:",{messageId:s?.messageId}))},Ya=async(o,e,t,s,i,a=!1)=>{if(e.length===0){console.log("error, mailer, No changed OTP type found, input type:",e);return}let n=`Hi ${o},
 
  Your following MFA has been changed${a?" by Admin":""}.
 If this is not your desired change, please login check or contact help desk.
 `,r="";for(let m=0;m<e.length;m++)r+=`    ${e[m]} has been `,r+=t[m]&&t!==""?`changed to 
 ${t[m]}
 `:`removed
-`;let p=await Si(),l={from:`Admin <${p.user}>`,to:o,subject:"Your profile has been updated",text:n+r,html:ki(o,e,t,s,i,a)},c={service:p.service,host:p.host,port:p.port,secure:p.secure,auth:{user:p.user,pass:p.pass}};console.log("mailer options",l," smtp config:",c);try{return await Wa(l,c)}catch(m){console.error("send email for token change error",m)}};0&&(module.exports={notifyProfileChange});
+`;let p=await Si(),l={from:`Admin <${p.user}>`,to:o,subject:"Your profile has been updated",text:n+r,html:ki(o,e,t,s,i,a)},c={service:p.service,host:p.host,port:p.port,secure:p.secure,auth:{user:p.user,pass:p.pass}};try{return await Wa(l,c)}catch(m){console.error("send email for token change error",m)}};0&&(module.exports={notifyProfileChange});
 //# sourceMappingURL=mailer.js.map

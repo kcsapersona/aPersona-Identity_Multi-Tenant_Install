@@ -678,7 +678,8 @@ cleanup_asm_tenants() {
         if [[ -n "$admin_email" && -n "$asm_client_id" ]]; then
             log_info "  Removing tenant admin '$admin_email' from ASM..."
             local decoded_tenant_name
-            decoded_tenant_name=$(python3 -c "import urllib.parse; print(urllib.parse.unquote('$tenant_name'))" 2>/dev/null || echo "$tenant_name")
+            # The name is tenant-controlled: pass it as argv, never inside the code string.
+            decoded_tenant_name=$(python3 -c 'import sys, urllib.parse; print(urllib.parse.unquote(sys.argv[1]))' "$tenant_name" 2>/dev/null || echo "$tenant_name")
             
             local ta_response
             ta_response=$(curl -s -X POST "$ASM_PORTAL_URL/tenantAdmin.ap" \

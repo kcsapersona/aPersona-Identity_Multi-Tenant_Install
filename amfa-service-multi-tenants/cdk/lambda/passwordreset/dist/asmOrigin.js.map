@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../asmOrigin.mjs"],
+  "sourcesContent": ["// A tenant admin can edit amfaConfigs.asmurl / asm_portal_url, so a stored\n// ASM URL is fetched only when its origin is one of the platform's ASM\n// origins. ASM_SERVICE_URL and ASM_PORTAL_URL are set on every service Lambda\n// by createSharedLambda (packages/service/cdk/lib/shared-api-gateway.ts).\n// Same file in every service Lambda dir that fetches a stored ASM URL.\nexport const platformAsmOrigins = () =>\n  [process.env.ASM_SERVICE_URL, process.env.ASM_PORTAL_URL]\n    .filter(Boolean)\n    .map((u) => new URL(u).origin);\n\nexport const isPlatformAsmUrl = (url) => {\n  try {\n    return platformAsmOrigins().includes(new URL(url).origin);\n  } catch {\n    return false;\n  }\n};\n"],
+  "mappings": "yaAAA,IAAAA,EAAA,GAAAC,EAAAD,EAAA,sBAAAE,EAAA,uBAAAC,IAAA,eAAAC,EAAAJ,GAKO,IAAMG,EAAqB,IAChC,CAAC,QAAQ,IAAI,gBAAiB,QAAQ,IAAI,cAAc,EACrD,OAAO,OAAO,EACd,IAAKE,GAAM,IAAI,IAAIA,CAAC,EAAE,MAAM,EAEpBH,EAAoBI,GAAQ,CACvC,GAAI,CACF,OAAOH,EAAmB,EAAE,SAAS,IAAI,IAAIG,CAAG,EAAE,MAAM,CAC1D,MAAQ,CACN,MAAO,EACT,CACF",
+  "names": ["asmOrigin_exports", "__export", "isPlatformAsmUrl", "platformAsmOrigins", "__toCommonJS", "u", "url"]
+}

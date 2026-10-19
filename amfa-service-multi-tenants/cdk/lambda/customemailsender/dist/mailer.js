@@ -102,15 +102,15 @@ Invalid`)}},FromEmailAddress:"invalid@invalid",Destination:{ToAddresses:["invali
     <br/>
     <p>Please be advised that your account password has been reset for security reasons.</p>
     <p>The next time you login, you will be required to update your password.</p>
-`,Ai=(o,e,t,s)=>ki(t.email_logo_url)+an(o,e)+sn(s);var nn=async(o,e,t)=>{try{let s=await o.sendMail(e);t(s)}catch(s){console.log(s)}},ji=async(o,e)=>{e.secure=!(e.secure==="false"||e.secure===!1),console.log("mailer options",o," smtp config:",e);let t=Ci.default.createTransport(e);await nn(t,o,s=>console.log("email send:",s))},on=async(o,e,t,s,i)=>{let a=`Hi ${t},
+`,Ai=(o,e,t,s)=>ki(t.email_logo_url)+an(o,e)+sn(s);var nn=async(o,e,t)=>{try{let s=await o.sendMail(e);t(s)}catch(s){console.log(s)}},ji=async(o,e)=>{e.secure=!(e.secure==="false"||e.secure===!1),console.log("mailer to",o.to," smtp host:",e.host);let t=Ci.default.createTransport(e);await nn(t,o,s=>console.log("email send:",s))},on=async(o,e,t,s,i)=>{let a=`Hi ${t},
 
  The password on your account has recently been reset.
 
  If you are not sure you or your administrator performed this password reset, then you should contact your administrator immediately or change your password yourself.
-`,n=await Pe(o),r={from:`Admin <${n.user}>`,to:t,subject:"Your password has been reset.",text:a,html:Ai(e,t,s,i)},p={service:n.service,host:n.host,port:n.port,secure:n.secure,auth:{user:n.user,pass:n.pass}};console.log("mailer options",r," smtp config:",p);try{return await ji(r,p)}catch(l){console.error("send email for password change error",l)}},rn=async(o,e,t,s,i)=>{let a=`Hi ${t},
+`,n=await Pe(o),r={from:`Admin <${n.user}>`,to:t,subject:"Your password has been reset.",text:a,html:Ai(e,t,s,i)},p={service:n.service,host:n.host,port:n.port,secure:n.secure,auth:{user:n.user,pass:n.pass}};try{return await ji(r,p)}catch(l){console.error("send email for password change error",l)}},rn=async(o,e,t,s,i)=>{let a=`Hi ${t},
 
  ${s.service_name} has created a new Account for you.
 
  Your login id is ${t}. Please use it to login and set up your new account.
- The login Url is ${i}`,n=await Pe(o),r={from:`Admin <${n.user}>`,to:t,subject:`${s.service_name}: New Account Invitation`,text:a,html:Ti(e,t,s,i)},p={service:n.service,host:n.host,port:n.port,secure:n.secure,auth:{user:n.user,pass:n.pass}};console.log("mailer options",r," smtp config:",p);try{return await ji(r,p)}catch(l){console.error("send email for password change error",l)}};0&&(module.exports={notifyPasswordChange,sendUserInvitation});
+ The login Url is ${i}`,n=await Pe(o),r={from:`Admin <${n.user}>`,to:t,subject:`${s.service_name}: New Account Invitation`,text:a,html:Ti(e,t,s,i)},p={service:n.service,host:n.host,port:n.port,secure:n.secure,auth:{user:n.user,pass:n.pass}};try{return await ji(r,p)}catch(l){console.error("send email for password change error",l)}};0&&(module.exports={notifyPasswordChange,sendUserInvitation});
 //# sourceMappingURL=mailer.js.map

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../logRequest.mjs"],
+  "sourcesContent": ["// Logs the request envelope only. Headers, body and authorizer context carry\n// bearer tokens, passwords, OTP codes and session UUIDs and are never logged.\n// Same file in every service Lambda dir that handles API Gateway events.\nexport const logRequest = (event, tenantId) => {\n  const rc = event?.requestContext || {};\n  console.log(JSON.stringify({\n    method: event?.httpMethod || rc.httpMethod,\n    path: event?.path || event?.rawPath || rc.resourcePath || event?.routeKey,\n    requestId: rc.requestId,\n    sourceIp: rc.identity?.sourceIp || rc.http?.sourceIp,\n    ...(tenantId ? { tenantId } : {}),\n  }));\n};\n"],
+  "mappings": "yaAAA,IAAAA,EAAA,GAAAC,EAAAD,EAAA,gBAAAE,IAAA,eAAAC,EAAAH,GAGO,IAAME,EAAa,CAACE,EAAOC,IAAa,CAC7C,IAAMC,EAAKF,GAAO,gBAAkB,CAAC,EACrC,QAAQ,IAAI,KAAK,UAAU,CACzB,OAAQA,GAAO,YAAcE,EAAG,WAChC,KAAMF,GAAO,MAAQA,GAAO,SAAWE,EAAG,cAAgBF,GAAO,SACjE,UAAWE,EAAG,UACd,SAAUA,EAAG,UAAU,UAAYA,EAAG,MAAM,SAC5C,GAAID,EAAW,CAAE,SAAAA,CAAS,EAAI,CAAC,CACjC,CAAC,CAAC,CACJ",
+  "names": ["logRequest_exports", "__export", "logRequest", "__toCommonJS", "event", "tenantId", "rc"]
+}

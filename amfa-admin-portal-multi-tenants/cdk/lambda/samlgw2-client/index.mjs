@@ -183,7 +183,6 @@ export class SamlGw2Client {
 
     if (body && (method === "POST" || method === "PUT")) {
       options.body = JSON.stringify(body);
-      logger.info(`[SamlGw2] Request Body:`, { body });
     }
 
     let response;
@@ -198,7 +197,6 @@ export class SamlGw2Client {
     }
 
     logger.info(`[SamlGw2] Response Status: ${response.status} ${response.statusText}`);
-    logger.info(`[SamlGw2] Response Headers:`, { headers: Object.fromEntries(response.headers.entries()) });
 
     // DELETE returns 204 No Content
     if (response.status === 204) {
@@ -207,12 +205,10 @@ export class SamlGw2Client {
     }
 
     const responseText = await response.text();
-    logger.info(`[SamlGw2] Response Body: ${responseText}`);
 
     if (!response.ok) {
       logger.error(`[SamlGw2] ====== API Error ======`);
       logger.error(`[SamlGw2] Status: ${response.status}`);
-      logger.error(`[SamlGw2] Body: ${responseText}`);
       const error = new Error(
         `SamlGw2 API error (${response.status}): ${responseText}`
       );

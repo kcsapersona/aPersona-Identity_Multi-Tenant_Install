@@ -161,12 +161,12 @@ Invalid`},Source:"invalid@invalid",Destinations:["invalid@invalid"]};e||(t=new P
  The password on your account has recently been reset${i?" by Admin":""}.
 
  If you are not sure you or your administrator performed this password reset, then you should contact your administrator immediately or change your password yourself.
-`,n=await Be(o),r={from:`Admin <${n.user}>`,to:e,subject:"Your password has been reset.",text:a,html:Si(e,t,s,i)},p={service:n.service,host:n.host,port:n.port,secure:n.secure,auth:{user:n.user,pass:n.pass}};console.log("mailer options",r," smtp config:",p);try{return await Ci(r,p)}catch(l){console.error("send email for password change error",l)}},en=async(o,e,t,s,i,a=!1)=>{if(e.length===0){console.log("error, mailer, No changed OTP type found, input type:",e);return}let n=`Hi ${o},
+`,n=await Be(o),r={from:`Admin <${n.user}>`,to:e,subject:"Your password has been reset.",text:a,html:Si(e,t,s,i)},p={service:n.service,host:n.host,port:n.port,secure:n.secure,auth:{user:n.user,pass:n.pass}};try{return await Ci(r,p)}catch(l){console.error("send email for password change error",l)}},en=async(o,e,t,s,i,a=!1)=>{if(e.length===0){console.log("error, mailer, No changed OTP type found, input type:",e);return}let n=`Hi ${o},
 
  Your following MFA has been changed${a?" by Admin":""}.
 If this is not your desired change, please login check or contact help desk.
 `,r="";for(let m=0;m<e.length;m++)r+=`    ${e[m]} has been `,r+=t[m]&&t!==""?`changed to 
 ${t[m]}
 `:`removed
-`;let p=await Be(tenantId),l={from:`Admin <${p.user}>`,to:o,subject:"Your profile has been updated",text:n+r,html:Ti(o,e,t,s,i,a)},c={service:p.service,host:p.host,port:p.port,secure:p.secure,auth:{user:p.user,pass:p.pass}};console.log("mailer options",l," smtp config:",c);try{return await Ci(l,c)}catch(m){console.error("send email for token change error",m)}};0&&(module.exports={notifyPasswordChange,notifyProfileChange});
+`;let p=await Be(tenantId),l={from:`Admin <${p.user}>`,to:o,subject:"Your profile has been updated",text:n+r,html:Ti(o,e,t,s,i,a)},c={service:p.service,host:p.host,port:p.port,secure:p.secure,auth:{user:p.user,pass:p.pass}};try{return await Ci(l,c)}catch(m){console.error("send email for token change error",m)}};0&&(module.exports={notifyPasswordChange,notifyProfileChange});
 //# sourceMappingURL=mailer.js.map

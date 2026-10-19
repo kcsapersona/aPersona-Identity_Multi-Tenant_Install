@@ -1,7 +1,6 @@
 exports.handler = function (event, context) {
   console.log('entering defineAuthChallenge');
-  console.log('Received event:', JSON.stringify(event, null, 2));
-  console.log('Received context:', JSON.stringify(context, null, 2));
+  console.log('Received trigger:', event.triggerSource, 'pool:', event.userPoolId);
 
   console.log('event.request.session.length:', event.request.session.length);
 

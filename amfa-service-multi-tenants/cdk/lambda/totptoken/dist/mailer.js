@@ -110,5 +110,5 @@ If this is not your desired change, please login check or contact help desk.
 `,r="";for(let m=0;m<e.length;m++)r+=`    ${e[m]} has been `,r+=t[m]&&t!==""?`changed to 
 ${t[m]}
 `:`removed
-`;let p=await Ti(),l={from:`Admin <${p.user}>`,to:o,subject:"Your profile has been updated",text:n+r,html:Si(o,e,t,s,i,a)},c={service:p.service,host:p.host,port:p.port,secure:p.secure,auth:{user:p.user,pass:p.pass}};console.log("mailer options",l," smtp config:",c);try{return await Za(l,c)}catch(m){console.error("send email for token change error",m)}};0&&(module.exports={notifyProfileChange});
+`;let p=await Ti(),l={from:`Admin <${p.user}>`,to:o,subject:"Your profile has been updated",text:n+r,html:Si(o,e,t,s,i,a)},c={service:p.service,host:p.host,port:p.port,secure:p.secure,auth:{user:p.user,pass:p.pass}};try{return await Za(l,c)}catch(m){console.error("send email for token change error",m)}};0&&(module.exports={notifyProfileChange});
 //# sourceMappingURL=mailer.js.map

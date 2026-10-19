@@ -32,6 +32,7 @@
     "start": "vite",
     "build": "vite build",
     "serve": "vite preview",
+    "test": "node --test test/*.test.mjs",
     "lambda-build": "cd cdk/lambda/amfa && npm install && npm run build && cd ../../.. && cd cdk/lambda/customemailsender && npm install && npm run build && cd ../../.. && cd cdk/lambda/totptoken && npm install && npm run build && cd ../../.. && cd cdk/lambda/passwordreset && npm install && npm run build && cd ../../.. && cd cdk/lambda/authorizer && npm install && npm run build && cd ../../.. && cd cdk/lambda/admininitauth && npm install && npm run build && cd ../../.. && cd cdk/lambda/checkuser && npm install && npm run build && cd ../../.. && cd cdk/lambda/feconfig && npm install && npm run build && cd ../../.. && cd cdk/lambda/postdeployment && npm install && npm run build && cd ../../.. && cd cdk/lambda/signout && npm install && npm run build && cd ../../.. && cd cdk/lambda/verifyrecaptcha && npm install && npm run build && cd ../../..",
     "cdk-build": "node node_modules/typescript/lib/tsc.js --project cdk/tsconfig.json",
     "deploy": "npm run lambda-build && npm run cdk-build && cdk deploy --all --profile $npm_config_profile"

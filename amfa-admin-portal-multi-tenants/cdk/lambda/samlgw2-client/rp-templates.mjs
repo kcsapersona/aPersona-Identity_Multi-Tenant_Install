@@ -229,6 +229,54 @@ export function listTemplates() {
   }));
 }
 
+/** Request body aliases that end up as the gateway's sp.metadata_url. */
+export const SP_METADATA_URL_FIELDS = ["sp_metadata_url", "metadataUrl"];
+
+/**
+ * The shared SAML gateway fetches SP metadata from this URL (amfa-442 A3):
+ * https only, no literal IP, no localhost. Empty values are not checked here
+ * (presence is decided by the handler).
+ *
+ * @param {unknown} value
+ * @returns {boolean}
+ */
+export function isPublicHttpsUrl(value) {
+  let url;
+  try {
+    url = new URL(value);
+  } catch {
+    return false;
+  }
+  if (url.protocol !== "https:") return false;
+  const host = url.hostname.toLowerCase();
+  // A terminal dot is the DNS root and resolves identically (localhost. == localhost).
+  const name = host.endsWith(".") ? host.slice(0, -1) : host;
+  if (name === "localhost" || name.endsWith(".localhost")) return false;
+  // IPv6 literals keep their brackets in URL.hostname; IPv4 literals are digits and dots.
+  if (host.startsWith("[") || /^\d+(\.\d+){3}$/.test(host)) return false;
+  return true;
+}
+
+/**
+ * Templates that lock sp.metadata_url must keep their own value: a payload
+ * may echo the template's URL back but may not replace it (amfa-442 A3).
+ *
+ * @param {string|undefined} templateId
+ * @param {Object} payload request body
+ * @returns {string|null} message naming the field, or null when allowed
+ */
+export function lockedMetadataUrlViolation(templateId, payload) {
+  const tmpl = templateId && templateId !== "custom" ? getTemplate(templateId) : null;
+  if (!tmpl?.locked_fields?.includes("sp.metadata_url")) return null;
+  for (const field of SP_METADATA_URL_FIELDS) {
+    const value = payload?.[field];
+    if (value && value !== tmpl.sp.metadata_url) {
+      return `${field}: locked by the ${templateId} template`;
+    }
+  }
+  return null;
+}
+
 /**
  * NameID format options for the UI dropdown.
  */
