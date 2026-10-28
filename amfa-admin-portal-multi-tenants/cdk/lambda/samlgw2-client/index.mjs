@@ -249,6 +249,15 @@ export class SamlGw2Client {
     return this.request("POST", "/itorgs", { itorg: itorgId.toLowerCase() });
   }
 
+  /**
+   * Delete an IT Organization. The gateway answers 409 while customers remain.
+   * @param {string} itorgId - IT Org ID
+   * @returns {Promise<Object>} { success: true } on 204
+   */
+  async deleteItOrg(itorgId) {
+    return this.request("DELETE", `/itorgs/${itorgId.toLowerCase()}`);
+  }
+
   // ==================== Customer Operations ====================
 
   /**
