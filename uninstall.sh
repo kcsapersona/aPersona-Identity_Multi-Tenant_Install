@@ -936,6 +936,7 @@ cleanup_secrets() {
     log_info "Deleting global secrets..."
     delete_secret "apersona/asm/installkey"
     delete_secret "apersona/asm/credentials"
+    delete_secret "apersona/licensing/productline-key"
 }
 
 # ============================================================================
@@ -998,6 +999,7 @@ cleanup_cloudformation_stacks() {
     
     # Admin portal stacks first (depend on AMFA stack SSM params)
     log_info "--- Admin Portal Stacks ---"
+    delete_stack "SignupPageStack" "$CDK_DEPLOY_REGION"   # optional public signup page; absent when never configured
     delete_stack "SSO-CUPStack" "$CDK_DEPLOY_REGION"
     delete_stack "APICertificateStack" "$CDK_DEPLOY_REGION"
     delete_stack "CertStack222" "us-east-1"

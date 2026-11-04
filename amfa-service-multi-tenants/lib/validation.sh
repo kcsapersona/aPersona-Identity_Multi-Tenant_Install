@@ -102,6 +102,16 @@ load_config_from_json() {
     # installUrl: the Installation URL sent as `url` on /v1 writes and quotes
     export BILLING_BASE_URL=$(jq -r '.billing.baseUrl // empty' "$config_file")
     export BILLING_INSTALL_URL=$(jq -r '.billing.installUrl // empty' "$config_file")
+
+    # Public customer signup page (amfa-482) — optional. The stack is created
+    # only when signupPage.domain is set; the zone must be delegated to this
+    # account (SES DKIM, the certificate and the alias record live in it).
+    export SIGNUP_PAGE_DOMAIN=$(jq -r '.signupPage.domain // empty' "$config_file")
+    export SIGNUP_PAGE_HOSTED_ZONE_ID=$(jq -r '.signupPage.hostedZoneId // empty' "$config_file")
+    export SIGNUP_PAGE_FROM_EMAIL=$(jq -r '.signupPage.fromEmail // empty' "$config_file")
+    export SIGNUP_PAGE_KEY_ID=$(jq -r '.signupPage.signupKeyId // empty' "$config_file")
+    export SIGNUP_PAGE_TURNSTILE_SITE_KEY=$(jq -r '.signupPage.turnstileSiteKey // empty' "$config_file")
+    export SIGNUP_PAGE_TURNSTILE_SECRET_NAME=$(jq -r '.signupPage.turnstileSecretName // empty' "$config_file")
     
     log_success "Configuration loaded successfully from tenants-config.json"
 
@@ -112,6 +122,15 @@ load_config_from_json() {
     if [[ -n "$billing_api_key" && "$billing_api_key" != "null" ]]; then
         store_secret_or_die "apersona/billing/apikey" "$billing_api_key" \
             "722lic.works Product Line-scoped API key for tenant self-signup billing"
+    fi
+
+    # Store the licensing Product Line key used by the public signup page to
+    # create customers. Plain string, read by lambda/signup-page.
+    local signup_page_licensing_key
+    signup_page_licensing_key=$(jq -r '.signupPage.licensingKey // empty' "$config_file")
+    if [[ -n "$signup_page_licensing_key" && "$signup_page_licensing_key" != "null" ]]; then
+        store_secret_or_die "apersona/licensing/productline-key" "$signup_page_licensing_key" \
+            "Licensing org-level Product Line key (X-Aplicense-Admin-Key) for the public signup page"
     fi
 
     # Store the signup registration API keys (+ per-key IP allowlist and org)

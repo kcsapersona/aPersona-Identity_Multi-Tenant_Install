@@ -1,0 +1,21 @@
+{
+  "name": "signup-page",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Public customer signup page: email verification -> licensing customer -> POST /signup (amfa-482). Written by aPersona; served by SignupPageStack.",
+  "main": "src/index.mjs",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "rm -rf dist && esbuild ./src/index.mjs --bundle --minify --sourcemap --platform=node --target=node22 --format=esm --external:@aws-sdk/* --outdir=dist/app --out-extension:.js=.mjs && cp -R public dist/public",
+    "test": "node --test test/*.test.mjs",
+    "dev": "node local-server.mjs"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-dynamodb": "^3.600.0",
+    "@aws-sdk/client-secrets-manager": "^3.600.0",
+    "@aws-sdk/client-sesv2": "^3.600.0",
+    "@aws-sdk/lib-dynamodb": "^3.600.0",
+    "esbuild": "^0.23.0"
+  }
+}
