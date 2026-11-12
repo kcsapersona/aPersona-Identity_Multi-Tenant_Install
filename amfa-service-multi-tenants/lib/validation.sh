@@ -110,8 +110,10 @@ load_config_from_json() {
     export SIGNUP_PAGE_HOSTED_ZONE_ID=$(jq -r '.signupPage.hostedZoneId // empty' "$config_file")
     export SIGNUP_PAGE_FROM_EMAIL=$(jq -r '.signupPage.fromEmail // empty' "$config_file")
     export SIGNUP_PAGE_KEY_ID=$(jq -r '.signupPage.signupKeyId // empty' "$config_file")
+    export SIGNUP_PAGE_LICENSING_ORG_ID=$(jq -r '.signupPage.licensingOrgId // empty' "$config_file")
     export SIGNUP_PAGE_TURNSTILE_SITE_KEY=$(jq -r '.signupPage.turnstileSiteKey // empty' "$config_file")
     export SIGNUP_PAGE_TURNSTILE_SECRET_NAME=$(jq -r '.signupPage.turnstileSecretName // empty' "$config_file")
+    export SIGNUP_PAGE_RETURN_URL=$(jq -r '.signupPage.returnUrl // empty' "$config_file")
     
     log_success "Configuration loaded successfully from tenants-config.json"
 

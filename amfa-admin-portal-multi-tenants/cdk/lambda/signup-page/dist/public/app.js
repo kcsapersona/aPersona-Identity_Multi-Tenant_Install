@@ -3,8 +3,13 @@
   const $ = (sel) => document.querySelector(sel);
   const steps = ['step-email', 'step-code', 'step-profile', 'step-done'];
   const siteKey = document.body.dataset.turnstileSitekey;
+  // amfa-484: where "Use a different email" goes when the visitor arrived from the marketing
+  // site with ?email=. Empty (or not https) means the usual first screen.
+  const returnUrl = /^https:\/\//.test(document.body.dataset.returnUrl || '') ? document.body.dataset.returnUrl : '';
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/; // same as the server
   let email = '';
   let turnstileToken = '';
+  let arrivedWithEmail = false;
 
   function show(id) {
     steps.forEach((s) => { $('#' + s).hidden = s !== id; });
@@ -100,7 +105,10 @@
     setTimeout(() => { e.target.disabled = false; }, 30000);
   });
 
-  $('#change-email').addEventListener('click', () => show('step-email'));
+  $('#change-email').addEventListener('click', () => {
+    if (arrivedWithEmail && returnUrl) return location.assign(returnUrl);
+    show('step-email');
+  });
 
   // Step 3
   $('#step-profile').addEventListener('submit', (e) => {
@@ -150,4 +158,16 @@
     const r = await api('resend');
     msg(section, r.ok ? 'Invitation sent again. Check your inbox and spam folder.' : (r.data.message || 'Could not resend.'), r.ok ? 'ok' : 'err');
   });
+
+  // amfa-484: ?email=<encodeURIComponent(email)> from the marketing site. Prefill, send the code
+  // and land on "Check your email". With Turnstile on, the widget must be solved first, so only
+  // prefill. The parameter is dropped from the URL so a reload does not send a second code.
+  // Runs last: requestSubmit() needs the Step 1 handler above to be registered.
+  const linkedEmail = (new URLSearchParams(location.search).get('email') || '').trim();
+  if (location.search) history.replaceState(null, '', location.pathname);
+  if (EMAIL_RE.test(linkedEmail) && linkedEmail.length <= 254) {
+    arrivedWithEmail = true;
+    $('#email').value = linkedEmail.toLowerCase();
+    if (!siteKey) $('#step-email').requestSubmit();
+  }
 })();
