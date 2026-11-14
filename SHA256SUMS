@@ -1020,7 +1020,7 @@ fc36a5a88f2d640ef502c893fc49645015788290b4b465c1ecfdb945b419f1bb  ./NOTICE
 bc1eac1b62bfd521d82bbd816a5ae4845018baf09cb255ad135007ad72ad8baf  ./uninstall.sh
 a468bd30a6cba29e6a68aa05c6c57a7f602c6ad08a60ee2bd51ccd51cd63c8ff  ./README.md
 d5ab74cd2f10d786d1a9121efcf8cbce457d1c6167ffb6d1ebaaed0a2a6d3f73  ./aPersona_ASM-and-aPersona_Identity_Mgr_Ts_Cs.txt
-abbb24cc7cb7ff594b1e9dcd69b83f616e35a7914f9adb2fc95be230baab8df6  ./VERSION
+e274bc7e4764f42e10f73335da06ea888340dd9ac16a3da72707fbadc6f5a979  ./VERSION
 8cabc4b251eb82fa4120cb041ee7bf83262f16b4a1f6c5be9497bc1d58a13127  ./amfa-service-multi-tenants/lib/logging.sh
 5a3ab11bf0a68a766cf6c6d9eb35c4fe9802b736c67addfb8fdf79cee5e963d7  ./amfa-service-multi-tenants/lib/admin-portal.sh
 8dc7ebd24cac6193ddd0244e8400fff02cb5e4412b4ff8bb55475e98945f8db0  ./amfa-service-multi-tenants/lib/build-utils.sh
@@ -1112,9 +1112,9 @@ eab5d90a71736f267af39fdf32caa8c71673fd06703279b01e0f92b0d7be0bfc  ./amfa-service
 fb099fd6e38a925d46e200120f0600584526fc59cf1d0bd5ff8c6dced7cde976  ./amfa-service-multi-tenants/build/46gr72sv5mp94v3.4a.js
 740c8c4e4b13a7740f93fc246fc4159f83eac7771aa2aae30876bf27f454900f  ./amfa-service-multi-tenants/index.html
 cdc64177ef19bd07614a3dd9d61f5a6e78f064c0b8b10af50c0d0fba7c6cfb4a  ./amfa-service-multi-tenants/package.json
-a6c7cf2d2983dc597b4eaea0ed515f817432009cd46fe9d007d51b08ca58a151  ./amfa-service-multi-tenants/spportal/dist/index.html
+c151d18279de15dfa8c74ad62507c325166fba73ca9253e615d9f226f5daa221  ./amfa-service-multi-tenants/spportal/dist/index.html
 02029f28b71ff53a5395cfdf132edf844a27e3b7136258bb313ffb176b0a7879  ./amfa-service-multi-tenants/spportal/dist/favicon.ico
-899e01dc17e2665db81cf14fd343685903e238c5928145b00710e1a717a1bcf6  ./amfa-service-multi-tenants/spportal/dist/assets/index-DVZvny5V.js
+24d5b7826ede065aab3c97e0c11f2e8cc7d25c533692cf49786d4193a9b82240  ./amfa-service-multi-tenants/spportal/dist/assets/index-Duaf2jCy.js
 0c20d2981eb23c008992e698e196bb4ebc1bfc980ac8e4a65cc41e455a84627a  ./amfa-service-multi-tenants/spportal/dist/saml.png
 0292230d8155727ef603204b7008d54c50de8451f5e39b32b9b7bf95b1c04cf0  ./amfa-service-multi-tenants/spportal/dist/manifest.json
 99e4c4524f3afa94aacc28af3a1bc836f9c4d64e3399520d0e6d19bbc9af43d6  ./amfa-service-multi-tenants/spportal/dist/astro.png
